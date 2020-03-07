@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB7524138DC000C48032 /* AppDelegate.swift */; };
+		7992DB7824138DC000C48032 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB7724138DC000C48032 /* GameScene.sks */; };
+		7992DB7A24138DC100C48032 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB7924138DC100C48032 /* Actions.sks */; };
+		7992DB7C24138DC100C48032 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB7B24138DC100C48032 /* GameScene.swift */; };
+		7992DB7E24138DC100C48032 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB7D24138DC100C48032 /* GameViewController.swift */; };
+		7992DB8324138DC400C48032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB8224138DC400C48032 /* Assets.xcassets */; };
+		7992DB8624138DC400C48032 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB8424138DC400C48032 /* LaunchScreen.storyboard */; };
+		7992DB93241396F400C48032 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB92241396F400C48032 /* AppRouter.swift */; };
+		E0448890F0C8E0DDE8D0CC8D /* Pods_FindTheWayOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32036A27CD019AE98136E984 /* Pods_FindTheWayOut.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1B75BDBEE491F3EB850414CC /* Pods-FindTheWayOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindTheWayOut.release.xcconfig"; path = "Target Support Files/Pods-FindTheWayOut/Pods-FindTheWayOut.release.xcconfig"; sourceTree = "<group>"; };
+		32036A27CD019AE98136E984 /* Pods_FindTheWayOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindTheWayOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7992DB7224138DC000C48032 /* FindTheWayOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindTheWayOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7992DB7524138DC000C48032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7992DB7724138DC000C48032 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		7992DB7924138DC100C48032 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		7992DB7B24138DC100C48032 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		7992DB7D24138DC100C48032 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		7992DB8224138DC400C48032 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7992DB8524138DC400C48032 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7992DB8724138DC400C48032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7992DB92241396F400C48032 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		79E783BD8FA7BB6370B63199 /* Pods-FindTheWayOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindTheWayOut.debug.xcconfig"; path = "Target Support Files/Pods-FindTheWayOut/Pods-FindTheWayOut.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7992DB6F24138DC000C48032 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0448890F0C8E0DDE8D0CC8D /* Pods_FindTheWayOut.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C25135A1F8ED3B4D41A058E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32036A27CD019AE98136E984 /* Pods_FindTheWayOut.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7992DB6924138DC000C48032 = {
+			isa = PBXGroup;
+			children = (
+				7992DB7424138DC000C48032 /* FindTheWayOut */,
+				7992DB7324138DC000C48032 /* Products */,
+				AD2D435514D192C4587FD4EE /* Pods */,
+				0C25135A1F8ED3B4D41A058E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7992DB7324138DC000C48032 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7992DB7224138DC000C48032 /* FindTheWayOut.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7992DB7424138DC000C48032 /* FindTheWayOut */ = {
+			isa = PBXGroup;
+			children = (
+				7992DB90241391DA00C48032 /* Modules */,
+				7992DB8F241391CF00C48032 /* Application */,
+				7992DB8E2413919A00C48032 /* LaunchScreen */,
+				7992DB8D2413917400C48032 /* Resources */,
+			);
+			path = FindTheWayOut;
+			sourceTree = "<group>";
+		};
+		7992DB8D2413917400C48032 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7992DB8224138DC400C48032 /* Assets.xcassets */,
+				7992DB8724138DC400C48032 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7992DB8E2413919A00C48032 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7992DB8424138DC400C48032 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		7992DB8F241391CF00C48032 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7992DB7524138DC000C48032 /* AppDelegate.swift */,
+				7992DB92241396F400C48032 /* AppRouter.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		7992DB90241391DA00C48032 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				7992DB912413920900C48032 /* GameScene */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		7992DB912413920900C48032 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				7992DB7724138DC000C48032 /* GameScene.sks */,
+				7992DB7924138DC100C48032 /* Actions.sks */,
+				7992DB7B24138DC100C48032 /* GameScene.swift */,
+				7992DB7D24138DC100C48032 /* GameViewController.swift */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		AD2D435514D192C4587FD4EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79E783BD8FA7BB6370B63199 /* Pods-FindTheWayOut.debug.xcconfig */,
+				1B75BDBEE491F3EB850414CC /* Pods-FindTheWayOut.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7992DB7124138DC000C48032 /* FindTheWayOut */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7992DB8A24138DC400C48032 /* Build configuration list for PBXNativeTarget "FindTheWayOut" */;
+			buildPhases = (
+				DAE008DB713F47FF05E190F0 /* [CP] Check Pods Manifest.lock */,
+				7992DB6E24138DC000C48032 /* Sources */,
+				7992DB6F24138DC000C48032 /* Frameworks */,
+				7992DB7024138DC000C48032 /* Resources */,
+				92C00F010862F3DF680854EA /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FindTheWayOut;
+			productName = FindTheWayOut;
+			productReference = 7992DB7224138DC000C48032 /* FindTheWayOut.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7992DB6A24138DC000C48032 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Антон Швец";
+				TargetAttributes = {
+					7992DB7124138DC000C48032 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 7992DB6D24138DC000C48032 /* Build configuration list for PBXProject "FindTheWayOut" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7992DB6924138DC000C48032;
+			productRefGroup = 7992DB7324138DC000C48032 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7992DB7124138DC000C48032 /* FindTheWayOut */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7992DB7024138DC000C48032 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7992DB7824138DC000C48032 /* GameScene.sks in Resources */,
+				7992DB8324138DC400C48032 /* Assets.xcassets in Resources */,
+				7992DB8624138DC400C48032 /* LaunchScreen.storyboard in Resources */,
+				7992DB7A24138DC100C48032 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92C00F010862F3DF680854EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindTheWayOut/Pods-FindTheWayOut-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindTheWayOut/Pods-FindTheWayOut-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FindTheWayOut/Pods-FindTheWayOut-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAE008DB713F47FF05E190F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FindTheWayOut-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7992DB6E24138DC000C48032 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7992DB93241396F400C48032 /* AppRouter.swift in Sources */,
+				7992DB7C24138DC100C48032 /* GameScene.swift in Sources */,
+				7992DB7E24138DC100C48032 /* GameViewController.swift in Sources */,
+				7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7992DB8424138DC400C48032 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7992DB8524138DC400C48032 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7992DB8824138DC400C48032 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7992DB8924138DC400C48032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7992DB8B24138DC400C48032 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79E783BD8FA7BB6370B63199 /* Pods-FindTheWayOut.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TYBCNTUHJZ;
+				INFOPLIST_FILE = FindTheWayOut/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.FindTheWayOut";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7992DB8C24138DC400C48032 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B75BDBEE491F3EB850414CC /* Pods-FindTheWayOut.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TYBCNTUHJZ;
+				INFOPLIST_FILE = FindTheWayOut/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "-.FindTheWayOut";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7992DB6D24138DC000C48032 /* Build configuration list for PBXProject "FindTheWayOut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7992DB8824138DC400C48032 /* Debug */,
+				7992DB8924138DC400C48032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7992DB8A24138DC400C48032 /* Build configuration list for PBXNativeTarget "FindTheWayOut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7992DB8B24138DC400C48032 /* Debug */,
+				7992DB8C24138DC400C48032 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7992DB6A24138DC000C48032 /* Project object */;
+}
