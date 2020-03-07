@@ -18,6 +18,8 @@ final class AppRouter {
     
     func startApplication() {
         let vc = GameViewController()
+        let viewModel = GameViewModel()
+        vc.viewModel = viewModel
         setRoot(viewController: vc)
     }
     

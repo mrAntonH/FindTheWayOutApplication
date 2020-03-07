@@ -15,6 +15,7 @@
 		7992DB8324138DC400C48032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB8224138DC400C48032 /* Assets.xcassets */; };
 		7992DB8624138DC400C48032 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB8424138DC400C48032 /* LaunchScreen.storyboard */; };
 		7992DB93241396F400C48032 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB92241396F400C48032 /* AppRouter.swift */; };
+		7992DB9624139E3E00C48032 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB9524139E3E00C48032 /* GameViewModel.swift */; };
 		E0448890F0C8E0DDE8D0CC8D /* Pods_FindTheWayOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32036A27CD019AE98136E984 /* Pods_FindTheWayOut.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		7992DB8524138DC400C48032 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7992DB8724138DC400C48032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7992DB92241396F400C48032 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		7992DB9524139E3E00C48032 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		79E783BD8FA7BB6370B63199 /* Pods-FindTheWayOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindTheWayOut.debug.xcconfig"; path = "Target Support Files/Pods-FindTheWayOut/Pods-FindTheWayOut.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				7992DB912413920900C48032 /* GameScene */,
+				7992DB9424139E2500C48032 /* Game */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -123,9 +126,17 @@
 				7992DB7724138DC000C48032 /* GameScene.sks */,
 				7992DB7924138DC100C48032 /* Actions.sks */,
 				7992DB7B24138DC100C48032 /* GameScene.swift */,
-				7992DB7D24138DC100C48032 /* GameViewController.swift */,
 			);
 			path = GameScene;
+			sourceTree = "<group>";
+		};
+		7992DB9424139E2500C48032 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				7992DB7D24138DC100C48032 /* GameViewController.swift */,
+				7992DB9524139E3E00C48032 /* GameViewModel.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 		AD2D435514D192C4587FD4EE /* Pods */ = {
@@ -256,6 +267,7 @@
 				7992DB93241396F400C48032 /* AppRouter.swift in Sources */,
 				7992DB7C24138DC100C48032 /* GameScene.swift in Sources */,
 				7992DB7E24138DC100C48032 /* GameViewController.swift in Sources */,
+				7992DB9624139E3E00C48032 /* GameViewModel.swift in Sources */,
 				7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
