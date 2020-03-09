@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 final class AppRouter {
     
@@ -17,8 +18,17 @@ final class AppRouter {
     }
     
     func startApplication() {
+        
+        guard let scene = MySKScene(fileNamed: "GameScene") else { return }
+        
         let vc = GameViewController()
         let viewModel = GameViewModel()
+        let cameraHelper = CameraHelper()
+        let gameConfiguration = GameConfiguration(cameraHelper: cameraHelper)
+        
+        scene.gameConfiguration = gameConfiguration
+        vc.scene = scene
+        
         vc.viewModel = viewModel
         setRoot(viewController: vc)
     }
