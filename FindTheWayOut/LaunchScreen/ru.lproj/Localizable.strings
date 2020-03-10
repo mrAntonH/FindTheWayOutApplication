@@ -5,4 +5,8 @@
   Created by Антон Швец on 10/03/2020.
   Copyright © 2020 Антон Швец. All rights reserved.
 */
-level = "levels";
+Error = "Ошибка";
+ErrorCreateScene = "Ошибка при создании сцены";
+ErrorLoadLevel = "Ошибка при загрузки сцены";
+
+level = "Уровень";

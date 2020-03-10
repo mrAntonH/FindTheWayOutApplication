@@ -14,6 +14,8 @@
 		793D289B2417AE4B0076B97F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D289A2417AE4B0076B97F /* R.generated.swift */; };
 		793D28A02417AE740076B97F /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 793D289E2417AE730076B97F /* LaunchScreen.strings */; };
 		793D28A32417AEDA0076B97F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 793D28A12417AEDA0076B97F /* Localizable.strings */; };
+		793D28AB2417BF9D0076B97F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 793D28A92417BF9D0076B97F /* Localizable.strings */; };
+		793D28AD2417BFCE0076B97F /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D28AC2417BFCE0076B97F /* Level.swift */; };
 		7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB7524138DC000C48032 /* AppDelegate.swift */; };
 		7992DB7824138DC000C48032 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB7724138DC000C48032 /* GameScene.sks */; };
 		7992DB7A24138DC100C48032 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB7924138DC100C48032 /* Actions.sks */; };
@@ -39,6 +41,8 @@
 		793D289C2417AE6A0076B97F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		793D289F2417AE730076B97F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = LaunchScreen.strings; sourceTree = "<group>"; };
 		793D28A22417AEDA0076B97F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
+		793D28AA2417BF9D0076B97F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		793D28AC2417BFCE0076B97F /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		7992DB7224138DC000C48032 /* FindTheWayOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindTheWayOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7992DB7524138DC000C48032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7992DB7724138DC000C48032 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -94,6 +98,14 @@
 			path = ru.lproj;
 			sourceTree = "<group>";
 		};
+		793D28A82417BF9D0076B97F /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				793D28A92417BF9D0076B97F /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
 		7992DB6924138DC000C48032 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +149,7 @@
 		7992DB8E2413919A00C48032 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
+				793D28A82417BF9D0076B97F /* en.lproj */,
 				793D289D2417AE730076B97F /* ru.lproj */,
 				7992DB8424138DC400C48032 /* LaunchScreen.storyboard */,
 			);
@@ -187,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				7992DBA42414C9F000C48032 /* Level1.txt */,
+				793D28AC2417BFCE0076B97F /* Level.swift */,
 			);
 			name = Levels;
 			path = ../Levels;
@@ -268,6 +282,7 @@
 				7992DB8324138DC400C48032 /* Assets.xcassets in Resources */,
 				793D28A32417AEDA0076B97F /* Localizable.strings in Resources */,
 				7992DB8624138DC400C48032 /* LaunchScreen.storyboard in Resources */,
+				793D28AB2417BF9D0076B97F /* Localizable.strings in Resources */,
 				7992DB7A24138DC100C48032 /* Actions.sks in Resources */,
 				7992DBA52414C9F000C48032 /* Level1.txt in Resources */,
 			);
@@ -347,6 +362,7 @@
 				7992DB7C24138DC100C48032 /* GameScene.swift in Sources */,
 				7992DB7E24138DC100C48032 /* GameViewController.swift in Sources */,
 				793D282E2416907B0076B97F /* MySKScene.swift in Sources */,
+				793D28AD2417BFCE0076B97F /* Level.swift in Sources */,
 				7992DB9624139E3E00C48032 /* GameViewModel.swift in Sources */,
 				7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */,
 				793D2833241695500076B97F /* GameConfiguration.swift in Sources */,
@@ -370,6 +386,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				793D28A22417AEDA0076B97F /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		793D28A92417BF9D0076B97F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				793D28AA2417BF9D0076B97F /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

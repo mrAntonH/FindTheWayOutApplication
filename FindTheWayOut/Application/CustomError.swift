@@ -10,13 +10,16 @@ import Foundation
 
 enum CustomAppError: Error {
     case GameSceneCreate
+    case loadLevel
 }
 
 extension CustomAppError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .GameSceneCreate:
-            return "Error with create scene"
+            return R.string.localizable.errorCreateScene()
+        case .loadLevel:
+            return R.string.localizable.errorLoadLevel()
         }
     }
 }

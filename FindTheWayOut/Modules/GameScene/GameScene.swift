@@ -25,7 +25,7 @@ class GameScene: MySKScene {
     
     
     override func didMove(to view: SKView) {
-        loadLevel()
+        load(level: .level1)
         setupStartConfiguration()
         setGesture()
         
@@ -50,12 +50,16 @@ class GameScene: MySKScene {
         addChild(myCamera)
     }
     
-    private func loadLevel() {
-        guard let levelURL = Bundle.main.url(forResource: "Level1", withExtension: "txt") else {
-            fatalError("Could not find level1.txt in the app bundle.")
+    private func load(level: Level) {
+        guard let levelURL = level.description else {
+            let errorString = (CustomAppError.loadLevel.errorDescription
+                                ?? R.string.localizable.error())
+            fatalError(errorString)
         }
         guard let levelString = try? String(contentsOf: levelURL) else {
-            fatalError("Could not load level1.txt from the app bundle.")
+            let errorString = (CustomAppError.loadLevel.errorDescription
+                                ?? R.string.localizable.error())
+            fatalError(errorString)
         }
         
         let lines = levelString.components(separatedBy: "\n")

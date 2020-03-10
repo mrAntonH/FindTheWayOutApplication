@@ -86,16 +86,49 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
     struct localizable {
-      /// ru translation: levels
+      /// ru translation: Ошибка
       /// 
-      /// Locales: ru
-      static let level = Rswift.StringResource(key: "level", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru"], comment: nil)
+      /// Locales: ru, en
+      static let error = Rswift.StringResource(key: "Error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      /// ru translation: Ошибка при загрузки сцены
+      /// 
+      /// Locales: ru, en
+      static let errorLoadLevel = Rswift.StringResource(key: "ErrorLoadLevel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      /// ru translation: Ошибка при создании сцены
+      /// 
+      /// Locales: ru, en
+      static let errorCreateScene = Rswift.StringResource(key: "ErrorCreateScene", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      /// ru translation: Уровень
+      /// 
+      /// Locales: ru, en
+      static let level = Rswift.StringResource(key: "level", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
       
-      /// ru translation: levels
+      /// ru translation: Ошибка
       /// 
-      /// Locales: ru
+      /// Locales: ru, en
+      static func error(_: Void = ()) -> String {
+        return NSLocalizedString("Error", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Ошибка при загрузки сцены
+      /// 
+      /// Locales: ru, en
+      static func errorLoadLevel(_: Void = ()) -> String {
+        return NSLocalizedString("ErrorLoadLevel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Ошибка при создании сцены
+      /// 
+      /// Locales: ru, en
+      static func errorCreateScene(_: Void = ()) -> String {
+        return NSLocalizedString("ErrorCreateScene", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// ru translation: Уровень
+      /// 
+      /// Locales: ru, en
       static func level(_: Void = ()) -> String {
         return NSLocalizedString("level", bundle: R.hostingBundle, comment: "")
       }
