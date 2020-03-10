@@ -15,6 +15,7 @@ class GameScene: MySKScene {
         guard let camera = self.camera else {
             return
         }
+        
         if sender.state == .began {
             gameConfiguration.cameraHelper.setPreviousScale(value: camera.xScale)
         }
