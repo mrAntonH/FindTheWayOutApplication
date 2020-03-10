@@ -46,7 +46,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 28 images.
   struct image {
     /// Image `blackTile`.
     static let blackTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "blackTile")
@@ -56,6 +56,54 @@ struct R: Rswift.Validatable {
     static let door = Rswift.ImageResource(bundle: R.hostingBundle, name: "door")
     /// Image `floor1`.
     static let floor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "floor1")
+    /// Image `tileFloor1`.
+    static let tileFloor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tileFloor1")
+    /// Image `wallBottomLeftCorner`.
+    static let wallBottomLeftCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallBottomLeftCorner")
+    /// Image `wallBottomLineAndTwoCorners`.
+    static let wallBottomLineAndTwoCorners = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallBottomLineAndTwoCorners")
+    /// Image `wallBottomRightCorner`.
+    static let wallBottomRightCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallBottomRightCorner")
+    /// Image `wallEndBottom`.
+    static let wallEndBottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallEndBottom")
+    /// Image `wallEndLeft`.
+    static let wallEndLeft = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallEndLeft")
+    /// Image `wallEndRight`.
+    static let wallEndRight = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallEndRight")
+    /// Image `wallEndTop`.
+    static let wallEndTop = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallEndTop")
+    /// Image `wallHorizantalCoupleLines`.
+    static let wallHorizantalCoupleLines = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallHorizantalCoupleLines")
+    /// Image `wallLeftLineAndTwoCorners`.
+    static let wallLeftLineAndTwoCorners = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallLeftLineAndTwoCorners")
+    /// Image `wallRightLineAndTwoCorners`.
+    static let wallRightLineAndTwoCorners = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallRightLineAndTwoCorners")
+    /// Image `wallSimpleBottomLeftCorner`.
+    static let wallSimpleBottomLeftCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallSimpleBottomLeftCorner")
+    /// Image `wallSimpleRightButtomCorner`.
+    static let wallSimpleRightButtomCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallSimpleRightButtomCorner")
+    /// Image `wallSimpleTopLeftCorner`.
+    static let wallSimpleTopLeftCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallSimpleTopLeftCorner")
+    /// Image `wallSimpleTopRightCorner`.
+    static let wallSimpleTopRightCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallSimpleTopRightCorner")
+    /// Image `wallSingleLineBottom`.
+    static let wallSingleLineBottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallSingleLineBottom")
+    /// Image `wallSingleLineLeft`.
+    static let wallSingleLineLeft = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallSingleLineLeft")
+    /// Image `wallSingleLineRight`.
+    static let wallSingleLineRight = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallSingleLineRight")
+    /// Image `wallSingleLineTop`.
+    static let wallSingleLineTop = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallSingleLineTop")
+    /// Image `wallTopLeftCorner`.
+    static let wallTopLeftCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallTopLeftCorner")
+    /// Image `wallTopLineAndTwoCorners`.
+    static let wallTopLineAndTwoCorners = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallTopLineAndTwoCorners")
+    /// Image `wallTopRightCorner`.
+    static let wallTopRightCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallTopRightCorner")
+    /// Image `wallVerticalCoupleLines`.
+    static let wallVerticalCoupleLines = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallVerticalCoupleLines")
+    /// Image `woodFloor1`.
+    static let woodFloor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "woodFloor1")
     
     /// `UIImage(named: "blackTile", bundle: ..., traitCollection: ...)`
     static func blackTile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -75,6 +123,126 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "floor1", bundle: ..., traitCollection: ...)`
     static func floor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.floor1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tileFloor1", bundle: ..., traitCollection: ...)`
+    static func tileFloor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tileFloor1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallBottomLeftCorner", bundle: ..., traitCollection: ...)`
+    static func wallBottomLeftCorner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallBottomLeftCorner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallBottomLineAndTwoCorners", bundle: ..., traitCollection: ...)`
+    static func wallBottomLineAndTwoCorners(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallBottomLineAndTwoCorners, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallBottomRightCorner", bundle: ..., traitCollection: ...)`
+    static func wallBottomRightCorner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallBottomRightCorner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallEndBottom", bundle: ..., traitCollection: ...)`
+    static func wallEndBottom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallEndBottom, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallEndLeft", bundle: ..., traitCollection: ...)`
+    static func wallEndLeft(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallEndLeft, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallEndRight", bundle: ..., traitCollection: ...)`
+    static func wallEndRight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallEndRight, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallEndTop", bundle: ..., traitCollection: ...)`
+    static func wallEndTop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallEndTop, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallHorizantalCoupleLines", bundle: ..., traitCollection: ...)`
+    static func wallHorizantalCoupleLines(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallHorizantalCoupleLines, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallLeftLineAndTwoCorners", bundle: ..., traitCollection: ...)`
+    static func wallLeftLineAndTwoCorners(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallLeftLineAndTwoCorners, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallRightLineAndTwoCorners", bundle: ..., traitCollection: ...)`
+    static func wallRightLineAndTwoCorners(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallRightLineAndTwoCorners, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallSimpleBottomLeftCorner", bundle: ..., traitCollection: ...)`
+    static func wallSimpleBottomLeftCorner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallSimpleBottomLeftCorner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallSimpleRightButtomCorner", bundle: ..., traitCollection: ...)`
+    static func wallSimpleRightButtomCorner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallSimpleRightButtomCorner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallSimpleTopLeftCorner", bundle: ..., traitCollection: ...)`
+    static func wallSimpleTopLeftCorner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallSimpleTopLeftCorner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallSimpleTopRightCorner", bundle: ..., traitCollection: ...)`
+    static func wallSimpleTopRightCorner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallSimpleTopRightCorner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallSingleLineBottom", bundle: ..., traitCollection: ...)`
+    static func wallSingleLineBottom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallSingleLineBottom, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallSingleLineLeft", bundle: ..., traitCollection: ...)`
+    static func wallSingleLineLeft(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallSingleLineLeft, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallSingleLineRight", bundle: ..., traitCollection: ...)`
+    static func wallSingleLineRight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallSingleLineRight, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallSingleLineTop", bundle: ..., traitCollection: ...)`
+    static func wallSingleLineTop(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallSingleLineTop, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallTopLeftCorner", bundle: ..., traitCollection: ...)`
+    static func wallTopLeftCorner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallTopLeftCorner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallTopLineAndTwoCorners", bundle: ..., traitCollection: ...)`
+    static func wallTopLineAndTwoCorners(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallTopLineAndTwoCorners, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallTopRightCorner", bundle: ..., traitCollection: ...)`
+    static func wallTopRightCorner(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallTopRightCorner, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallVerticalCoupleLines", bundle: ..., traitCollection: ...)`
+    static func wallVerticalCoupleLines(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wallVerticalCoupleLines, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "woodFloor1", bundle: ..., traitCollection: ...)`
+    static func woodFloor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.woodFloor1, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
