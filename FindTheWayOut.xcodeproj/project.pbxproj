@@ -11,6 +11,9 @@
 		793D282E2416907B0076B97F /* MySKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D282D2416907B0076B97F /* MySKScene.swift */; };
 		793D2831241693130076B97F /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D2830241693130076B97F /* CameraHelper.swift */; };
 		793D2833241695500076B97F /* GameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D2832241695500076B97F /* GameConfiguration.swift */; };
+		793D289B2417AE4B0076B97F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D289A2417AE4B0076B97F /* R.generated.swift */; };
+		793D28A02417AE740076B97F /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 793D289E2417AE730076B97F /* LaunchScreen.strings */; };
+		793D28A32417AEDA0076B97F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 793D28A12417AEDA0076B97F /* Localizable.strings */; };
 		7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB7524138DC000C48032 /* AppDelegate.swift */; };
 		7992DB7824138DC000C48032 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB7724138DC000C48032 /* GameScene.sks */; };
 		7992DB7A24138DC100C48032 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7992DB7924138DC100C48032 /* Actions.sks */; };
@@ -32,6 +35,10 @@
 		793D282D2416907B0076B97F /* MySKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySKScene.swift; sourceTree = "<group>"; };
 		793D2830241693130076B97F /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
 		793D2832241695500076B97F /* GameConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfiguration.swift; sourceTree = "<group>"; };
+		793D289A2417AE4B0076B97F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		793D289C2417AE6A0076B97F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		793D289F2417AE730076B97F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = LaunchScreen.strings; sourceTree = "<group>"; };
+		793D28A22417AEDA0076B97F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
 		7992DB7224138DC000C48032 /* FindTheWayOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindTheWayOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7992DB7524138DC000C48032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7992DB7724138DC000C48032 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -78,9 +85,19 @@
 			path = GameProperties;
 			sourceTree = "<group>";
 		};
+		793D289D2417AE730076B97F /* ru.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				793D289E2417AE730076B97F /* LaunchScreen.strings */,
+				793D28A12417AEDA0076B97F /* Localizable.strings */,
+			);
+			path = ru.lproj;
+			sourceTree = "<group>";
+		};
 		7992DB6924138DC000C48032 = {
 			isa = PBXGroup;
 			children = (
+				793D289A2417AE4B0076B97F /* R.generated.swift */,
 				7992DB7424138DC000C48032 /* FindTheWayOut */,
 				7992DB7324138DC000C48032 /* Products */,
 				AD2D435514D192C4587FD4EE /* Pods */,
@@ -120,6 +137,7 @@
 		7992DB8E2413919A00C48032 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
+				793D289D2417AE730076B97F /* ru.lproj */,
 				7992DB8424138DC400C48032 /* LaunchScreen.storyboard */,
 			);
 			path = LaunchScreen;
@@ -191,6 +209,7 @@
 			buildConfigurationList = 7992DB8A24138DC400C48032 /* Build configuration list for PBXNativeTarget "FindTheWayOut" */;
 			buildPhases = (
 				DAE008DB713F47FF05E190F0 /* [CP] Check Pods Manifest.lock */,
+				793D287524179CEA0076B97F /* ShellScript */,
 				7992DB6E24138DC000C48032 /* Sources */,
 				7992DB6F24138DC000C48032 /* Frameworks */,
 				7992DB7024138DC000C48032 /* Resources */,
@@ -227,6 +246,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 7992DB6924138DC000C48032;
 			productRefGroup = 7992DB7324138DC000C48032 /* Products */;
@@ -244,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7992DB7824138DC000C48032 /* GameScene.sks in Resources */,
+				793D28A02417AE740076B97F /* LaunchScreen.strings in Resources */,
 				7992DB8324138DC400C48032 /* Assets.xcassets in Resources */,
+				793D28A32417AEDA0076B97F /* Localizable.strings in Resources */,
 				7992DB8624138DC400C48032 /* LaunchScreen.storyboard in Resources */,
 				7992DB7A24138DC100C48032 /* Actions.sks in Resources */,
 				7992DBA52414C9F000C48032 /* Level1.txt in Resources */,
@@ -254,6 +276,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		793D287524179CEA0076B97F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 		92C00F010862F3DF680854EA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +350,7 @@
 				7992DB9624139E3E00C48032 /* GameViewModel.swift in Sources */,
 				7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */,
 				793D2833241695500076B97F /* GameConfiguration.swift in Sources */,
+				793D289B2417AE4B0076B97F /* R.generated.swift in Sources */,
 				7992DBA12414C54400C48032 /* CustomError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,10 +358,27 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		793D289E2417AE730076B97F /* LaunchScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				793D289F2417AE730076B97F /* ru */,
+			);
+			name = LaunchScreen.strings;
+			sourceTree = "<group>";
+		};
+		793D28A12417AEDA0076B97F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				793D28A22417AEDA0076B97F /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		7992DB8424138DC400C48032 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7992DB8524138DC400C48032 /* Base */,
+				793D289C2417AE6A0076B97F /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -331,6 +390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -391,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
