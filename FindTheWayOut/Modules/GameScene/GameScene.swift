@@ -70,7 +70,7 @@ class GameScene: MySKScene {
             for (column, letter) in line.enumerated() {
                 let position = CGPoint(x: stepSize * column, y: stepSize * row)
                 if letter == "x" {
-                    let node = SKSpriteNode(imageNamed: "block_05")
+                    let node = SKSpriteNode(imageNamed: R.image.blackTile.name)
                     node.anchorPoint = CGPoint(x: 0, y: 0)
                     node.position = position
                     node.scale(to: CGSize(width: stepSize, height: stepSize))
@@ -80,12 +80,19 @@ class GameScene: MySKScene {
                     node.physicsBody?.isDynamic = false
                     addChild(node)
                 } else if let numberVertex = letter.wholeNumberValue {
-                    let node = SKSpriteNode(imageNamed: "floor")
+                    let labelNode = SKLabelNode(text: String(numberVertex))
+                    let node = SKSpriteNode(imageNamed: R.image.floor1.name)
+                    node.anchorPoint = CGPoint(x: 0, y: 0)
                     node.position = position
+                    node.scale(to: CGSize(width: stepSize, height: stepSize))
+                    labelNode.position = CGPoint(x: 25, y: 25)
                     
-                    node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 50))
+                    node.addChild(labelNode)
+                    
+                    //node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 50))
                     //node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
                     node.physicsBody?.isDynamic = false
+                    addChild(node)
                 } else if letter == " " {
                     // this is an empty space – do nothing!
                 } else {

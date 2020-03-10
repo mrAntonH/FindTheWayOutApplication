@@ -46,12 +46,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
+    /// Image `blackTile`.
+    static let blackTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "blackTile")
     /// Image `block_05`.
     static let block_05 = Rswift.ImageResource(bundle: R.hostingBundle, name: "block_05")
     /// Image `door`.
     static let door = Rswift.ImageResource(bundle: R.hostingBundle, name: "door")
+    /// Image `floor1`.
+    static let floor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "floor1")
+    
+    /// `UIImage(named: "blackTile", bundle: ..., traitCollection: ...)`
+    static func blackTile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.blackTile, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "block_05", bundle: ..., traitCollection: ...)`
     static func block_05(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -61,6 +70,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "door", bundle: ..., traitCollection: ...)`
     static func door(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.door, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "floor1", bundle: ..., traitCollection: ...)`
+    static func floor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.floor1, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
