@@ -44,9 +44,9 @@ enum TileType {
     case wallSingleLineBottom
     
     //Furniture
-    case largTableLeftTile
-    case largTableCenterTile
-    case largTableRightTile
+    case largeTableLeftTile
+    case largeTableCenterTile
+    case largeTableRightTile
     
     case smallTable
     
@@ -56,8 +56,6 @@ enum TileType {
     
     case armChair
     
-    case glassTable
-    
     case chair
     
     //Windows and Doors
@@ -65,7 +63,6 @@ enum TileType {
     case windowBottom
     case windowRight
     case windowLeft
-    
     
     case woodDoorTop
     case woodDoorBottom
