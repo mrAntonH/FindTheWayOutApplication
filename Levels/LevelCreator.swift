@@ -12,17 +12,26 @@ final class LevelCreator {
     
     private let levelScheme1 = [[TileType]]()
     
-    static func createLevel(with levelScheme: [[TileType]], spriteLenght: Int) -> [Tile] {
+    static func createLevel(with levelScheme: [[LevelScheme]], spriteLenght: Int) -> [Tile] {
         //let startPosition = CGPoint(x: 0, y: 0)
         var outputTiles = [Tile]()
         var tileIdentity = 0
         for (row, tiles) in levelScheme.reversed().enumerated() {
             for (column, typeTile) in tiles.enumerated() {
                 let position = CGPoint(x: spriteLenght * column, y: spriteLenght * row)
-                let newTile = Tile(id: tileIdentity,
-                                   type: typeTile,
-                                   position: position,
-                                   image: UIImage())
+                
+                switch typeTile {
+                case .singleTile(let tile):
+                    let newTile = Tile(id: tileIdentity,
+                                       type: tile,
+                                       childTiles: [],
+                                       position: position,
+                                       imageName: tile.getImageName())
+                case .multiTile(let mainTile, let childTiles):
+                    
+                }
+                
+                
                 outputTiles.append(newTile)
                 tileIdentity += 1
             }
