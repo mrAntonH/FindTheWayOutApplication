@@ -25,9 +25,12 @@ class GameScene: MySKScene {
     
     
     override func didMove(to view: SKView) {
-        load(level: .level1)
         setupStartConfiguration()
         setGesture()
+        run(SKAction.wait(forDuration: 4)) { [weak self] in
+            self?.load(level: .level1)
+        }
+        
         
     }
     
@@ -79,7 +82,7 @@ class GameScene: MySKScene {
         
         childTiles.forEach { tile in
             
-            let node = SKSpriteNode(imageNamed: tile.imageName)
+            let node = SKSpriteNode(imageNamed: tile.type.getImageName())
             node.anchorPoint = CGPoint(x: 0, y: 0)
             node.position = CGPoint(x: 0, y: 0)
             //node.scale(to: CGSize(width: 50,
@@ -96,10 +99,10 @@ class GameScene: MySKScene {
                 setupTiles(perentTile: tile)
             }
         }
-        
         addChild(perentNode)
-        
     }
+    
+    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
