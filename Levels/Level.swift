@@ -8,13 +8,28 @@
 
 import Foundation
 
+//enum Level {
+//    case level1
+//    
+//    var description: URL? {
+//        switch self {
+//        case .level1:
+//            return R.file.level1Txt()
+//        }
+//    }
+//}
+
 enum Level {
     case level1
+    case none
     
-    var description: URL? {
+    var levelScheme: [[LevelScheme]] {
         switch self {
         case .level1:
-            return R.file.level1Txt()
+            let level = FirstLevel()
+            return level.getLevel()
+        case .none:
+            return [[]]
         }
     }
 }

@@ -33,14 +33,14 @@ struct ChildTile {
     var type: TileType
     var childTiles: [ChildTile]
     var position: CGPoint
-    var rotation: CGFloat
+    var rotation: CGFloat?
     var imageName: String
     
     init(perentId: Int,
          type: TileType,
          childTiles: [ChildTile],
          position: CGPoint,
-         rotation: CGFloat,
+         rotation: CGFloat?,
          imageName: String) {
         self.perentId = perentId
         self.type = type

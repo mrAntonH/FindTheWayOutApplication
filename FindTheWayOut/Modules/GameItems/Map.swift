@@ -9,13 +9,17 @@
 import Foundation
 
 final class Map {
-    var tileArray: [Tile] = []
+    private var tileArray: [Tile] = []
     
     init(with array: [Tile]) {
         tileArray = array
     }
     
-//    init(with level: Int) {
-//
-//    }
+    func setTileArray(tiles: [Tile]) {
+        tileArray = tiles
+    }
+    
+    func getTileArray() -> [Tile] {
+        return tileArray
+    }
 }

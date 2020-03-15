@@ -10,9 +10,28 @@ import UIKit
 
 final class LevelCreator {
     
-    private let levelScheme1 = [[TileType]]()
+    private var level: Level
     
-    static func createLevel(with levelScheme: [[LevelScheme]], spriteLenght: Int) -> [Tile] {
+    private var tiles: [Tile]
+    
+    private let spriteLenght: Int
+    
+    init(spriteLenght: Int,
+         level: Level = .none,
+         tiles: [Tile] = []) {
+        self.level = level
+        self.tiles = tiles
+        self.spriteLenght = spriteLenght
+    }
+    
+    func configure(level: Level,
+                   with map: Map) {
+        let tiles = createLevel(with: level)
+        map.setTileArray(tiles: tiles)
+    }
+    
+    private func createLevel(with level: Level) -> [Tile] {
+        let levelScheme = level.levelScheme
         //let startPosition = CGPoint(x: 0, y: 0)
         var outputTiles = [Tile]()
         var tileIdentity = 0
@@ -27,18 +46,23 @@ final class LevelCreator {
                                        childTiles: [],
                                        position: position,
                                        imageName: tile.getImageName())
+                    outputTiles.append(newTile)
+                    tileIdentity += 1
                 case .multiTile(let mainTile, let childTiles):
+                    let childs = childTiles.map { $0.toChildTiles(with: tileIdentity) }
+                    let newTile = Tile(id: tileIdentity,
+                                       type: mainTile,
+                                       childTiles: childs,
+                                       position: position,
+                                       imageName: mainTile.getImageName())
                     
+                    outputTiles.append(newTile)
+                    tileIdentity += 1
                 }
-                
-                
-                outputTiles.append(newTile)
-                tileIdentity += 1
             }
         }
         
         return outputTiles
     }
-    
     
 }

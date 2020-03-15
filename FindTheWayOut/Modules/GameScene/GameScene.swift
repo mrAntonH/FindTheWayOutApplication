@@ -51,55 +51,75 @@ class GameScene: MySKScene {
     }
     
     private func load(level: Level) {
-        guard let levelURL = level.description else {
-            let errorString = (CustomAppError.loadLevel.errorDescription
-                                ?? R.string.localizable.error())
-            fatalError(errorString)
+        levelCreator.configure(level: level,
+                               with: map)
+//        guard let levelURL = level.description else {
+//            let errorString = (CustomAppError.loadLevel.errorDescription
+//                                ?? R.string.localizable.error())
+//            fatalError(errorString)
+//        }
+//        guard let levelString = try? String(contentsOf: levelURL) else {
+//            let errorString = (CustomAppError.loadLevel.errorDescription
+//                                ?? R.string.localizable.error())
+//            fatalError(errorString)
+//        }
+        
+//        let lines = levelString.components(separatedBy: "\n")
+//
+//        let stepSize = Int(gameConfiguration.spriteSize.width)
+        
+//        for (row, line) in lines.reversed().enumerated() {
+//            for (column, letter) in line.enumerated() {
+//                let position = CGPoint(x: stepSize * column, y: stepSize * row)
+//                if letter == "x" {
+//                    let node = SKSpriteNode(imageNamed: R.image.blackTile.name)
+//                    node.anchorPoint = CGPoint(x: 0, y: 0)
+//                    node.position = position
+//                    node.scale(to: CGSize(width: stepSize, height: stepSize))
+//                    node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: stepSize, height: stepSize))
+//
+//                    //node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
+//                    node.physicsBody?.isDynamic = false
+//                    addChild(node)
+//                } else if let numberVertex = letter.wholeNumberValue {
+//                    let labelNode = SKLabelNode(text: String(numberVertex))
+//                    let node = SKSpriteNode(imageNamed: R.image.floor1.name)
+//                    node.anchorPoint = CGPoint(x: 0, y: 0)
+//                    node.position = position
+//                    node.scale(to: CGSize(width: stepSize, height: stepSize))
+//                    labelNode.position = CGPoint(x: 25, y: 25)
+//
+//                    node.addChild(labelNode)
+//
+//                    //node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 50))
+//                    //node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
+//                    node.physicsBody?.isDynamic = false
+//                    addChild(node)
+//                } else if letter == " " {
+//                    // this is an empty space – do nothing!
+//                } else {
+//                    fatalError("Unknown level letter: \(letter)")
+//                }
+//            }
+//        }
+    }
+    
+    private func updateMap() {
+        let tilesMap = map.getTileArray()
+        for item in tilesMap {
+            
         }
-        guard let levelString = try? String(contentsOf: levelURL) else {
-            let errorString = (CustomAppError.loadLevel.errorDescription
-                                ?? R.string.localizable.error())
-            fatalError(errorString)
-        }
-        
-        let lines = levelString.components(separatedBy: "\n")
-        
-        let stepSize = Int(gameConfiguration.spriteSize.width)
-        
-        for (row, line) in lines.reversed().enumerated() {
-            for (column, letter) in line.enumerated() {
-                let position = CGPoint(x: stepSize * column, y: stepSize * row)
-                if letter == "x" {
-                    let node = SKSpriteNode(imageNamed: R.image.blackTile.name)
-                    node.anchorPoint = CGPoint(x: 0, y: 0)
-                    node.position = position
-                    node.scale(to: CGSize(width: stepSize, height: stepSize))
-                    node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: stepSize, height: stepSize))
-                    
-                    //node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
-                    node.physicsBody?.isDynamic = false
-                    addChild(node)
-                } else if let numberVertex = letter.wholeNumberValue {
-                    let labelNode = SKLabelNode(text: String(numberVertex))
-                    let node = SKSpriteNode(imageNamed: R.image.floor1.name)
-                    node.anchorPoint = CGPoint(x: 0, y: 0)
-                    node.position = position
-                    node.scale(to: CGSize(width: stepSize, height: stepSize))
-                    labelNode.position = CGPoint(x: 25, y: 25)
-                    
-                    node.addChild(labelNode)
-                    
-                    //node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 50))
-                    //node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
-                    node.physicsBody?.isDynamic = false
-                    addChild(node)
-                } else if letter == " " {
-                    // this is an empty space – do nothing!
-                } else {
-                    fatalError("Unknown level letter: \(letter)")
-                }
+    }
+    
+    private func setupChildTiles(perentTile: Tile, tiles: [ChildTile]) {
+        tiles.forEach { tile in
+            
+            if !tile.childTiles.isEmpty {
+                setupChildTiles(perentTile: tile,
+                                tiles: tile.childTiles)
             }
         }
+            
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

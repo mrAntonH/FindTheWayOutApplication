@@ -15,4 +15,8 @@ class MySKScene: SKScene {
     
     var state: GameState!
     
+    var map: Map!
+    
+    var levelCreator: LevelCreator!
+    
 }

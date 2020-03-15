@@ -8,7 +8,12 @@
 
 import UIKit
 
-class FirstLevel {
+protocol Levels {
+    
+    func getLevel() -> [[LevelScheme]]
+}
+
+class FirstLevel: Levels {
     private let level: [[LevelScheme]]
     
     init() {

@@ -25,8 +25,12 @@ final class AppRouter {
         let viewModel = GameViewModel()
         let cameraHelper = CameraHelper()
         let gameConfiguration = GameConfiguration(cameraHelper: cameraHelper)
+        let levelCreator = LevelCreator(spriteLenght: gameConfiguration.spriteLenght)
+        let map = Map(with: [])
         
         scene.gameConfiguration = gameConfiguration
+        scene.levelCreator = levelCreator
+        scene.map = map
         vc.scene = scene
         
         vc.viewModel = viewModel

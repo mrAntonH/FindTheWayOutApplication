@@ -18,10 +18,14 @@ final class GameConfiguration: GameConfigurationInterface {
     
     let spriteSize = CGSize(width: 50, height: 50)
     
+    let spriteLenght: Int = 50
+    
     let cameraHelper: CameraHelper
     
     init(cameraHelper: CameraHelper) {
         self.cameraHelper = cameraHelper
     }
+    
+    
     
 }

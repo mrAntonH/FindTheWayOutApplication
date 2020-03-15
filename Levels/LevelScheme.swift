@@ -13,6 +13,22 @@ struct MultiTile {
     var position: CGPoint
     var rotation: CGFloat?
     var childTiles: [MultiTile]
+    
+    func toChildTiles(with perentId: Int) -> ChildTile {
+        var chiledTiles = [ChildTile]()
+        for item in childTiles {
+            let newChildTile = item.toChildTiles(with: perentId)
+            chiledTiles.append(newChildTile)
+        }
+        let childTiles = ChildTile(perentId: perentId,
+                                   type: tileType,
+                                   childTiles: chiledTiles,
+                                   position: position,
+                                   rotation: rotation,
+                                   imageName: tileType.getImageName())
+        return childTiles
+        
+    }
 }
 
 enum LevelScheme {
