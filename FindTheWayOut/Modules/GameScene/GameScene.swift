@@ -27,10 +27,10 @@ class GameScene: MySKScene {
     override func didMove(to view: SKView) {
         setupStartConfiguration()
         setGesture()
-        run(SKAction.wait(forDuration: 4)) { [weak self] in
+        run(SKAction.wait(forDuration: 5)) { [weak self] in
             self?.load(level: .level1)
         }
-        
+  
         
     }
     

@@ -34,7 +34,9 @@ final class AppRouter {
         vc.scene = scene
         
         vc.viewModel = viewModel
-        setRoot(viewController: vc)
+        self.setRoot(viewController: vc)
+        
+        
     }
     
     private func setRoot(viewController: UIViewController) {

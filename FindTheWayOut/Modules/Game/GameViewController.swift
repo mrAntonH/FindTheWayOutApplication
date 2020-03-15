@@ -17,7 +17,8 @@ final class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureGameScene()
+        self.configureGameScene()
+        
     }
     
     private func configureGameScene() {
