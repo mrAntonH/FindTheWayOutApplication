@@ -68,6 +68,9 @@ class FirstLevel: Levels {
         row.append(.singleTile(tile: .wallHorizantalCoupleLines))
         row.append(.singleTile(tile: .wallBottomRightCorner))
         
+        configuringLevel.append(row)
+        row.removeAll()
+        
         self.level = configuringLevel
     }
     

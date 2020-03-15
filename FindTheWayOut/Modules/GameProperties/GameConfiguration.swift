@@ -16,9 +16,9 @@ protocol GameConfigurationInterface {
 
 final class GameConfiguration: GameConfigurationInterface {
     
-    let spriteSize = CGSize(width: 50, height: 50)
+    let spriteSize = CGSize(width: 64, height: 64)
     
-    let spriteLenght: Int = 50
+    let spriteLenght: Int = 64
     
     let cameraHelper: CameraHelper
     

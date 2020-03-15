@@ -53,81 +53,63 @@ class GameScene: MySKScene {
     private func load(level: Level) {
         levelCreator.configure(level: level,
                                with: map)
-//        guard let levelURL = level.description else {
-//            let errorString = (CustomAppError.loadLevel.errorDescription
-//                                ?? R.string.localizable.error())
-//            fatalError(errorString)
-//        }
-//        guard let levelString = try? String(contentsOf: levelURL) else {
-//            let errorString = (CustomAppError.loadLevel.errorDescription
-//                                ?? R.string.localizable.error())
-//            fatalError(errorString)
-//        }
-        
-//        let lines = levelString.components(separatedBy: "\n")
-//
-//        let stepSize = Int(gameConfiguration.spriteSize.width)
-        
-//        for (row, line) in lines.reversed().enumerated() {
-//            for (column, letter) in line.enumerated() {
-//                let position = CGPoint(x: stepSize * column, y: stepSize * row)
-//                if letter == "x" {
-//                    let node = SKSpriteNode(imageNamed: R.image.blackTile.name)
-//                    node.anchorPoint = CGPoint(x: 0, y: 0)
-//                    node.position = position
-//                    node.scale(to: CGSize(width: stepSize, height: stepSize))
-//                    node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: stepSize, height: stepSize))
-//
-//                    //node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
-//                    node.physicsBody?.isDynamic = false
-//                    addChild(node)
-//                } else if let numberVertex = letter.wholeNumberValue {
-//                    let labelNode = SKLabelNode(text: String(numberVertex))
-//                    let node = SKSpriteNode(imageNamed: R.image.floor1.name)
-//                    node.anchorPoint = CGPoint(x: 0, y: 0)
-//                    node.position = position
-//                    node.scale(to: CGSize(width: stepSize, height: stepSize))
-//                    labelNode.position = CGPoint(x: 25, y: 25)
-//
-//                    node.addChild(labelNode)
-//
-//                    //node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 50))
-//                    //node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
-//                    node.physicsBody?.isDynamic = false
-//                    addChild(node)
-//                } else if letter == " " {
-//                    // this is an empty space – do nothing!
-//                } else {
-//                    fatalError("Unknown level letter: \(letter)")
-//                }
-//            }
-//        }
+        updateMap()
     }
     
     private func updateMap() {
         let tilesMap = map.getTileArray()
-        for item in tilesMap {
-            
+        tilesMap.forEach { tile in
+            setupTiles(perentTile: tile)
         }
     }
     
-    private func setupChildTiles(perentTile: Tile, tiles: [ChildTile]) {
-        tiles.forEach { tile in
+    private func setupTiles(perentTile: Tile) {
+        let childTiles = perentTile.childTiles
+        let perentNode = SKSpriteNode(imageNamed: perentTile.imageName)
+        perentNode.anchorPoint = CGPoint(x: 0, y: 0)
+        perentNode.position = perentTile.position
+        //perentNode.scale(to: CGSize(width: gameConfiguration.spriteLenght,
+          //                    height: gameConfiguration.spriteLenght))
+        //node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: gameConfiguration.spriteLenght,
+                                                             //height: gameConfiguration.spriteLenght))
+
+        //node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
+        //node.physicsBody?.isDynamic = false
+        
+        
+        childTiles.forEach { tile in
+            
+            let node = SKSpriteNode(imageNamed: tile.imageName)
+            node.anchorPoint = CGPoint(x: 0, y: 0)
+            node.position = CGPoint(x: 0, y: 0)
+            //node.scale(to: CGSize(width: 50,
+             //                     height: 50))
+            //node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: gameConfiguration.spriteLenght,
+                                                                 //height: gameConfiguration.spriteLenght))
+
+//            node.physicsBody?.categoryBitMask = 1
+//            node.physicsBody?.isDynamic = false
+            
+            perentNode.addChild(node)
             
             if !tile.childTiles.isEmpty {
-                setupChildTiles(perentTile: tile,
-                                tiles: tile.childTiles)
+                setupTiles(perentTile: tile)
             }
         }
-            
+        
+        addChild(perentNode)
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
           return
         }
-
+        
         let location = touch.location(in: self)
+        
+        let tiles = self.atPoint(location)
+        
         let previousCameraLocation = touch.previousLocation(in: self)
         if let camera = camera {
             camera.position.x -= location.x - previousCameraLocation.x

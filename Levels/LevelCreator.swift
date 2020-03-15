@@ -49,7 +49,7 @@ final class LevelCreator {
                     outputTiles.append(newTile)
                     tileIdentity += 1
                 case .multiTile(let mainTile, let childTiles):
-                    let childs = childTiles.map { $0.toChildTiles(with: tileIdentity) }
+                    let childs = childTiles.map { $0.toTiles(with: tileIdentity) }
                     let newTile = Tile(id: tileIdentity,
                                        type: mainTile,
                                        childTiles: childs,

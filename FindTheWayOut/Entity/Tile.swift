@@ -11,43 +11,46 @@ import UIKit
 struct Tile {
     let id: Int
     var type: TileType
-    var childTiles: [ChildTile]
+    var childTiles: [Tile]
     var position: CGPoint
+    var rotation: CGFloat?
     var imageName: String
     
     init(id: Int,
          type: TileType,
-         childTiles: [ChildTile],
+         childTiles: [Tile],
          position: CGPoint,
+         rotation: CGFloat? = nil,
          imageName: String) {
         self.id = id
         self.type = type
         self.childTiles = childTiles
         self.position = position
+        self.rotation = rotation
         self.imageName = imageName
     }
 }
 
-struct ChildTile {
-    let perentId: Int
-    var type: TileType
-    var childTiles: [ChildTile]
-    var position: CGPoint
-    var rotation: CGFloat?
-    var imageName: String
-    
-    init(perentId: Int,
-         type: TileType,
-         childTiles: [ChildTile],
-         position: CGPoint,
-         rotation: CGFloat?,
-         imageName: String) {
-        self.perentId = perentId
-        self.type = type
-        self.childTiles = childTiles
-        self.position = position
-        self.rotation = rotation
-        self.imageName = imageName
-        
-    }
-}
+//struct ChildTile {
+//    let perentId: Int
+//    var type: TileType
+//    var childTiles: [ChildTile]
+//    var position: CGPoint
+//    var rotation: CGFloat?
+//    var imageName: String
+//
+//    init(perentId: Int,
+//         type: TileType,
+//         childTiles: [ChildTile],
+//         position: CGPoint,
+//         rotation: CGFloat?,
+//         imageName: String) {
+//        self.perentId = perentId
+//        self.type = type
+//        self.childTiles = childTiles
+//        self.position = position
+//        self.rotation = rotation
+//        self.imageName = imageName
+//
+//    }
+//}

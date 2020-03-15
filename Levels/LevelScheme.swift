@@ -14,18 +14,18 @@ struct MultiTile {
     var rotation: CGFloat?
     var childTiles: [MultiTile]
     
-    func toChildTiles(with perentId: Int) -> ChildTile {
-        var chiledTiles = [ChildTile]()
+    func toTiles(with perentId: Int) -> Tile {
+        var chiledTiles = [Tile]()
         for item in childTiles {
-            let newChildTile = item.toChildTiles(with: perentId)
+            let newChildTile = item.toTiles(with: perentId)
             chiledTiles.append(newChildTile)
         }
-        let childTiles = ChildTile(perentId: perentId,
-                                   type: tileType,
-                                   childTiles: chiledTiles,
-                                   position: position,
-                                   rotation: rotation,
-                                   imageName: tileType.getImageName())
+        let childTiles = Tile(id: perentId,
+                              type: tileType,
+                              childTiles: chiledTiles,
+                              position: position,
+                              rotation: rotation,
+                              imageName: tileType.getImageName())
         return childTiles
         
     }
