@@ -30,21 +30,26 @@ final class LevelCreator {
         map.setTileArray(tiles: tiles)
     }
     
-    private func createLevel(with level: Level) -> [Tile] {
-        let levelScheme = level.levelScheme
+    private func createLevel(with level: Level) -> TileLayers {
+        let levelScheme = level.scheme
         //let startPosition = CGPoint(x: 0, y: 0)
         var outputTiles = [Tile]()
         var tileIdentity = 0
-        for (row, tiles) in levelScheme.reversed().enumerated() {
-            for (column, typeTile) in tiles.enumerated() {
-                let position = CGPoint(x: spriteLenght * column, y: spriteLenght * row)
+        
+        var backgroundTiles = [[Tile]]()
+        var mainTiles = [[Tile]]()
+        var topTiles = [[Tile]]()
+        
+        for items in level.scheme.backgroundLayer {
+            for sheme in items {
+                //let position = CGPoint(x: spriteLenght * column, y: spriteLenght * row)
                 
-                switch typeTile {
+                switch sheme {
                 case .singleTile(let tile):
                     let newTile = Tile(id: tileIdentity,
                                        type: tile,
                                        childTiles: [],
-                                       position: position,
+                                       position: CGPoint(x: 0, y: 0),
                                        imageName: tile.getImageName())
                     outputTiles.append(newTile)
                     tileIdentity += 1
@@ -53,16 +58,81 @@ final class LevelCreator {
                     let newTile = Tile(id: tileIdentity,
                                        type: mainTile,
                                        childTiles: childs,
-                                       position: position,
+                                       position: CGPoint(x: 0, y: 0),
                                        imageName: mainTile.getImageName())
                     
                     outputTiles.append(newTile)
                     tileIdentity += 1
                 }
             }
+            
+            backgroundTiles.append(outputTiles)
+            outputTiles = []
         }
         
-        return outputTiles
+        for items in level.scheme.mainLayer {
+            for sheme in items {
+                //let position = CGPoint(x: spriteLenght * column, y: spriteLenght * row)
+                
+                switch sheme {
+                case .singleTile(let tile):
+                    let newTile = Tile(id: tileIdentity,
+                                       type: tile,
+                                       childTiles: [],
+                                       position: CGPoint(x: 0, y: 0),
+                                       imageName: tile.getImageName())
+                    outputTiles.append(newTile)
+                    tileIdentity += 1
+                case .multiTile(let mainTile, let childTiles):
+                    let childs = childTiles.map { $0.toTiles(with: tileIdentity) }
+                    let newTile = Tile(id: tileIdentity,
+                                       type: mainTile,
+                                       childTiles: childs,
+                                       position: CGPoint(x: 0, y: 0),
+                                       imageName: mainTile.getImageName())
+                    
+                    outputTiles.append(newTile)
+                    tileIdentity += 1
+                }
+            }
+            
+            mainTiles.append(outputTiles)
+            outputTiles = []
+        }
+        
+        for items in level.scheme.topLayer {
+            for sheme in items {
+                //let position = CGPoint(x: spriteLenght * column, y: spriteLenght * row)
+                
+                switch sheme {
+                case .singleTile(let tile):
+                    let newTile = Tile(id: tileIdentity,
+                                       type: tile,
+                                       childTiles: [],
+                                       position: CGPoint(x: 0, y: 0),
+                                       imageName: tile.getImageName())
+                    outputTiles.append(newTile)
+                    tileIdentity += 1
+                case .multiTile(let mainTile, let childTiles):
+                    let childs = childTiles.map { $0.toTiles(with: tileIdentity) }
+                    let newTile = Tile(id: tileIdentity,
+                                       type: mainTile,
+                                       childTiles: childs,
+                                       position: CGPoint(x: 0, y: 0),
+                                       imageName: mainTile.getImageName())
+                    
+                    outputTiles.append(newTile)
+                    tileIdentity += 1
+                }
+            }
+            
+            topTiles.append(outputTiles)
+            outputTiles = []
+        }
+        
+        return TileLayers(backgroundTiles: backgroundTiles,
+                          mainTiles: mainTiles,
+                          topTiles: topTiles)
     }
     
 }

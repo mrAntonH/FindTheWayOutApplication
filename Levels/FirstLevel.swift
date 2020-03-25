@@ -10,16 +10,24 @@ import UIKit
 
 protocol Levels {
     
-    func getLevel() -> [[LevelScheme]]
+    func getLevel() -> LevelLayres
+}
+
+struct LevelLayres {
+    var backgroundLayer: [[LevelScheme]]
+    var mainLayer: [[LevelScheme]]
+    var topLayer: [[LevelScheme]]
 }
 
 class FirstLevel: Levels {
-    private let level: [[LevelScheme]]
+    private let levelLayers: LevelLayres
     
     init() {
         // Level description: Every tiles describe how single or multi items in two decimal array
         // Rows(lines) desribes from top to bottom image orientation, on next step their been reversed
-        var configuringLevel = [[LevelScheme]]()
+        var backgroundLayer = [[LevelScheme]]()
+        
+        //Backround layer:
         
         var row = [LevelScheme]()
         row.append(.singleTile(tile: .lawnGroundFirst))
@@ -28,7 +36,7 @@ class FirstLevel: Levels {
         row.append(.singleTile(tile: .wallHorizantalCoupleLines))
         row.append(.singleTile(tile: .wallTopRightCorner))
         
-        configuringLevel.append(row)
+        backgroundLayer.append(row)
         row.removeAll()
         
         row.append(.singleTile(tile: .wallEndLeft))
@@ -37,7 +45,7 @@ class FirstLevel: Levels {
         row.append(.singleTile(tile: .woodFloor))
         row.append(.singleTile(tile: .wallVerticalCoupleLines))
         
-        configuringLevel.append(row)
+        backgroundLayer.append(row)
         row.removeAll()
         
         row.append(.multiTile(mainTile: .woodFloor,
@@ -50,7 +58,7 @@ class FirstLevel: Levels {
         row.append(.singleTile(tile: .woodFloor))
         row.append(.singleTile(tile: .wallVerticalCoupleLines))
         
-        configuringLevel.append(row)
+        backgroundLayer.append(row)
         row.removeAll()
         
         row.append(.singleTile(tile: .wallEndLeft))
@@ -59,7 +67,7 @@ class FirstLevel: Levels {
         row.append(.singleTile(tile: .woodFloor))
         row.append(.singleTile(tile: .wallVerticalCoupleLines))
         
-        configuringLevel.append(row)
+        backgroundLayer.append(row)
         row.removeAll()
         
         row.append(.singleTile(tile: .lawnGroundFirst))
@@ -68,13 +76,16 @@ class FirstLevel: Levels {
         row.append(.singleTile(tile: .wallHorizantalCoupleLines))
         row.append(.singleTile(tile: .wallBottomRightCorner))
         
-        configuringLevel.append(row)
+        backgroundLayer.append(row)
         row.removeAll()
         
-        self.level = configuringLevel
+        let layers = LevelLayres(backgroundLayer: backgroundLayer,
+                                 mainLayer: [],
+                                 topLayer: [])
+        self.levelLayers = layers
     }
     
-    func getLevel() -> [[LevelScheme]] {
-        return level
+    func getLevel() -> LevelLayres {
+        return levelLayers
     }
 }

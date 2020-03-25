@@ -23,13 +23,15 @@ enum Level {
     case level1
     case none
     
-    var levelScheme: [[LevelScheme]] {
+    var scheme: LevelLayres {
         switch self {
         case .level1:
             let level = FirstLevel()
             return level.getLevel()
         case .none:
-            return [[]]
+            return LevelLayres(backgroundLayer: [],
+                               mainLayer: [],
+                               topLayer: [])
         }
     }
 }

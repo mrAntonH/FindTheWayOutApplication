@@ -26,7 +26,9 @@ final class AppRouter {
         let cameraHelper = CameraHelper()
         let gameConfiguration = GameConfiguration(cameraHelper: cameraHelper)
         let levelCreator = LevelCreator(spriteLenght: gameConfiguration.spriteLenght)
-        let map = Map(with: [])
+        let map = Map(with: TileLayers(backgroundTiles: [],
+                                       mainTiles: [],
+                                       topTiles: []))
         
         scene.gameConfiguration = gameConfiguration
         scene.levelCreator = levelCreator

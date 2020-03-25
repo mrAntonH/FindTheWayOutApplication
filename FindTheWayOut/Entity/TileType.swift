@@ -76,6 +76,8 @@ enum TileType {
     case woodDoorCenterHorizontaly
     case woodDoorCenterVertical
     
+    case none
+    
     func getImageName() -> String {
         switch self {
         case .woodFloor:
@@ -172,6 +174,8 @@ enum TileType {
             return R.image.woodDoorCenterHorizontaly.name
         case .woodDoorCenterVertical:
             return R.image.woodDoorCenterVertical.name
+        case .none:
+            return ""
         }
     }
     

@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct TileLayers {
+    var backgroundTiles: [[Tile]]
+    var mainTiles: [[Tile]]
+    var topTiles: [[Tile]]
+}
+
 struct Tile {
     let id: Int
     var type: TileType

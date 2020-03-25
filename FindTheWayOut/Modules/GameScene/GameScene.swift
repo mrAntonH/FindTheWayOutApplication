@@ -23,13 +23,37 @@ class GameScene: MySKScene {
         camera.setScale(scale * 1 / sender.scale)
     }
     
+    //Test SKTiles:
+    private var backgroundTileMap: SKTileMapNode!
+            
+    ///////////////
     
     override func didMove(to view: SKView) {
         setupStartConfiguration()
         setGesture()
-        run(SKAction.wait(forDuration: 5)) { [weak self] in
-            self?.load(level: .level1)
+        
+        guard let tileSet = SKTileSet(named: "Up Level Tiles") else {
+          fatalError("Object Tiles Tile Set not found")
         }
+        
+        backgroundTileMap = SKTileMapNode(tileSet: tileSet,
+                                          columns: 5,
+                                          rows: 5,
+                                          tileSize: CGSize(width: 64,
+                                                           height: 64))
+        let tileGroup = tileSet.tileGroups.first
+//
+        //backgroundTileMap.fill(with: tileGroup)
+        //load(level: .level1)
+        
+        let tile = tileSet.tileGroups.first(where: {$0.name == "wallHorizantalCoupleLines"})
+        backgroundTileMap.setTileGroup(tile, forColumn: 0, row: 0)
+        
+        addChild(backgroundTileMap)
+        
+//        run(SKAction.wait(forDuration: 5)) { [weak self] in
+//            self?.load(level: .level1)
+//        }
   
         
     }
@@ -61,45 +85,43 @@ class GameScene: MySKScene {
     
     private func updateMap() {
         let tilesMap = map.getTileArray()
-        tilesMap.forEach { tile in
-            setupTiles(perentTile: tile)
-        }
+        
+        
+        setupTiles(perentTile: tilesMap.backgroundTiles)
+        
+//        tilesMap.forEach { tile in
+//            setupTiles(perentTile: tile)
+//        }
     }
     
-    private func setupTiles(perentTile: Tile) {
-        let childTiles = perentTile.childTiles
-        let perentNode = SKSpriteNode(imageNamed: perentTile.imageName)
-        perentNode.anchorPoint = CGPoint(x: 0, y: 0)
-        perentNode.position = perentTile.position
-        //perentNode.scale(to: CGSize(width: gameConfiguration.spriteLenght,
-          //                    height: gameConfiguration.spriteLenght))
-        //node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: gameConfiguration.spriteLenght,
-                                                             //height: gameConfiguration.spriteLenght))
-
-        //node.physicsBody?.categoryBitMask = CollisionTypes.wall.rawValue
-        //node.physicsBody?.isDynamic = false
+    private func setupTiles(perentTile: [[Tile]]) {
         
-        
-        childTiles.forEach { tile in
-            
-            let node = SKSpriteNode(imageNamed: tile.type.getImageName())
-            node.anchorPoint = CGPoint(x: 0, y: 0)
-            node.position = CGPoint(x: 0, y: 0)
-            //node.scale(to: CGSize(width: 50,
-             //                     height: 50))
-            //node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: gameConfiguration.spriteLenght,
-                                                                 //height: gameConfiguration.spriteLenght))
-
-//            node.physicsBody?.categoryBitMask = 1
-//            node.physicsBody?.isDynamic = false
-            
-            perentNode.addChild(node)
-            
-            if !tile.childTiles.isEmpty {
-                setupTiles(perentTile: tile)
+        for row in 0..<5 {
+            let items = perentTile[row]
+            for column in 0..<5 {
+                let tile = backgroundTileMap.tileSet.tileGroups.first(where: {$0.name == items[column].imageName})
+                backgroundTileMap.setTileGroup(tile, forColumn: column, row: row)
             }
         }
-        addChild(perentNode)
+        
+//        let childTiles = perentTile.childTiles
+//        let perentNode = SKSpriteNode(imageNamed: perentTile.imageName)
+//        perentNode.anchorPoint = CGPoint(x: 0, y: 0)
+//        perentNode.position = perentTile.position
+//
+//
+//        childTiles.forEach { tile in
+//
+//            let node = SKSpriteNode(imageNamed: tile.type.getImageName())
+//            node.anchorPoint = CGPoint(x: 0, y: 0)
+//            node.position = CGPoint(x: 0, y: 0)
+//            perentNode.addChild(node)
+//
+//            if !tile.childTiles.isEmpty {
+//                setupTiles(perentTile: tile)
+//            }
+//        }
+//        addChild(perentNode)
     }
     
     
