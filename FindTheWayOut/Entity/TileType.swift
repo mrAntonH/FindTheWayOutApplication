@@ -14,6 +14,7 @@ enum TileType {
     case woodFloor
     case tileFloor
     
+    case lawn
     case lawnGroundFirst
     case lawnGroundSecond
     case lawnGroundThird
@@ -81,9 +82,11 @@ enum TileType {
     func getImageName() -> String {
         switch self {
         case .woodFloor:
-            return R.image.woodFloor1.name
+            return "Wood Floor"
         case .tileFloor:
             return R.image.tileFloor1.name
+        case .lawn:
+            return "Lawn"
         case .lawnGroundFirst:
             return R.image.lawnGroundFirst.name
         case .lawnGroundSecond:

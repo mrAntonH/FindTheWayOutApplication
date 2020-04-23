@@ -24,37 +24,23 @@ class GameScene: MySKScene {
     }
     
     //Test SKTiles:
-    private var backgroundTileMap: SKTileMapNode!
+    private var backgroundTileMap = SKTileMapNode()
+    private var mainTileMap = SKTileMapNode()
+    private var topTileMap = SKTileMapNode()
             
     ///////////////
     
     override func didMove(to view: SKView) {
         setupStartConfiguration()
         setGesture()
+        backgroundTileMap.tileSize = CGSize(width: 64,
+                                            height: 64)
+        backgroundTileMap.numberOfRows = 10
+        backgroundTileMap.numberOfColumns = 10
         
-        guard let tileSet = SKTileSet(named: "Up Level Tiles") else {
-          fatalError("Object Tiles Tile Set not found")
-        }
-        
-        backgroundTileMap = SKTileMapNode(tileSet: tileSet,
-                                          columns: 5,
-                                          rows: 5,
-                                          tileSize: CGSize(width: 64,
-                                                           height: 64))
-        let tileGroup = tileSet.tileGroups.first
-//
-        //backgroundTileMap.fill(with: tileGroup)
-        //load(level: .level1)
-        
-        let tile = tileSet.tileGroups.first(where: {$0.name == "wallHorizantalCoupleLines"})
-        backgroundTileMap.setTileGroup(tile, forColumn: 0, row: 0)
-        
-        addChild(backgroundTileMap)
-        
-//        run(SKAction.wait(forDuration: 5)) { [weak self] in
-//            self?.load(level: .level1)
-//        }
-  
+        load(level: .level1)
+        let testTile = SKTileGroup()
+        //backgroundTileMap.setTileGroup(, forColumn: column, row: row)
         
     }
     
@@ -79,8 +65,12 @@ class GameScene: MySKScene {
     
     private func load(level: Level) {
         levelCreator.configure(level: level,
-                               with: map)
-        updateMap()
+                               with: map,
+                               backgroundTileMap: backgroundTileMap,
+                               mainTileMap: mainTileMap,
+                               topTileMap: topTileMap)
+        addChild(backgroundTileMap)
+        //updateMap()
     }
     
     private func updateMap() {

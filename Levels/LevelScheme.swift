@@ -34,4 +34,5 @@ struct MultiTile {
 enum LevelScheme {
     case singleTile(tile: TileType)
     case multiTile(mainTile: TileType, childTiles: [MultiTile])
+    case noTile
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 final class LevelCreator {
     
@@ -25,13 +26,19 @@ final class LevelCreator {
     }
     
     func configure(level: Level,
-                   with map: Map) {
+                   with map: Map,
+                   backgroundTileMap: SKTileMapNode,
+                   mainTileMap: SKTileMapNode,
+                   topTileMap: SKTileMapNode) {
         let tiles = createLevel(with: level)
-        map.setTileArray(tiles: tiles)
+        map.setupTiles(tiles: tiles,
+                       backgroundTileMap: backgroundTileMap,
+                       mainTileMap: mainTileMap,
+                       topTileMap: topTileMap)
     }
     
     private func createLevel(with level: Level) -> TileLayers {
-        let levelScheme = level.scheme
+        //let levelScheme = level.scheme
         //let startPosition = CGPoint(x: 0, y: 0)
         var outputTiles = [Tile]()
         var tileIdentity = 0
@@ -63,6 +70,8 @@ final class LevelCreator {
                     
                     outputTiles.append(newTile)
                     tileIdentity += 1
+                case .noTile:
+                    continue
                 }
             }
             
@@ -93,6 +102,8 @@ final class LevelCreator {
                     
                     outputTiles.append(newTile)
                     tileIdentity += 1
+                case .noTile:
+                    continue
                 }
             }
             
@@ -123,6 +134,8 @@ final class LevelCreator {
                     
                     outputTiles.append(newTile)
                     tileIdentity += 1
+                case .noTile:
+                    continue
                 }
             }
             

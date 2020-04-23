@@ -30,8 +30,8 @@ class FirstLevel: Levels {
         //Backround layer:
         
         var row = [LevelScheme]()
-        row.append(.singleTile(tile: .lawnGroundFirst))
-        row.append(.singleTile(tile: .lawnGroundThird))
+        row.append(.singleTile(tile: .lawn))
+        row.append(.singleTile(tile: .lawn))
         row.append(.singleTile(tile: .wallTopLeftCorner))
         row.append(.singleTile(tile: .wallHorizantalCoupleLines))
         row.append(.singleTile(tile: .wallTopRightCorner))
@@ -70,8 +70,8 @@ class FirstLevel: Levels {
         backgroundLayer.append(row)
         row.removeAll()
         
-        row.append(.singleTile(tile: .lawnGroundFirst))
-        row.append(.singleTile(tile: .lawnGroundFourth))
+        row.append(.singleTile(tile: .lawn))
+        row.append(.singleTile(tile: .lawn))
         row.append(.singleTile(tile: .wallBottomLeftCorner))
         row.append(.singleTile(tile: .wallHorizantalCoupleLines))
         row.append(.singleTile(tile: .wallBottomRightCorner))
