@@ -29,9 +29,7 @@ enum Level {
             let level = FirstLevel()
             return level.getLevel()
         case .none:
-            return LevelLayres(backgroundLayer: [],
-                               mainLayer: [],
-                               topLayer: [])
+            return LevelLayres(backgroundLayer: [])
         }
     }
 }

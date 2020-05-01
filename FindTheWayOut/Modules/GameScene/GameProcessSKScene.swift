@@ -6,10 +6,9 @@
 //  Copyright © 2020 Антон Швец. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
-class MySKScene: SKScene {
+class GameProcessSKScene: SKScene {
     
     var gameConfiguration: GameConfiguration!
     

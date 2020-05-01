@@ -15,19 +15,13 @@ protocol Levels {
 
 struct LevelLayres {
     var backgroundLayer: [[LevelScheme]]
-    var mainLayer: [[LevelScheme]]
-    var topLayer: [[LevelScheme]]
 }
 
 class FirstLevel: Levels {
     private let levelLayers: LevelLayres
     
     init() {
-        // Level description: Every tiles describe how single or multi items in two decimal array
-        // Rows(lines) desribes from top to bottom image orientation, on next step their been reversed
         var backgroundLayer = [[LevelScheme]]()
-        
-        //Backround layer:
         
         var row = [LevelScheme]()
         row.append(.singleTile(tile: .lawn))
@@ -52,10 +46,11 @@ class FirstLevel: Levels {
                               childTiles: [MultiTile(tileType: .woodDoorCenterVertical,
                                                      position: CGPoint(x: 0, y: 0),
                                                      rotation: nil,
-                                                     childTiles: [])]))
-        row.append(.singleTile(tile: .woodFloor))
-        row.append(.singleTile(tile: .woodFloor))
-        row.append(.singleTile(tile: .woodFloor))
+                                                     childTiles: [])],
+                              idNode: 0))
+        row.append(.singleTile(tile: .woodFloor, idNode: 0))
+        row.append(.singleTile(tile: .woodFloor, idNode: 0))
+        row.append(.singleTile(tile: .woodFloor, idNode: 0))
         row.append(.singleTile(tile: .wallVerticalCoupleLines))
         
         backgroundLayer.append(row)
@@ -79,9 +74,7 @@ class FirstLevel: Levels {
         backgroundLayer.append(row)
         row.removeAll()
         
-        let layers = LevelLayres(backgroundLayer: backgroundLayer,
-                                 mainLayer: [],
-                                 topLayer: [])
+        let layers = LevelLayres(backgroundLayer: backgroundLayer)
         self.levelLayers = layers
     }
     

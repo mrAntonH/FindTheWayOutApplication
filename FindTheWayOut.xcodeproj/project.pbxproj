@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		793D282C2416835D0076B97F /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D282B2416835C0076B97F /* GameState.swift */; };
-		793D282E2416907B0076B97F /* MySKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D282D2416907B0076B97F /* MySKScene.swift */; };
+		793D282E2416907B0076B97F /* GameProcessSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D282D2416907B0076B97F /* GameProcessSKScene.swift */; };
 		793D2831241693130076B97F /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D2830241693130076B97F /* CameraHelper.swift */; };
 		793D2833241695500076B97F /* GameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D2832241695500076B97F /* GameConfiguration.swift */; };
 		793D289B2417AE4B0076B97F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D289A2417AE4B0076B97F /* R.generated.swift */; };
@@ -23,6 +23,8 @@
 		793D28BB241811330076B97F /* LevelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D28BA241811330076B97F /* LevelCreator.swift */; };
 		794DF002241CC90600DFBD90 /* LevelScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794DF001241CC90600DFBD90 /* LevelScheme.swift */; };
 		794DF004241CDC3100DFBD90 /* FirstLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794DF003241CDC3100DFBD90 /* FirstLevel.swift */; };
+		79803F2C245C660D007083E8 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79803F2B245C660D007083E8 /* Zone.swift */; };
+		79803F31245C7508007083E8 /* TileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79803F30245C7508007083E8 /* TileManager.swift */; };
 		7984F876242B5FAD002E0650 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7984F875242B5FAD002E0650 /* TileSet.sks */; };
 		7984F878242B915E002E0650 /* LayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984F877242B915E002E0650 /* LayerType.swift */; };
 		7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB7524138DC000C48032 /* AppDelegate.swift */; };
@@ -43,7 +45,7 @@
 		1B75BDBEE491F3EB850414CC /* Pods-FindTheWayOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindTheWayOut.release.xcconfig"; path = "Target Support Files/Pods-FindTheWayOut/Pods-FindTheWayOut.release.xcconfig"; sourceTree = "<group>"; };
 		32036A27CD019AE98136E984 /* Pods_FindTheWayOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindTheWayOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		793D282B2416835C0076B97F /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
-		793D282D2416907B0076B97F /* MySKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySKScene.swift; sourceTree = "<group>"; };
+		793D282D2416907B0076B97F /* GameProcessSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProcessSKScene.swift; sourceTree = "<group>"; };
 		793D2830241693130076B97F /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
 		793D2832241695500076B97F /* GameConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfiguration.swift; sourceTree = "<group>"; };
 		793D289A2417AE4B0076B97F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -59,6 +61,8 @@
 		793D28BA241811330076B97F /* LevelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCreator.swift; sourceTree = "<group>"; };
 		794DF001241CC90600DFBD90 /* LevelScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScheme.swift; sourceTree = "<group>"; };
 		794DF003241CDC3100DFBD90 /* FirstLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLevel.swift; sourceTree = "<group>"; };
+		79803F2B245C660D007083E8 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		79803F30245C7508007083E8 /* TileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileManager.swift; sourceTree = "<group>"; };
 		7984F875242B5FAD002E0650 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		7984F877242B915E002E0650 /* LayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerType.swift; sourceTree = "<group>"; };
 		7992DB7224138DC000C48032 /* FindTheWayOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindTheWayOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,7 @@
 				793D28B32418017E0076B97F /* MapPoint.swift */,
 				793D28B5241801AE0076B97F /* TileType.swift */,
 				7984F877242B915E002E0650 /* LayerType.swift */,
+				79803F2B245C660D007083E8 /* Zone.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -141,6 +146,14 @@
 				793D28B824180D380076B97F /* Map.swift */,
 			);
 			path = GameItems;
+			sourceTree = "<group>";
+		};
+		79803F2F245C749F007083E8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				79803F30245C7508007083E8 /* TileManager.swift */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		7992DB6924138DC000C48032 = {
@@ -165,6 +178,7 @@
 		7992DB7424138DC000C48032 /* FindTheWayOut */ = {
 			isa = PBXGroup;
 			children = (
+				79803F2F245C749F007083E8 /* Assets */,
 				793D28AE2418007F0076B97F /* Entity */,
 				7992DB90241391DA00C48032 /* Modules */,
 				7992DB8F241391CF00C48032 /* Application */,
@@ -222,7 +236,7 @@
 				7992DB7724138DC000C48032 /* GameScene.sks */,
 				7992DB7924138DC100C48032 /* Actions.sks */,
 				7992DB7B24138DC100C48032 /* GameScene.swift */,
-				793D282D2416907B0076B97F /* MySKScene.swift */,
+				793D282D2416907B0076B97F /* GameProcessSKScene.swift */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -402,15 +416,17 @@
 			files = (
 				793D282C2416835D0076B97F /* GameState.swift in Sources */,
 				794DF004241CDC3100DFBD90 /* FirstLevel.swift in Sources */,
+				79803F2C245C660D007083E8 /* Zone.swift in Sources */,
 				7992DB93241396F400C48032 /* AppRouter.swift in Sources */,
 				793D28B924180D380076B97F /* Map.swift in Sources */,
 				793D28BB241811330076B97F /* LevelCreator.swift in Sources */,
 				793D28B42418017E0076B97F /* MapPoint.swift in Sources */,
 				793D28B2241801590076B97F /* Tile.swift in Sources */,
 				793D2831241693130076B97F /* CameraHelper.swift in Sources */,
+				79803F31245C7508007083E8 /* TileManager.swift in Sources */,
 				7992DB7C24138DC100C48032 /* GameScene.swift in Sources */,
 				7992DB7E24138DC100C48032 /* GameViewController.swift in Sources */,
-				793D282E2416907B0076B97F /* MySKScene.swift in Sources */,
+				793D282E2416907B0076B97F /* GameProcessSKScene.swift in Sources */,
 				793D28B6241801AE0076B97F /* TileType.swift in Sources */,
 				793D28AD2417BFCE0076B97F /* Level.swift in Sources */,
 				7984F878242B915E002E0650 /* LayerType.swift in Sources */,

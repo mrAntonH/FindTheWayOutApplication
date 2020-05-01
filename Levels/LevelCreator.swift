@@ -25,51 +25,42 @@ final class LevelCreator {
         self.spriteLenght = spriteLenght
     }
     
-    func configure(level: Level,
-                   with map: Map,
-                   backgroundTileMap: SKTileMapNode,
-                   mainTileMap: SKTileMapNode,
-                   topTileMap: SKTileMapNode) {
-        let tiles = createLevel(with: level)
-        map.setupTiles(tiles: tiles,
-                       backgroundTileMap: backgroundTileMap,
-                       mainTileMap: mainTileMap,
-                       topTileMap: topTileMap)
-    }
+//    func configure(level: Level,
+//                   with map: Map,
+//                   backgroundTileMap: SKTileMapNode) {
+//        let tiles = createLevel(with: level)
+//        map.setupTiles(tiles: tiles,
+//                       backgroundTileMap: backgroundTileMap)
+//    }
     
-    private func createLevel(with level: Level) -> TileLayers {
+    func createLevel(with level: Level) -> TileLayers {
         //let levelScheme = level.scheme
         //let startPosition = CGPoint(x: 0, y: 0)
         var outputTiles = [Tile]()
-        var tileIdentity = 0
         
         var backgroundTiles = [[Tile]]()
-        var mainTiles = [[Tile]]()
-        var topTiles = [[Tile]]()
         
         for items in level.scheme.backgroundLayer {
             for sheme in items {
                 //let position = CGPoint(x: spriteLenght * column, y: spriteLenght * row)
                 
                 switch sheme {
-                case .singleTile(let tile):
-                    let newTile = Tile(id: tileIdentity,
+                case .singleTile(let tile, let idNode):
+                    let newTile = Tile(id: idNode,
                                        type: tile,
                                        childTiles: [],
                                        position: CGPoint(x: 0, y: 0),
                                        imageName: tile.getImageName())
                     outputTiles.append(newTile)
-                    tileIdentity += 1
-                case .multiTile(let mainTile, let childTiles):
-                    let childs = childTiles.map { $0.toTiles(with: tileIdentity) }
-                    let newTile = Tile(id: tileIdentity,
+                case .multiTile(let mainTile, let childTiles, let idNode):
+                    let childs = childTiles.map { $0.toTiles(with: idNode) }
+                    let newTile = Tile(id: idNode,
                                        type: mainTile,
                                        childTiles: childs,
                                        position: CGPoint(x: 0, y: 0),
                                        imageName: mainTile.getImageName())
                     
                     outputTiles.append(newTile)
-                    tileIdentity += 1
                 case .noTile:
                     continue
                 }
@@ -79,73 +70,7 @@ final class LevelCreator {
             outputTiles = []
         }
         
-        for items in level.scheme.mainLayer {
-            for sheme in items {
-                //let position = CGPoint(x: spriteLenght * column, y: spriteLenght * row)
-                
-                switch sheme {
-                case .singleTile(let tile):
-                    let newTile = Tile(id: tileIdentity,
-                                       type: tile,
-                                       childTiles: [],
-                                       position: CGPoint(x: 0, y: 0),
-                                       imageName: tile.getImageName())
-                    outputTiles.append(newTile)
-                    tileIdentity += 1
-                case .multiTile(let mainTile, let childTiles):
-                    let childs = childTiles.map { $0.toTiles(with: tileIdentity) }
-                    let newTile = Tile(id: tileIdentity,
-                                       type: mainTile,
-                                       childTiles: childs,
-                                       position: CGPoint(x: 0, y: 0),
-                                       imageName: mainTile.getImageName())
-                    
-                    outputTiles.append(newTile)
-                    tileIdentity += 1
-                case .noTile:
-                    continue
-                }
-            }
-            
-            mainTiles.append(outputTiles)
-            outputTiles = []
-        }
-        
-        for items in level.scheme.topLayer {
-            for sheme in items {
-                //let position = CGPoint(x: spriteLenght * column, y: spriteLenght * row)
-                
-                switch sheme {
-                case .singleTile(let tile):
-                    let newTile = Tile(id: tileIdentity,
-                                       type: tile,
-                                       childTiles: [],
-                                       position: CGPoint(x: 0, y: 0),
-                                       imageName: tile.getImageName())
-                    outputTiles.append(newTile)
-                    tileIdentity += 1
-                case .multiTile(let mainTile, let childTiles):
-                    let childs = childTiles.map { $0.toTiles(with: tileIdentity) }
-                    let newTile = Tile(id: tileIdentity,
-                                       type: mainTile,
-                                       childTiles: childs,
-                                       position: CGPoint(x: 0, y: 0),
-                                       imageName: mainTile.getImageName())
-                    
-                    outputTiles.append(newTile)
-                    tileIdentity += 1
-                case .noTile:
-                    continue
-                }
-            }
-            
-            topTiles.append(outputTiles)
-            outputTiles = []
-        }
-        
-        return TileLayers(backgroundTiles: backgroundTiles,
-                          mainTiles: mainTiles,
-                          topTiles: topTiles)
+        return TileLayers(backgroundTiles: backgroundTiles)
     }
     
 }

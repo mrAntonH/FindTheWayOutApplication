@@ -19,20 +19,18 @@ final class AppRouter {
     
     func startApplication() {
         
-        guard let scene = MySKScene(fileNamed: "GameScene") else { return }
+        guard let scene = GameProcessSKScene(fileNamed: "GameScene") else { return }
         
         let vc = GameViewController()
         let viewModel = GameViewModel()
         let cameraHelper = CameraHelper()
         let gameConfiguration = GameConfiguration(cameraHelper: cameraHelper)
         let levelCreator = LevelCreator(spriteLenght: gameConfiguration.spriteLenght)
-        let map = Map(with: TileLayers(backgroundTiles: [],
-                                       mainTiles: [],
-                                       topTiles: []))
+        //let map = Map(with: TileLayers(backgroundTiles: []))
         
         scene.gameConfiguration = gameConfiguration
         scene.levelCreator = levelCreator
-        scene.map = map
+        //scene.map = map
         vc.scene = scene
         
         vc.viewModel = viewModel

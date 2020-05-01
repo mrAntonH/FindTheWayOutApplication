@@ -13,7 +13,7 @@ import GameplayKit
 final class GameViewController: UIViewController {
     
     var viewModel: GameViewModel!
-    var scene: MySKScene!
+    var scene: GameProcessSKScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()

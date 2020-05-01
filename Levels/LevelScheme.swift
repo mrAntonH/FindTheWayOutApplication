@@ -14,7 +14,7 @@ struct MultiTile {
     var rotation: CGFloat?
     var childTiles: [MultiTile]
     
-    func toTiles(with perentId: Int) -> Tile {
+    func toTiles(with perentId: Int?) -> Tile {
         var chiledTiles = [Tile]()
         for item in childTiles {
             let newChildTile = item.toTiles(with: perentId)
@@ -32,7 +32,7 @@ struct MultiTile {
 }
 
 enum LevelScheme {
-    case singleTile(tile: TileType)
-    case multiTile(mainTile: TileType, childTiles: [MultiTile])
+    case singleTile(tile: TileType, idNode: Int? = nil)
+    case multiTile(mainTile: TileType, childTiles: [MultiTile], idNode: Int? = nil)
     case noTile
 }

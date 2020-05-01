@@ -9,38 +9,13 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: MySKScene {
-    
-    @objc private func pinchGestureAction(_ sender: UIPinchGestureRecognizer) {
-        guard let camera = self.camera else {
-            return
-        }
-        
-        if sender.state == .began {
-            gameConfiguration.cameraHelper.setPreviousScale(value: camera.xScale)
-        }
-        let scale = gameConfiguration.cameraHelper.getPreviousScale()
-        camera.setScale(scale * 1 / sender.scale)
-    }
-    
-    //Test SKTiles:
-    private var backgroundTileMap = SKTileMapNode()
-    private var mainTileMap = SKTileMapNode()
-    private var topTileMap = SKTileMapNode()
-            
-    ///////////////
+class GameScene: GameProcessSKScene {
     
     override func didMove(to view: SKView) {
         setupStartConfiguration()
         setGesture()
-        backgroundTileMap.tileSize = CGSize(width: 64,
-                                            height: 64)
-        backgroundTileMap.numberOfRows = 10
-        backgroundTileMap.numberOfColumns = 10
         
         load(level: .level1)
-        let testTile = SKTileGroup()
-        //backgroundTileMap.setTileGroup(, forColumn: column, row: row)
         
     }
     
@@ -64,35 +39,52 @@ class GameScene: MySKScene {
     }
     
     private func load(level: Level) {
-        levelCreator.configure(level: level,
-                               with: map,
-                               backgroundTileMap: backgroundTileMap,
-                               mainTileMap: mainTileMap,
-                               topTileMap: topTileMap)
-        addChild(backgroundTileMap)
-        //updateMap()
+        let levelTiles = levelCreator.createLevel(with: level)
+        let mapTileNode = Map(with: levelTiles,
+                              columns: 5,
+                              rows: 5,
+                              tileSize: CGSize(width: 64,
+                                               height: 64))
+        mapTileNode.anchorPoint = CGPoint(x: 0, y: 0)
+        mapTileNode.position = CGPoint(x: 0,
+                                       y: 0)
+        mapTileNode.zPosition = 0
+        map = mapTileNode
+        addChild(mapTileNode)
     }
     
-    private func updateMap() {
-        let tilesMap = map.getTileArray()
-        
-        
-        setupTiles(perentTile: tilesMap.backgroundTiles)
-        
-//        tilesMap.forEach { tile in
-//            setupTiles(perentTile: tile)
-//        }
-    }
-    
-    private func setupTiles(perentTile: [[Tile]]) {
-        
-        for row in 0..<5 {
-            let items = perentTile[row]
-            for column in 0..<5 {
-                let tile = backgroundTileMap.tileSet.tileGroups.first(where: {$0.name == items[column].imageName})
-                backgroundTileMap.setTileGroup(tile, forColumn: column, row: row)
-            }
+    @objc private func pinchGestureAction(_ sender: UIPinchGestureRecognizer) {
+        guard let camera = self.camera else {
+            return
         }
+        
+        if sender.state == .began {
+            gameConfiguration.cameraHelper.setPreviousScale(value: camera.xScale)
+        }
+        let scale = gameConfiguration.cameraHelper.getPreviousScale()
+        camera.setScale(scale * 1 / sender.scale)
+    }
+    
+//    private func updateMap() {
+//        let tilesMap = map.getTileArray()
+//
+//
+//        setupTiles(perentTile: tilesMap.backgroundTiles)
+//
+////        tilesMap.forEach { tile in
+////            setupTiles(perentTile: tile)
+////        }
+//    }
+    
+//    private func setupTiles(perentTile: [[Tile]]) {
+//
+//        for row in 0..<5 {
+//            let items = perentTile[row]
+//            for column in 0..<5 {
+//                let tile = backgroundTileMap.tileSet.tileGroups.first(where: {$0.name == items[column].imageName})
+//                backgroundTileMap.setTileGroup(tile, forColumn: column, row: row)
+//            }
+//        }
         
 //        let childTiles = perentTile.childTiles
 //        let perentNode = SKSpriteNode(imageNamed: perentTile.imageName)
@@ -112,7 +104,7 @@ class GameScene: MySKScene {
 //            }
 //        }
 //        addChild(perentNode)
-    }
+   // }
     
     
     
@@ -122,6 +114,15 @@ class GameScene: MySKScene {
         }
         
         let location = touch.location(in: self)
+        map.selectZone(at: location)
+        let column = map.tileColumnIndex(fromPosition: location)
+        let row = map.tileRowIndex(fromPosition: location)
+        let tile = map.tileGroup(atColumn: column, row: row)
+        print(map.numberOfRows)
+        print(map.numberOfColumns)
+        print(map.frame)
+        print(map.position)
+        print(tile)
         
         let tiles = self.atPoint(location)
         

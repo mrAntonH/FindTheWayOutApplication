@@ -10,19 +10,17 @@ import UIKit
 
 struct TileLayers {
     var backgroundTiles: [[Tile]]
-    var mainTiles: [[Tile]]
-    var topTiles: [[Tile]]
 }
 
 struct Tile {
-    let id: Int
+    let id: Int?
     var type: TileType
     var childTiles: [Tile]
     var position: CGPoint
     var rotation: CGFloat?
     var imageName: String
     
-    init(id: Int,
+    init(id: Int?,
          type: TileType,
          childTiles: [Tile],
          position: CGPoint,
