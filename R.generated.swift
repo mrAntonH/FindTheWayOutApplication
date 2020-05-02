@@ -16,10 +16,12 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.file` struct is generated, and contains static references to 4 files.
+  /// This `R.file` struct is generated, and contains static references to 5 files.
   struct file {
     /// Resource file `Actions.sks`.
     static let actionsSks = Rswift.FileResource(bundle: R.hostingBundle, name: "Actions", pathExtension: "sks")
+    /// Resource file `FireEffect.sks`.
+    static let fireEffectSks = Rswift.FileResource(bundle: R.hostingBundle, name: "FireEffect", pathExtension: "sks")
     /// Resource file `GameScene.sks`.
     static let gameSceneSks = Rswift.FileResource(bundle: R.hostingBundle, name: "GameScene", pathExtension: "sks")
     /// Resource file `Level1.txt`.
@@ -30,6 +32,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "Actions", withExtension: "sks")`
     static func actionsSks(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.actionsSks
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "FireEffect", withExtension: "sks")`
+    static func fireEffectSks(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.fireEffectSks
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -54,7 +62,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 451 images.
+  /// This `R.image` struct is generated, and contains static references to 453 images.
   struct image {
     /// Image `Cobblestone_Grid_Center`.
     static let cobblestone_Grid_Center = Rswift.ImageResource(bundle: R.hostingBundle, name: "Cobblestone_Grid_Center")
@@ -862,6 +870,8 @@ struct R: Rswift.Validatable {
     static let blackTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "blackTile")
     /// Image `block_05`.
     static let block_05 = Rswift.ImageResource(bundle: R.hostingBundle, name: "block_05")
+    /// Image `bokeh`.
+    static let bokeh = Rswift.ImageResource(bundle: R.hostingBundle, name: "bokeh")
     /// Image `chair`.
     static let chair = Rswift.ImageResource(bundle: R.hostingBundle, name: "chair")
     /// Image `door`.
@@ -890,6 +900,8 @@ struct R: Rswift.Validatable {
     static let sofaLeftTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "sofaLeftTile")
     /// Image `sofaRightTile`.
     static let sofaRightTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "sofaRightTile")
+    /// Image `spark`.
+    static let spark = Rswift.ImageResource(bundle: R.hostingBundle, name: "spark")
     /// Image `tileFloor1`.
     static let tileFloor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tileFloor1")
     /// Image `wallBottomLeftCorner`.
@@ -2974,6 +2986,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.block_05, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "bokeh", bundle: ..., traitCollection: ...)`
+    static func bokeh(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bokeh, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "chair", bundle: ..., traitCollection: ...)`
     static func chair(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.chair, compatibleWith: traitCollection)
@@ -3042,6 +3059,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "sofaRightTile", bundle: ..., traitCollection: ...)`
     static func sofaRightTile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.sofaRightTile, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "spark", bundle: ..., traitCollection: ...)`
+    static func spark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.spark, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "tileFloor1", bundle: ..., traitCollection: ...)`

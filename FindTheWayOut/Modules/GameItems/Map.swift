@@ -32,15 +32,27 @@ final class Map: SKTileMapNode {
     }
     
     func selectZone(at point: CGPoint) {
-        interectiveMap.forEach { _, value in
+        interectiveMap.forEach { key, value in
             if let frame = value.frame {
                 if frame.contains(point) {
                     // TEST CODE:
                     let barra = SKShapeNode(rect: frame)
                     barra.name = "bar"
-                    barra.fillColor = .red
+                    barra.fillColor = .cyan
+//                    let colorAction = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.2)
+//                    let uncolorAction = SKAction.colorize(with: .red, colorBlendFactor: 0.0, duration: 0.2)
+//                    let seq = SKAction.sequence([colorAction, uncolorAction])
+//                    let repeatAction = SKAction.repeat(seq, count: 10)
                     barra.zPosition = 5
+//                    barra.run(repeatAction)
+                    
+//                    if let fire = SKEmitterNode(fileNamed: "FireEffect") {
+//                        fire.position = CGPoint(x: frame.midX, y: frame.midY)
+//                        addChild(fire)
+//
+//                    }
                     self.addChild(barra)
+                    
                     /////
                 }
             }
@@ -85,14 +97,32 @@ final class Map: SKTileMapNode {
                 * tileSize.width
             let height = CGFloat(newValue.rowOfMaxTile - newValue.rowOfMinTile + 1)
                 * tileSize.height
-            newValue.frame = CGRect(x: startX,
-                                    y: startY,
-                                    width: width,
-                                    height: height)
+            let frame = CGRect(x: startX,
+                               y: startY,
+                               width: width,
+                               height: height)
+            newValue.frame = frame
+            setBorders(frame: frame)
+            setTitle(forRoom: key,
+                     coordinate: CGPoint(x: startX + width / 2,
+                                         y: startY + height / 2))
             return (key, newValue)
         })
 
     }
     
+    private func setTitle(forRoom number: Int, coordinate: CGPoint) {
+        let text = SKLabelNode(text: "Room \(number)")
+        text.fontName = StandartFonts.AmericanTypewriterBold.description
+        text.position = coordinate
+        text.zPosition = 100
+        addChild(text)
+    }
+    
+    private func setBorders(frame: CGRect) {
+        let shape = SKShapeNode(rect: frame)
+        shape.strokeColor = .white
+        addChild(shape)
+    }
     
 }
