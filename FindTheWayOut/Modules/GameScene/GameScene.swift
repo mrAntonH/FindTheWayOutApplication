@@ -41,8 +41,8 @@ class GameScene: GameProcessSKScene {
     private func load(level: Level) {
         let levelTiles = levelCreator.createLevel(with: level)
         let mapTileNode = Map(with: levelTiles,
-                              columns: 5,
-                              rows: 5,
+                              columns: 23,
+                              rows: 20,
                               tileSize: CGSize(width: 64,
                                                height: 64))
         mapTileNode.anchorPoint = CGPoint(x: 0, y: 0)
