@@ -10,6 +10,4 @@ import Foundation
 
 enum LayerType {
     case backgroundArea
-    case mainArea
-    case topArea
 }

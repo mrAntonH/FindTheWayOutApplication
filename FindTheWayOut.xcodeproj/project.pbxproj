@@ -22,11 +22,15 @@
 		793D28BB241811330076B97F /* LevelCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D28BA241811330076B97F /* LevelCreator.swift */; };
 		794DF002241CC90600DFBD90 /* LevelScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794DF001241CC90600DFBD90 /* LevelScheme.swift */; };
 		794DF004241CDC3100DFBD90 /* FirstLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794DF003241CDC3100DFBD90 /* FirstLevel.swift */; };
+		7953BB82245DFC6E00DE8D11 /* Light.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7953BB81245DFC6E00DE8D11 /* Light.sks */; };
+		7953BB85245EA67500DE8D11 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7953BB84245EA67500DE8D11 /* ButtonNode.swift */; };
+		7953BB87245EAF2700DE8D11 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7953BB86245EAF2700DE8D11 /* SceneManager.swift */; };
 		79803F2C245C660D007083E8 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79803F2B245C660D007083E8 /* Zone.swift */; };
 		79803F31245C7508007083E8 /* TileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79803F30245C7508007083E8 /* TileManager.swift */; };
 		79803F34245D959F007083E8 /* FireEffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79803F32245D959F007083E8 /* FireEffect.sks */; };
 		79803F35245D959F007083E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79803F33245D959F007083E8 /* Assets.xcassets */; };
 		79803F37245D9F73007083E8 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79803F36245D9F73007083E8 /* Fonts.swift */; };
+		79803F3D245DB236007083E8 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79803F3C245DB236007083E8 /* MenuScene.swift */; };
 		7984F876242B5FAD002E0650 /* TileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7984F875242B5FAD002E0650 /* TileSet.sks */; };
 		7984F878242B915E002E0650 /* LayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984F877242B915E002E0650 /* LayerType.swift */; };
 		7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB7524138DC000C48032 /* AppDelegate.swift */; };
@@ -62,11 +66,15 @@
 		793D28BA241811330076B97F /* LevelCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCreator.swift; sourceTree = "<group>"; };
 		794DF001241CC90600DFBD90 /* LevelScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScheme.swift; sourceTree = "<group>"; };
 		794DF003241CDC3100DFBD90 /* FirstLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLevel.swift; sourceTree = "<group>"; };
+		7953BB81245DFC6E00DE8D11 /* Light.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Light.sks; sourceTree = "<group>"; };
+		7953BB84245EA67500DE8D11 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		7953BB86245EAF2700DE8D11 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		79803F2B245C660D007083E8 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		79803F30245C7508007083E8 /* TileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileManager.swift; sourceTree = "<group>"; };
 		79803F32245D959F007083E8 /* FireEffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireEffect.sks; sourceTree = "<group>"; };
 		79803F33245D959F007083E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79803F36245D9F73007083E8 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		79803F3C245DB236007083E8 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		7984F875242B5FAD002E0650 /* TileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TileSet.sks; sourceTree = "<group>"; };
 		7984F877242B915E002E0650 /* LayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerType.swift; sourceTree = "<group>"; };
 		7992DB7224138DC000C48032 /* FindTheWayOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindTheWayOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,11 +159,20 @@
 			path = GameItems;
 			sourceTree = "<group>";
 		};
+		7953BB83245EA65900DE8D11 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7953BB84245EA67500DE8D11 /* ButtonNode.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		79803F2F245C749F007083E8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				79803F30245C7508007083E8 /* TileManager.swift */,
 				79803F32245D959F007083E8 /* FireEffect.sks */,
+				7953BB81245DFC6E00DE8D11 /* Light.sks */,
 				79803F33245D959F007083E8 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -228,6 +245,7 @@
 		7992DB90241391DA00C48032 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7953BB83245EA65900DE8D11 /* Classes */,
 				793D28B724180D090076B97F /* GameItems */,
 				7992DB912413920900C48032 /* GameScene */,
 				793D282F241692C40076B97F /* GameProperties */,
@@ -243,6 +261,8 @@
 				7992DB7924138DC100C48032 /* Actions.sks */,
 				7992DB7B24138DC100C48032 /* GameScene.swift */,
 				793D282D2416907B0076B97F /* GameProcessSKScene.swift */,
+				79803F3C245DB236007083E8 /* MenuScene.swift */,
+				7953BB86245EAF2700DE8D11 /* SceneManager.swift */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -340,6 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7953BB82245DFC6E00DE8D11 /* Light.sks in Resources */,
 				7984F876242B5FAD002E0650 /* TileSet.sks in Resources */,
 				7992DB7824138DC000C48032 /* GameScene.sks in Resources */,
 				79803F35245D959F007083E8 /* Assets.xcassets in Resources */,
@@ -427,6 +448,7 @@
 				79803F2C245C660D007083E8 /* Zone.swift in Sources */,
 				7992DB93241396F400C48032 /* AppRouter.swift in Sources */,
 				793D28B924180D380076B97F /* Map.swift in Sources */,
+				7953BB85245EA67500DE8D11 /* ButtonNode.swift in Sources */,
 				793D28BB241811330076B97F /* LevelCreator.swift in Sources */,
 				793D28B2241801590076B97F /* Tile.swift in Sources */,
 				793D2831241693130076B97F /* CameraHelper.swift in Sources */,
@@ -439,9 +461,11 @@
 				793D28AD2417BFCE0076B97F /* Level.swift in Sources */,
 				7984F878242B915E002E0650 /* LayerType.swift in Sources */,
 				7992DB9624139E3E00C48032 /* GameViewModel.swift in Sources */,
+				79803F3D245DB236007083E8 /* MenuScene.swift in Sources */,
 				7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */,
 				794DF002241CC90600DFBD90 /* LevelScheme.swift in Sources */,
 				793D2833241695500076B97F /* GameConfiguration.swift in Sources */,
+				7953BB87245EAF2700DE8D11 /* SceneManager.swift in Sources */,
 				793D289B2417AE4B0076B97F /* R.generated.swift in Sources */,
 				7992DBA12414C54400C48032 /* CustomError.swift in Sources */,
 			);

@@ -27,6 +27,7 @@ class GameScene: GameProcessSKScene {
     
     private func setupStartConfiguration() {
         setupCamera()
+        
     }
     
     private func setupCamera() {

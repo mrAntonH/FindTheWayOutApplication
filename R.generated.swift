@@ -16,7 +16,7 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.file` struct is generated, and contains static references to 5 files.
+  /// This `R.file` struct is generated, and contains static references to 6 files.
   struct file {
     /// Resource file `Actions.sks`.
     static let actionsSks = Rswift.FileResource(bundle: R.hostingBundle, name: "Actions", pathExtension: "sks")
@@ -26,6 +26,8 @@ struct R: Rswift.Validatable {
     static let gameSceneSks = Rswift.FileResource(bundle: R.hostingBundle, name: "GameScene", pathExtension: "sks")
     /// Resource file `Level1.txt`.
     static let level1Txt = Rswift.FileResource(bundle: R.hostingBundle, name: "Level1", pathExtension: "txt")
+    /// Resource file `Light.sks`.
+    static let lightSks = Rswift.FileResource(bundle: R.hostingBundle, name: "Light", pathExtension: "sks")
     /// Resource file `TileSet.sks`.
     static let tileSetSks = Rswift.FileResource(bundle: R.hostingBundle, name: "TileSet", pathExtension: "sks")
     
@@ -53,6 +55,12 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
     
+    /// `bundle.url(forResource: "Light", withExtension: "sks")`
+    static func lightSks(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.lightSks
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
     /// `bundle.url(forResource: "TileSet", withExtension: "sks")`
     static func tileSetSks(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.tileSetSks
@@ -62,7 +70,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 453 images.
+  /// This `R.image` struct is generated, and contains static references to 458 images.
   struct image {
     /// Image `Cobblestone_Grid_Center`.
     static let cobblestone_Grid_Center = Rswift.ImageResource(bundle: R.hostingBundle, name: "Cobblestone_Grid_Center")
@@ -866,6 +874,10 @@ struct R: Rswift.Validatable {
     static let water_Grid_Up_Frame_9 = Rswift.ImageResource(bundle: R.hostingBundle, name: "Water_Grid_Up_Frame_9")
     /// Image `armChair`.
     static let armChair = Rswift.ImageResource(bundle: R.hostingBundle, name: "armChair")
+    /// Image `background1`.
+    static let background1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "background1")
+    /// Image `backgroundGraphShadow`.
+    static let backgroundGraphShadow = Rswift.ImageResource(bundle: R.hostingBundle, name: "backgroundGraphShadow")
     /// Image `blackTile`.
     static let blackTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "blackTile")
     /// Image `block_05`.
@@ -878,6 +890,8 @@ struct R: Rswift.Validatable {
     static let door = Rswift.ImageResource(bundle: R.hostingBundle, name: "door")
     /// Image `floor1`.
     static let floor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "floor1")
+    /// Image `graph`.
+    static let graph = Rswift.ImageResource(bundle: R.hostingBundle, name: "graph")
     /// Image `largeTableCenterTile`.
     static let largeTableCenterTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "largeTableCenterTile")
     /// Image `largeTableLeftTile`.
@@ -892,6 +906,10 @@ struct R: Rswift.Validatable {
     static let lawnGroundSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "lawnGroundSecond")
     /// Image `lawnGroundThird`.
     static let lawnGroundThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "lawnGroundThird")
+    /// Image `logo`.
+    static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
+    /// Image `menuButton`.
+    static let menuButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "menuButton")
     /// Image `smallTable`.
     static let smallTable = Rswift.ImageResource(bundle: R.hostingBundle, name: "smallTable")
     /// Image `sofaCenterTile`.
@@ -2976,6 +2994,16 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.armChair, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "background1", bundle: ..., traitCollection: ...)`
+    static func background1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.background1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "backgroundGraphShadow", bundle: ..., traitCollection: ...)`
+    static func backgroundGraphShadow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.backgroundGraphShadow, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "blackTile", bundle: ..., traitCollection: ...)`
     static func blackTile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.blackTile, compatibleWith: traitCollection)
@@ -3004,6 +3032,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "floor1", bundle: ..., traitCollection: ...)`
     static func floor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.floor1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "graph", bundle: ..., traitCollection: ...)`
+    static func graph(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.graph, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "largeTableCenterTile", bundle: ..., traitCollection: ...)`
@@ -3039,6 +3072,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "lawnGroundThird", bundle: ..., traitCollection: ...)`
     static func lawnGroundThird(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.lawnGroundThird, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
+    static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "menuButton", bundle: ..., traitCollection: ...)`
+    static func menuButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menuButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "smallTable", bundle: ..., traitCollection: ...)`

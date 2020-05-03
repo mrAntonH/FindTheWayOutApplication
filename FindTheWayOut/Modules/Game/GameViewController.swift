@@ -13,10 +13,12 @@ import GameplayKit
 final class GameViewController: UIViewController {
     
     var viewModel: GameViewModel!
-    var scene: GameProcessSKScene!
+    //var scene: GameProcessSKScene!
+    //var main = MenuScene()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        main = MenuScene(size: self.view.bounds.size)
         self.configureGameScene()
         
     }
@@ -27,7 +29,7 @@ final class GameViewController: UIViewController {
         guard let view = view as! SKView? else { return }
         scene.size = view.frame.size
         //scene.scaleMode = .aspectFill
-        view.presentScene(scene)
+        view.presentScene(main)
         
         view.ignoresSiblingOrder = true
         view.showsNodeCount = true

@@ -11,15 +11,19 @@ import SpriteKit
 
 final class AppRouter {
     
-    let window: UIWindow
+    private let window: UIWindow
+    private let sceneManager: SceneManager
     
-    init(window: UIWindow) {
+    init(window: UIWindow,
+         sceneManager: SceneManager = SceneManager.shared) {
         self.window = window
+        self.sceneManager = sceneManager
     }
     
     func startApplication() {
         
-        guard let scene = GameProcessSKScene(fileNamed: "GameScene") else { return }
+        //guard let scene = GameProcessSKScene(fileNamed: "GameScene") else { return }
+        let scene = GameScene()
         
         let vc = GameViewController()
         let viewModel = GameViewModel()
@@ -31,7 +35,9 @@ final class AppRouter {
         scene.gameConfiguration = gameConfiguration
         scene.levelCreator = levelCreator
         //scene.map = map
-        vc.scene = scene
+        
+        //vc.scene = scene
+//        sceneManager.gameScene = sc
         
         vc.viewModel = viewModel
         self.setRoot(viewController: vc)
