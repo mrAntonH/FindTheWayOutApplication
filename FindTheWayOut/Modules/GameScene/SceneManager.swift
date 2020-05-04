@@ -13,11 +13,17 @@ final class SceneManager {
     static let shared = SceneManager()
     
     var gameScene: GameScene?
+    var menuScene: MenuScene?
     
     private init() {}
     
     func configureNewGameScene() {
+       // let newGame = GameScene()
         
+    }
+    
+    func createMenuScene(size: CGSize) {
+        menuScene = MenuScene(size: size)
     }
     
 }

@@ -44,6 +44,10 @@
 		7992DB9624139E3E00C48032 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB9524139E3E00C48032 /* GameViewModel.swift */; };
 		7992DBA12414C54400C48032 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DBA02414C54400C48032 /* CustomError.swift */; };
 		7992DBA52414C9F000C48032 /* Level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7992DBA42414C9F000C48032 /* Level1.txt */; };
+		79AF791B245F2B8F00597583 /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF791A245F2B8F00597583 /* ApiRouter.swift */; };
+		79AF791D245F2B9900597583 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF791C245F2B9900597583 /* ApiClient.swift */; };
+		79AF791F245F33C200597583 /* ApiErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF791E245F33C200597583 /* ApiErrors.swift */; };
+		79B45982245ED1FA008B9403 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B45981245ED1FA008B9403 /* HUD.swift */; };
 		E0448890F0C8E0DDE8D0CC8D /* Pods_FindTheWayOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32036A27CD019AE98136E984 /* Pods_FindTheWayOut.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +94,10 @@
 		7992DB9524139E3E00C48032 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		7992DBA02414C54400C48032 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		7992DBA42414C9F000C48032 /* Level1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Level1.txt; sourceTree = "<group>"; };
+		79AF791A245F2B8F00597583 /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
+		79AF791C245F2B9900597583 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		79AF791E245F33C200597583 /* ApiErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrors.swift; sourceTree = "<group>"; };
+		79B45981245ED1FA008B9403 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		79E783BD8FA7BB6370B63199 /* Pods-FindTheWayOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindTheWayOut.debug.xcconfig"; path = "Target Support Files/Pods-FindTheWayOut/Pods-FindTheWayOut.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,18 +159,12 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		793D28B724180D090076B97F /* GameItems */ = {
-			isa = PBXGroup;
-			children = (
-				793D28B824180D380076B97F /* Map.swift */,
-			);
-			path = GameItems;
-			sourceTree = "<group>";
-		};
 		7953BB83245EA65900DE8D11 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				793D28B824180D380076B97F /* Map.swift */,
 				7953BB84245EA67500DE8D11 /* ButtonNode.swift */,
+				79B45981245ED1FA008B9403 /* HUD.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -245,8 +247,8 @@
 		7992DB90241391DA00C48032 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				79AF7915245F275700597583 /* Networking */,
 				7953BB83245EA65900DE8D11 /* Classes */,
-				793D28B724180D090076B97F /* GameItems */,
 				7992DB912413920900C48032 /* GameScene */,
 				793D282F241692C40076B97F /* GameProperties */,
 				7992DB9424139E2500C48032 /* Game */,
@@ -287,6 +289,16 @@
 			);
 			name = Levels;
 			path = ../Levels;
+			sourceTree = "<group>";
+		};
+		79AF7915245F275700597583 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				79AF791A245F2B8F00597583 /* ApiRouter.swift */,
+				79AF791C245F2B9900597583 /* ApiClient.swift */,
+				79AF791E245F33C200597583 /* ApiErrors.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		AD2D435514D192C4587FD4EE /* Pods */ = {
@@ -450,11 +462,14 @@
 				793D28B924180D380076B97F /* Map.swift in Sources */,
 				7953BB85245EA67500DE8D11 /* ButtonNode.swift in Sources */,
 				793D28BB241811330076B97F /* LevelCreator.swift in Sources */,
+				79AF791D245F2B9900597583 /* ApiClient.swift in Sources */,
+				79B45982245ED1FA008B9403 /* HUD.swift in Sources */,
 				793D28B2241801590076B97F /* Tile.swift in Sources */,
 				793D2831241693130076B97F /* CameraHelper.swift in Sources */,
 				79803F31245C7508007083E8 /* TileManager.swift in Sources */,
 				79803F37245D9F73007083E8 /* Fonts.swift in Sources */,
 				7992DB7C24138DC100C48032 /* GameScene.swift in Sources */,
+				79AF791F245F33C200597583 /* ApiErrors.swift in Sources */,
 				7992DB7E24138DC100C48032 /* GameViewController.swift in Sources */,
 				793D282E2416907B0076B97F /* GameProcessSKScene.swift in Sources */,
 				793D28B6241801AE0076B97F /* TileType.swift in Sources */,
@@ -464,6 +479,7 @@
 				79803F3D245DB236007083E8 /* MenuScene.swift in Sources */,
 				7992DB7624138DC000C48032 /* AppDelegate.swift in Sources */,
 				794DF002241CC90600DFBD90 /* LevelScheme.swift in Sources */,
+				79AF791B245F2B8F00597583 /* ApiRouter.swift in Sources */,
 				793D2833241695500076B97F /* GameConfiguration.swift in Sources */,
 				7953BB87245EAF2700DE8D11 /* SceneManager.swift in Sources */,
 				793D289B2417AE4B0076B97F /* R.generated.swift in Sources */,

@@ -70,7 +70,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 458 images.
+  /// This `R.image` struct is generated, and contains static references to 460 images.
   struct image {
     /// Image `Cobblestone_Grid_Center`.
     static let cobblestone_Grid_Center = Rswift.ImageResource(bundle: R.hostingBundle, name: "Cobblestone_Grid_Center")
@@ -920,6 +920,8 @@ struct R: Rswift.Validatable {
     static let sofaRightTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "sofaRightTile")
     /// Image `spark`.
     static let spark = Rswift.ImageResource(bundle: R.hostingBundle, name: "spark")
+    /// Image `startWayShape`.
+    static let startWayShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "startWayShape")
     /// Image `tileFloor1`.
     static let tileFloor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tileFloor1")
     /// Image `wallBottomLeftCorner`.
@@ -966,6 +968,8 @@ struct R: Rswift.Validatable {
     static let wallTopRightCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallTopRightCorner")
     /// Image `wallVerticalCoupleLines`.
     static let wallVerticalCoupleLines = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallVerticalCoupleLines")
+    /// Image `wayShape`.
+    static let wayShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "wayShape")
     /// Image `windowBottom`.
     static let windowBottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "windowBottom")
     /// Image `windowLeft`.
@@ -3109,6 +3113,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.spark, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "startWayShape", bundle: ..., traitCollection: ...)`
+    static func startWayShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.startWayShape, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "tileFloor1", bundle: ..., traitCollection: ...)`
     static func tileFloor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.tileFloor1, compatibleWith: traitCollection)
@@ -3222,6 +3231,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "wallVerticalCoupleLines", bundle: ..., traitCollection: ...)`
     static func wallVerticalCoupleLines(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.wallVerticalCoupleLines, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wayShape", bundle: ..., traitCollection: ...)`
+    static func wayShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.wayShape, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "windowBottom", bundle: ..., traitCollection: ...)`

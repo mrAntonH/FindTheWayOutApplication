@@ -29,7 +29,6 @@ protocol CameraInterface {
 
 final class CameraHelper: CameraInterface {
     
-    //MARK: private properties:
     private var currentLocation: CGPoint
     private var previousLocation: CGPoint
     private var previousScale: CGFloat

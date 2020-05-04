@@ -11,19 +11,23 @@ import SpriteKit
 
 final class LevelCreator {
     
-    private var level: Level
+//    private var level: Level
     
-    private var tiles: [Tile]
+    private var tiles: [Tile] = []
     
-    private let spriteLenght: Int
+    private let spriteLenght: Int = 64
     
-    init(spriteLenght: Int,
-         level: Level = .none,
-         tiles: [Tile] = []) {
-        self.level = level
-        self.tiles = tiles
-        self.spriteLenght = spriteLenght
-    }
+     static let shared = LevelCreator()
+    
+//    init(spriteLenght: Int,
+//         level: Level = .none,
+//         tiles: [Tile] = []) {
+//        self.level = level
+//        self.tiles = tiles
+//        self.spriteLenght = spriteLenght
+//    }
+    
+    private init() {}
     
 //    func configure(level: Level,
 //                   with map: Map,

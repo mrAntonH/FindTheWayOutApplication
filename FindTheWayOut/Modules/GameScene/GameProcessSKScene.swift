@@ -10,12 +10,19 @@ import SpriteKit
 
 class GameProcessSKScene: SKScene {
     
-    var gameConfiguration: GameConfiguration!
     
-    var state: GameState!
     
-    var map: Map!
+//    var levelCreator: LevelCreator!
     
-    var levelCreator: LevelCreator!
+//    override init() {
+//        super.init()
+//        let cameraHelper = CameraHelper()
+//        gameConfiguration = GameConfiguration(cameraHelper: cameraHelper)
+//        state = GameState()
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
 }

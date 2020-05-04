@@ -62,8 +62,8 @@ final class MenuScene: SKScene {
         if let location = touches.first?.location(in: self) {
             let node = atPoint(location)
             if node.name == "playButton" {
-                let transition = SKTransition.moveIn(with: .up, duration: 1)
-                let gameScene = GameScene(size: size)
+                let transition = SKTransition.flipVertical(withDuration: 1)
+                let gameScene = GameScene()
                 gameScene.scaleMode = .aspectFill
                 scene?.view?.presentScene(gameScene, transition: transition)
             }

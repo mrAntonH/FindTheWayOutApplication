@@ -8,15 +8,50 @@
 
 import SpriteKit
 import GameplayKit
+import RxSwift
+import RxCocoa
 
-class GameScene: GameProcessSKScene {
+class GameScene: SKScene {
+    
+    var gameConfiguration: GameConfiguration!
+    
+//    var state = GameState()
+    
+    var map: Map!
+    
+    let sceneManager = SceneManager.shared
+    private let disposeBag = DisposeBag()
     
     override func didMove(to view: SKView) {
+        
+        ApiClient
+            .testRequest()
+            .subscribe(onNext: { postsList in
+                print("List of posts:", postsList)
+            }, onError: { error in
+                switch error {
+                case ApiError.conflict:
+                    print("Conflict error")
+                case ApiError.forbidden:
+                    print("Forbidden error")
+                case ApiError.notFound:
+                    print("Not found error")
+                default:
+                    print("Unknown error:", error)
+                }
+            })
+            .disposed(by: disposeBag)
+
+        guard sceneManager.gameScene == nil else { return }
+        
+        sceneManager.gameScene = self
+        
         setupStartConfiguration()
-        setGesture()
         
-        load(level: .level1)
-        
+        let hud = HUD(size: UIScreen.main.bounds.size)
+        hud.configureWay(for: [1, 2, 3, 4])
+        //hud.position = CGPoint(x: 20, y: UIScreen.main.bounds.size.height - 50)
+        addChild(hud)
     }
     
     private func setGesture() {
@@ -26,8 +61,15 @@ class GameScene: GameProcessSKScene {
     }
     
     private func setupStartConfiguration() {
+        let cameraHelper = CameraHelper()
+        gameConfiguration = GameConfiguration(cameraHelper: cameraHelper)
         setupCamera()
-        
+        setGesture()
+        backgroundColor = SKColor(red: 27 / 255,
+                                  green: 38 / 255,
+                                  blue: 49 / 255,
+                                  alpha: 1)
+        load(level: .level1)
     }
     
     private func setupCamera() {
@@ -35,12 +77,13 @@ class GameScene: GameProcessSKScene {
         let cameraPosition = gameConfiguration.cameraHelper.getCurrentLocation()
         myCamera.position = CGPoint(x: cameraPosition.x + (view?.frame.width ?? 0) / 2,
                                     y: cameraPosition.y + (view?.frame.height ?? 0) / 2)
+        myCamera.setScale(3000)
         camera = myCamera
         addChild(myCamera)
     }
     
     private func load(level: Level) {
-        let levelTiles = levelCreator.createLevel(with: level)
+        let levelTiles = LevelCreator.shared.createLevel(with: level)
         let mapTileNode = Map(with: levelTiles,
                               columns: 23,
                               rows: 20,
@@ -52,6 +95,8 @@ class GameScene: GameProcessSKScene {
         mapTileNode.zPosition = 0
         map = mapTileNode
         addChild(mapTileNode)
+        camera?.position = CGPoint(x: map.frame.midX,
+                                   y: map.frame.midY)
     }
     
     @objc private func pinchGestureAction(_ sender: UIPinchGestureRecognizer) {
