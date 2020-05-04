@@ -11,7 +11,7 @@ import Alamofire
 
 struct ApiConstants {
     
-    static let baseUrl = "http://YourLocalIP:8081/api/v1/searchExit"
+    static let baseUrl = "http://172.20.10.5:8081/api/v1/searchExit"
     
     struct Parameters {
         static let userId = "userId"
@@ -29,52 +29,48 @@ struct ApiConstants {
     }
 }
 
-enum ApiRouter: URLRequestConvertible {
-    case testRequest
-    
-    //MARK: - URLRequestConvertible
-    func asURLRequest() throws -> URLRequest {
-        let url = try ApiConstants.baseUrl.asURL()
+enum ApiRouter { //URLConvertible
+    case startPlay
+    case checkFire
+    case updateWay
         
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        
-        urlRequest.httpMethod = method.rawValue
-        
-        urlRequest.setValue(ApiConstants.ContentType.json.rawValue,
-                            forHTTPHeaderField: ApiConstants.HttpHeaderField.acceptType.rawValue)
-        urlRequest.setValue(ApiConstants.ContentType.json.rawValue,
-                            forHTTPHeaderField: ApiConstants.HttpHeaderField.contentType.rawValue)
-        
-        let encoding: ParameterEncoding = {
-            switch method {
-            case .get:
-                return URLEncoding.default
-            default:
-                return JSONEncoding.default
-            }
-        }()
-        
-        return try encoding.encode(urlRequest, with: parameters)
-    }
-    
-    private var method: HTTPMethod {
+    var method: HTTPMethod {
         switch self {
-        case .testRequest:
+        case .startPlay:
+            return .post
+        case .checkFire:
+            return .post
+        case .updateWay:
             return .post
         }
     }
     
+    var URLPath: URL {
+        return URL(string: ApiConstants.baseUrl + path)!
+    }
+    
     private var path: String {
         switch self {
-        case .testRequest:
-            return "/testing"
+        case .startPlay:
+            return "/sendstartplay"
+        case .checkFire:
+            return "/createfire"
+        case .updateWay:
+            return "/sendplaystatus"
         }
     }
     
-    private var parameters: Parameters? {
+    typealias headersConst = ApiConstants.HttpHeaderField
+    typealias contentType = ApiConstants.ContentType
+    
+    var headers: HTTPHeaders {
         switch self {
-        case .testRequest:
-            return [:]
+        case .startPlay:
+            return HTTPHeaders([headersConst.contentType.rawValue: contentType.json.rawValue])
+        case .checkFire:
+            return HTTPHeaders([headersConst.contentType.rawValue: contentType.json.rawValue])
+        case .updateWay:
+            return HTTPHeaders([headersConst.contentType.rawValue: contentType.json.rawValue])
         }
     }
 }

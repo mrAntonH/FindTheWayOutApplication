@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 5.0.0)
   - Differentiator (4.0.1)
   - Kingfisher (5.3.1)
+  - ObjectMapper (3.5.2)
   - R.swift (5.0.2):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
@@ -35,6 +36,7 @@ PODS:
 DEPENDENCIES:
   - AlamofireNetworkActivityLogger (from `https://github.com/maslovsa/AlamofireNetworkActivityLogger`, commit `68e48b2beb720dd48afa476c90f52509cb5f9567`)
   - Kingfisher (= 5.3.1)
+  - ObjectMapper (~> 3.5)
   - R.swift (= 5.0.2)
   - Reusable
   - RxAlamofire (from `https://github.com/maslovsa/RxAlamofire`, commit `d55b1170915b3f66e17f5f8f58c642ec52c92019`)
@@ -49,6 +51,7 @@ SPEC REPOS:
     - Alamofire
     - Differentiator
     - Kingfisher
+    - ObjectMapper
     - R.swift
     - R.swift.Library
     - Reusable
@@ -80,6 +83,7 @@ SPEC CHECKSUMS:
   AlamofireNetworkActivityLogger: e177bfea60eed7a280cee44848c9d67065ad2ba5
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
+  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
   R.swift: 81455d81467763cbd3f4d79d938d05f4ac4c0228
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
@@ -91,6 +95,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   Then: 0157115e883545c77967b452fe74a1d25fb796e1
 
-PODFILE CHECKSUM: ccc80a74449f57004a52f108fb80502843c90de2
+PODFILE CHECKSUM: fdf162fcdc30007bd63b8605f00ea6a761cfc151
 
 COCOAPODS: 1.8.4

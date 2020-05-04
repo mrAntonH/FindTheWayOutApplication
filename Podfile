@@ -10,6 +10,7 @@ target 'FindTheWayOut' do
   # Networking
   pod 'AlamofireNetworkActivityLogger', :git => 'https://github.com/maslovsa/AlamofireNetworkActivityLogger', :commit => '68e48b2beb720dd48afa476c90f52509cb5f9567'
   pod 'RxAlamofire', :git => 'https://github.com/maslovsa/RxAlamofire', :commit => 'd55b1170915b3f66e17f5f8f58c642ec52c92019'
+  pod 'ObjectMapper', '~> 3.5' 
 
   # RX
   pod 'RxSwift', '~> 5.1.0'
