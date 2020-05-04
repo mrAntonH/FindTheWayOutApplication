@@ -11,7 +11,7 @@ import Alamofire
 
 struct ApiConstants {
     
-    static let baseUrl = "http://172.20.10.5:8081/api/v1/searchExit"
+    static let baseUrl = "http://YourLocalIP:8081/api/v1/searchExit"
     
     struct Parameters {
         static let userId = "userId"
