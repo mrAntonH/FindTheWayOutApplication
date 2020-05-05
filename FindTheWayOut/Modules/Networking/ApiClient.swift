@@ -12,9 +12,8 @@ import RxSwift
 
 class ApiClient {
     
-    static func startGame(graphVertexes: ServerVertexes) -> Observable<String> {
+    static func startGame(graphVertexes: Graph) -> Observable<String> {
         var request = URLRequest(url: ApiRouter.startPlay.URLPath)
-        print(request.url?.description)
         if let jsonData = try? JSONEncoder().encode(graphVertexes) {
             request.httpBody = jsonData
         }
@@ -50,6 +49,13 @@ class ApiClient {
         request.headers = ApiRouter.updateWay.headers
         
         return updateWay(request: request)
+    }
+    
+    static func deleteMap(withId: Int) -> Observable<Void> {
+        var request = URLRequest(url: ApiRouter.deleteMap.URLPath)
+        request.httpMethod = ApiRouter.deleteMap.method.rawValue
+        request.headers = ApiRouter.deleteMap.headers
+        return deleteMap(request: request)
     }
 
     private static func startGame(request: URLRequest) -> Observable<String> {
@@ -138,6 +144,34 @@ class ApiClient {
                         } catch {
                             observer.onError(error)
                         }
+                    case .failure(let error):
+                        switch response.response?.statusCode {
+                        case 403:
+                            observer.onError(ApiError.forbidden)
+                        case 404:
+                            observer.onError(ApiError.notFound)
+                        case 409:
+                            observer.onError(ApiError.conflict)
+                        case 500:
+                            observer.onError(ApiError.internalServerError)
+                        default:
+                            observer.onError(error)
+                        }
+                    }
+                })
+            return Disposables.create {
+                request.cancel()
+            }
+        }
+    }
+    
+    private static func deleteMap(request: URLRequest) -> Observable<Void> {
+        return Observable<Void>.create { observer in
+            let request = AF.request(request)
+                .responseJSON(completionHandler: { response in
+                    switch response.result {
+                    case .success:
+                        observer.onNext(())
                     case .failure(let error):
                         switch response.response?.statusCode {
                         case 403:

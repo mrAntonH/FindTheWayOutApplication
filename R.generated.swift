@@ -70,7 +70,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 460 images.
+  /// This `R.image` struct is generated, and contains static references to 461 images.
   struct image {
     /// Image `Cobblestone_Grid_Center`.
     static let cobblestone_Grid_Center = Rswift.ImageResource(bundle: R.hostingBundle, name: "Cobblestone_Grid_Center")
@@ -888,6 +888,8 @@ struct R: Rswift.Validatable {
     static let chair = Rswift.ImageResource(bundle: R.hostingBundle, name: "chair")
     /// Image `door`.
     static let door = Rswift.ImageResource(bundle: R.hostingBundle, name: "door")
+    /// Image `finalLevelShape`.
+    static let finalLevelShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "finalLevelShape")
     /// Image `floor1`.
     static let floor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "floor1")
     /// Image `graph`.
@@ -910,6 +912,8 @@ struct R: Rswift.Validatable {
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
     /// Image `menuButton`.
     static let menuButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "menuButton")
+    /// Image `simpleLevelShape`.
+    static let simpleLevelShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "simpleLevelShape")
     /// Image `smallTable`.
     static let smallTable = Rswift.ImageResource(bundle: R.hostingBundle, name: "smallTable")
     /// Image `sofaCenterTile`.
@@ -920,8 +924,8 @@ struct R: Rswift.Validatable {
     static let sofaRightTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "sofaRightTile")
     /// Image `spark`.
     static let spark = Rswift.ImageResource(bundle: R.hostingBundle, name: "spark")
-    /// Image `startWayShape`.
-    static let startWayShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "startWayShape")
+    /// Image `startLevelShape`.
+    static let startLevelShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "startLevelShape")
     /// Image `tileFloor1`.
     static let tileFloor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tileFloor1")
     /// Image `wallBottomLeftCorner`.
@@ -968,8 +972,6 @@ struct R: Rswift.Validatable {
     static let wallTopRightCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallTopRightCorner")
     /// Image `wallVerticalCoupleLines`.
     static let wallVerticalCoupleLines = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallVerticalCoupleLines")
-    /// Image `wayShape`.
-    static let wayShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "wayShape")
     /// Image `windowBottom`.
     static let windowBottom = Rswift.ImageResource(bundle: R.hostingBundle, name: "windowBottom")
     /// Image `windowLeft`.
@@ -3033,6 +3035,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.door, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "finalLevelShape", bundle: ..., traitCollection: ...)`
+    static func finalLevelShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.finalLevelShape, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "floor1", bundle: ..., traitCollection: ...)`
     static func floor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.floor1, compatibleWith: traitCollection)
@@ -3088,6 +3095,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.menuButton, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "simpleLevelShape", bundle: ..., traitCollection: ...)`
+    static func simpleLevelShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.simpleLevelShape, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "smallTable", bundle: ..., traitCollection: ...)`
     static func smallTable(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.smallTable, compatibleWith: traitCollection)
@@ -3113,9 +3125,9 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.spark, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "startWayShape", bundle: ..., traitCollection: ...)`
-    static func startWayShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.startWayShape, compatibleWith: traitCollection)
+    /// `UIImage(named: "startLevelShape", bundle: ..., traitCollection: ...)`
+    static func startLevelShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.startLevelShape, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "tileFloor1", bundle: ..., traitCollection: ...)`
@@ -3233,11 +3245,6 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.wallVerticalCoupleLines, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "wayShape", bundle: ..., traitCollection: ...)`
-    static func wayShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.wayShape, compatibleWith: traitCollection)
-    }
-    
     /// `UIImage(named: "windowBottom", bundle: ..., traitCollection: ...)`
     static func windowBottom(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.windowBottom, compatibleWith: traitCollection)
@@ -3291,6 +3298,72 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "woodFloor1", bundle: ..., traitCollection: ...)`
     static func woodFloor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.woodFloor1, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  struct nib {
+    /// Nib `FinalCollectionCell`.
+    static let finalCollectionCell = _R.nib._FinalCollectionCell()
+    /// Nib `GameViewController`.
+    static let gameViewController = _R.nib._GameViewController()
+    /// Nib `LevelCollection`.
+    static let levelCollection = _R.nib._LevelCollection()
+    /// Nib `SimpleCollectionCell`.
+    static let simpleCollectionCell = _R.nib._SimpleCollectionCell()
+    /// Nib `StartCollectionCell`.
+    static let startCollectionCell = _R.nib._StartCollectionCell()
+    
+    /// `UINib(name: "FinalCollectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.finalCollectionCell) instead")
+    static func finalCollectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.finalCollectionCell)
+    }
+    
+    /// `UINib(name: "GameViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.gameViewController) instead")
+    static func gameViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.gameViewController)
+    }
+    
+    /// `UINib(name: "LevelCollection", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.levelCollection) instead")
+    static func levelCollection(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.levelCollection)
+    }
+    
+    /// `UINib(name: "SimpleCollectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.simpleCollectionCell) instead")
+    static func simpleCollectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.simpleCollectionCell)
+    }
+    
+    /// `UINib(name: "StartCollectionCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.startCollectionCell) instead")
+    static func startCollectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.startCollectionCell)
+    }
+    
+    static func finalCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FinalCollectionCell? {
+      return R.nib.finalCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FinalCollectionCell
+    }
+    
+    static func gameViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.gameViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+    
+    static func levelCollection(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.levelCollection.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+    
+    static func simpleCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SimpleCollectionCell? {
+      return R.nib.simpleCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SimpleCollectionCell
+    }
+    
+    static func startCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StartCollectionCell? {
+      return R.nib.startCollectionCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StartCollectionCell
     }
     
     fileprivate init() {}
@@ -3385,6 +3458,90 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+    try nib.validate()
+  }
+  
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _FinalCollectionCell.validate()
+      try _SimpleCollectionCell.validate()
+      try _StartCollectionCell.validate()
+    }
+    
+    struct _FinalCollectionCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "FinalCollectionCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> FinalCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? FinalCollectionCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "finalLevelShape", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'finalLevelShape' is used in nib 'FinalCollectionCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _GameViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "GameViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _LevelCollection: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "LevelCollection"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _SimpleCollectionCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "SimpleCollectionCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SimpleCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SimpleCollectionCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "simpleLevelShape", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'simpleLevelShape' is used in nib 'SimpleCollectionCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _StartCollectionCell: Rswift.NibResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "StartCollectionCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> StartCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? StartCollectionCell
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "startLevelShape", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'startLevelShape' is used in nib 'StartCollectionCell', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {

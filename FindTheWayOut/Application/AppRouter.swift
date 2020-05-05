@@ -6,8 +6,9 @@
 //  Copyright © 2020 Антон Швец. All rights reserved.
 //
 
-import UIKit
 import SpriteKit
+import RxSwift
+import RxCocoa
 
 final class AppRouter {
     
@@ -21,22 +22,11 @@ final class AppRouter {
     }
     
     func startApplication() {
-        
-        //guard let scene = GameProcessSKScene(fileNamed: "GameScene") else { return }
-        //let scene = GameScene()
-        
         let vc = GameViewController()
         let viewModel = GameViewModel()
-//        let cameraHelper = CameraHelper()
-//        let gameConfiguration = GameConfiguration(cameraHelper: cameraHelper)
-        //let levelCreator = LevelCreator(spriteLenght: gameConfiguration.spriteLenght)
-        //let map = Map(with: TileLayers(backgroundTiles: []))
-        
-        //scene.gameConfiguration = gameConfiguration
-        //scene.levelCreator = levelCreator
-        //scene.map = map
-        
-        //vc.scene = scene
+        let step = BehaviorRelay<GameStep>(value: .expect)
+        let event = BehaviorRelay<GameEvent>(value: .expect)
+        sceneManager.configureGame(step: step, event: event)
         
         vc.viewModel = viewModel
         self.setRoot(viewController: vc)

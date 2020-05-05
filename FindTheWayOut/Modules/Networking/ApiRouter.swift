@@ -13,10 +13,6 @@ struct ApiConstants {
     
     static let baseUrl = "http://172.20.10.5:8081/api/v1/searchExit"
     
-    struct Parameters {
-        static let userId = "userId"
-    }
-    
     enum HttpHeaderField: String {
         case authentication = "Authorization"
         case contentType = "Content-Type"
@@ -29,10 +25,11 @@ struct ApiConstants {
     }
 }
 
-enum ApiRouter { //URLConvertible
+enum ApiRouter {
     case startPlay
     case checkFire
     case updateWay
+    case deleteMap
         
     var method: HTTPMethod {
         switch self {
@@ -42,6 +39,8 @@ enum ApiRouter { //URLConvertible
             return .post
         case .updateWay:
             return .post
+        case .deleteMap:
+            return .delete
         }
     }
     
@@ -57,6 +56,8 @@ enum ApiRouter { //URLConvertible
             return "/createfire"
         case .updateWay:
             return "/sendplaystatus"
+        case .deleteMap:
+            return "/deleteMap"
         }
     }
     
@@ -70,6 +71,8 @@ enum ApiRouter { //URLConvertible
         case .checkFire:
             return HTTPHeaders([headersConst.contentType.rawValue: contentType.json.rawValue])
         case .updateWay:
+            return HTTPHeaders([headersConst.contentType.rawValue: contentType.json.rawValue])
+        case .deleteMap:
             return HTTPHeaders([headersConst.contentType.rawValue: contentType.json.rawValue])
         }
     }

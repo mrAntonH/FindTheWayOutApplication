@@ -13,11 +13,10 @@ import RxCocoa
 
 class GameScene: SKScene {
     
-    var gameConfiguration: GameConfiguration!
+    private var gameConfiguration: GameConfiguration!
+    private var map: Map!
     
-//    var state = GameState()
-    
-    var map: Map!
+    var gameState: GameState!
     
     let sceneManager = SceneManager.shared
     private let disposeBag = DisposeBag()
@@ -80,10 +79,6 @@ class GameScene: SKScene {
         
         setupStartConfiguration()
         
-        let hud = HUD(size: UIScreen.main.bounds.size)
-        hud.configureWay(for: [1, 2, 3, 4])
-        //hud.position = CGPoint(x: 20, y: UIScreen.main.bounds.size.height - 50)
-        addChild(hud)
     }
     
     private func setGesture() {
@@ -135,7 +130,7 @@ class GameScene: SKScene {
         guard let camera = self.camera else {
             return
         }
-        
+
         if sender.state == .began {
             gameConfiguration.cameraHelper.setPreviousScale(value: camera.xScale)
         }
@@ -196,11 +191,11 @@ class GameScene: SKScene {
         let column = map.tileColumnIndex(fromPosition: location)
         let row = map.tileRowIndex(fromPosition: location)
         let tile = map.tileGroup(atColumn: column, row: row)
-        print(map.numberOfRows)
-        print(map.numberOfColumns)
-        print(map.frame)
-        print(map.position)
-        print(tile)
+//        print(map.numberOfRows)
+//        print(map.numberOfColumns)
+//        print(map.frame)
+//        print(map.position)
+//        print(tile)
         
         let tiles = self.atPoint(location)
         

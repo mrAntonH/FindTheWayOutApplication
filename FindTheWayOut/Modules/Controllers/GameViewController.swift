@@ -38,6 +38,12 @@ final class GameViewController: UIViewController {
         view.ignoresSiblingOrder = true
         view.showsNodeCount = true
         view.showsFPS = true
+        
+        
+        let infoView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        infoView.backgroundColor = .red
+        view.addSubview(infoView)
+        view.bringSubviewToFront(infoView)
     }
     
     override var shouldAutorotate: Bool {

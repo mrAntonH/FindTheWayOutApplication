@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct ServerVertexes: Codable {
+struct Graph: Codable {
     
-    var vertexes: [ServerVertex] = []
+    var vertexes: [Vertex] = []
 
 }
 
-struct ServerVertex: Codable {
+struct Vertex: Codable {
     
     var id: Int
     var graphId: Int
