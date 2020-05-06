@@ -22,56 +22,6 @@ class GameScene: SKScene {
     private let disposeBag = DisposeBag()
     
     override func didMove(to view: SKView) {
-        
-//        let vertex1 = ServerVertex(id: 0,
-//                                   graphId: 0,
-//                                   nearByVertex: [1, 2],
-//                                   exit: false,
-//                                   fire: false)
-//        let vertex2 = ServerVertex(id: 1,
-//                                   graphId: 0,
-//                                   nearByVertex: [0],
-//                                   exit: true,
-//                                   fire: false)
-//        let vertex3 = ServerVertex(id: 2,
-//                                   graphId: 0,
-//                                   nearByVertex: [0],
-//                                   exit: false,
-//                                   fire: false)
-//        
-//        let vertexes = [vertex1, vertex2, vertex3]
-//        
-//        let sVertexes = ServerVertexes(vertexes: vertexes)
-        
-//        ApiClient
-//            .startGame(graphVertexes: sVertexes)
-//            .subscribe(onNext: { postsList in
-//                print("List of posts:", postsList)
-//
-//                ApiClient.updateWay(userNumberLocation: 0)
-//                    .subscribe(onNext: { value in
-//                        let val = value
-//                        print(val)
-//                        ApiClient.checkFire(userNumberLocation: 0)
-//                            .subscribe(onNext: { value1 in
-//                                print(value1)
-//                            })
-//                    })
-//                    .disposed(by: self.disposeBag)
-//
-//            }, onError: { error in
-//                switch error {
-//                case ApiError.conflict:
-//                    print("Conflict error")
-//                case ApiError.forbidden:
-//                    print("Forbidden error")
-//                case ApiError.notFound:
-//                    print("Not found error")
-//                default:
-//                    print("Unknown error:", error)
-//                }
-//            })
-//            .disposed(by: disposeBag)
 
         //guard sceneManager.gameScene == nil else { return }
         

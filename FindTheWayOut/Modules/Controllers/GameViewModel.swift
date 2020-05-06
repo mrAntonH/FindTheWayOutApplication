@@ -18,25 +18,38 @@ final class GameViewModel {
     
     private var disposeBag = DisposeBag()
     
+    private let sections = BehaviorRelay<[SectionType]>(value: [])
+    
     private let step: BehaviorRelay<GameStep>
     private let event: BehaviorRelay<GameEvent>
     private var currentUserVertex: Int?
     
+    private let eventGetWay = PublishRelay<GameEvent>()
+    
     struct StepInput {
         let stepCreateGame = PublishRelay<Graph>()
         let stepGetWay = PublishRelay<Int>()
-        let finishGame = PublishRelay<Int>()
+        let clearGame = PublishRelay<Int>()
     }
     
     let stepInput = StepInput()
+    
+    struct Output {
+        let sections: Driver<[SectionType]>
+    }
+    
+    let output: Output
     
     init(step: BehaviorRelay<GameStep>,
          event: BehaviorRelay<GameEvent>) {
         self.step = step
         self.event = event
+        output = Output(sections: sections.asDriver(onErrorJustReturn: []))
+        
         
         bindSteps()
         bindSelf()
+        stepInput.clearGame.accept(0)
     }
     
     private func bindSteps() {
@@ -52,7 +65,7 @@ final class GameViewModel {
                 case .readyGetFire(_):
                     return
                 case .finishGame(let value):
-                    self.stepInput.finishGame.accept(value)
+                    self.stepInput.clearGame.accept(value)
                 case .expect:
                     return
                 }
@@ -98,13 +111,30 @@ final class GameViewModel {
                 else { return GameEvent.comingWay(Way(way: [],
                                                       exit: false,
                                                       blocked: false)) }
+            let wayItems = value.way
+            var levelSection = [LevelSectionType]()
+            if let first = wayItems.first {
+                levelSection.append(LevelSectionType.start(first))
+            }
+            let last = wayItems.last
+            
+            for item in Array(wayItems.dropFirst().dropLast()) {
+                levelSection.append(LevelSectionType.short(item))
+            }
+            
+            if let last = last, wayItems.count > 1 {
+                levelSection.append(LevelSectionType.final(last))
+            }
+            
+            self.sections.accept([SectionType(model: "firstSection",
+                                              items: levelSection)])
             return .comingWay(value)
         }
         .bind(to: event)
         .disposed(by: disposeBag)
         
         stepInput
-            .finishGame
+            .clearGame
             .flatMapLatest { indexGraph -> Observable<Void> in
                 return ApiClient.deleteMap(withId: indexGraph)
         }
@@ -112,7 +142,6 @@ final class GameViewModel {
             print("deleted graph")
         })
         .disposed(by: disposeBag)
-        
     }
     
 }

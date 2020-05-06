@@ -18,10 +18,10 @@ final class LevelCollection: UIView, NibOwnerLoadable {
     
     private var disposeBag = DisposeBag()
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.loadNibContent()
-    }
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        self.loadNibContent()
+//    }
     
     func configure(sections: Driver<[GameViewModel.SectionType]>) {
         configureCollection()

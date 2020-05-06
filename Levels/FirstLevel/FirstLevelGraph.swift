@@ -19,7 +19,7 @@ final class FirstLevelGraph: LevelGraph {
     
     init() {
         var arrayVertex = [Vertex]()
-        arrayVertex.append(Vertex(id: 0,
+        arrayVertex.append(Vertex(id: 15,
                                   graphId: 0,
                                   nearByVertex: [3, 4],
                                   exit: true,
@@ -36,12 +36,12 @@ final class FirstLevelGraph: LevelGraph {
                                   fire: false))
         arrayVertex.append(Vertex(id: 3,
                                   graphId: 0,
-                                  nearByVertex: [0, 7],
+                                  nearByVertex: [15, 7],
                                   exit: false,
                                   fire: false))
         arrayVertex.append(Vertex(id: 4,
                                   graphId: 0,
-                                  nearByVertex: [0, 1, 5, 8],
+                                  nearByVertex: [15, 1, 5, 8],
                                   exit: false,
                                   fire: false))
         arrayVertex.append(Vertex(id: 5,
