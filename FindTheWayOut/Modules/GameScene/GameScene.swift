@@ -73,9 +73,9 @@ class GameScene: SKScene {
 //            })
 //            .disposed(by: disposeBag)
 
-        guard sceneManager.gameScene == nil else { return }
+        //guard sceneManager.gameScene == nil else { return }
         
-        sceneManager.gameScene = self
+        // sceneManager.gameScene = self
         
         setupStartConfiguration()
         
@@ -122,6 +122,40 @@ class GameScene: SKScene {
         mapTileNode.zPosition = 0
         map = mapTileNode
         addChild(mapTileNode)
+        
+        if !gameState.isProccesingStep.value {
+            gameState
+                .step
+                .accept(.startGame(level.levelGraph))
+        }
+        
+        gameState
+            .eventInput
+            .configureWay
+            .subscribe(onNext: { [unowned self] way in
+                
+                if way.exit {
+                    print("Exit is here!")
+                    self.gameState.step.accept(.finishGame(0))
+                } else if way.blocked {
+                    self.gameState.step.accept(.finishGame(0))
+                    print("Blocked need help")
+                } else {
+                    self.map.selectWay(with: way)
+                }
+                
+                self.gameState.isSelectWayAvailable.accept(true)
+            })
+            .disposed(by: disposeBag)
+        
+        gameState
+            .eventInput
+            .fireVertexes
+            .subscribe(onNext: { [unowned self] fires in
+                self.map.fire(vertexes: fires)
+            })
+            .disposed(by: disposeBag)
+        
         camera?.position = CGPoint(x: map.frame.midX,
                                    y: map.frame.midY)
     }
@@ -138,67 +172,19 @@ class GameScene: SKScene {
         camera.setScale(scale * 1 / sender.scale)
     }
     
-//    private func updateMap() {
-//        let tilesMap = map.getTileArray()
-//
-//
-//        setupTiles(perentTile: tilesMap.backgroundTiles)
-//
-////        tilesMap.forEach { tile in
-////            setupTiles(perentTile: tile)
-////        }
-//    }
-    
-//    private func setupTiles(perentTile: [[Tile]]) {
-//
-//        for row in 0..<5 {
-//            let items = perentTile[row]
-//            for column in 0..<5 {
-//                let tile = backgroundTileMap.tileSet.tileGroups.first(where: {$0.name == items[column].imageName})
-//                backgroundTileMap.setTileGroup(tile, forColumn: column, row: row)
-//            }
-//        }
-        
-//        let childTiles = perentTile.childTiles
-//        let perentNode = SKSpriteNode(imageNamed: perentTile.imageName)
-//        perentNode.anchorPoint = CGPoint(x: 0, y: 0)
-//        perentNode.position = perentTile.position
-//
-//
-//        childTiles.forEach { tile in
-//
-//            let node = SKSpriteNode(imageNamed: tile.type.getImageName())
-//            node.anchorPoint = CGPoint(x: 0, y: 0)
-//            node.position = CGPoint(x: 0, y: 0)
-//            perentNode.addChild(node)
-//
-//            if !tile.childTiles.isEmpty {
-//                setupTiles(perentTile: tile)
-//            }
-//        }
-//        addChild(perentNode)
-   // }
-    
-    
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
           return
         }
         
         let location = touch.location(in: self)
-        map.selectZone(at: location)
-        let column = map.tileColumnIndex(fromPosition: location)
-        let row = map.tileRowIndex(fromPosition: location)
-        let tile = map.tileGroup(atColumn: column, row: row)
-//        print(map.numberOfRows)
-//        print(map.numberOfColumns)
-//        print(map.frame)
-//        print(map.position)
-//        print(tile)
-        
-        let tiles = self.atPoint(location)
-        
+        if gameState.isSelectWayAvailable.value {
+            if let number = map.selectZone(at: location) {
+                gameState.step.accept(.readyGetWay(number))
+                gameState.isSelectWayAvailable.accept(false)
+            }
+        }
+    
         let previousCameraLocation = touch.previousLocation(in: self)
         if let camera = camera {
             camera.position.x -= location.x - previousCameraLocation.x

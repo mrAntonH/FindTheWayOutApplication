@@ -15,4 +15,6 @@ struct Zone {
     var columnOfMaxTile: Int
     
     var frame: CGRect?
+    
+    var isUserHere: Bool?
 }

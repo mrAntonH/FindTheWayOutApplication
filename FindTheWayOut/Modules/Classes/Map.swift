@@ -14,6 +14,8 @@ final class Map: SKTileMapNode {
     
     private var tileArray = TileLayers(backgroundTiles: [])
     private var interectiveMap: [Int: Zone] = [:]
+    //private var oldWay: [Int] = []
+    private var selectWayNodes: [SKShapeNode] = []
     
     init(with array: TileLayers,
          columns: Int,
@@ -31,34 +33,81 @@ final class Map: SKTileMapNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func selectZone(at point: CGPoint) {
-        interectiveMap.forEach { key, value in
+    func selectZone(at point: CGPoint) -> Int? {
+        var vertexValue: Int? = nil
+        removeWayNodes()
+//        interectiveMap.map { key, value in
+//            if let frame = value.frame {
+//                if frame.contains(point) {
+//                    // TEST CODE:
+//                    let barra = SKShapeNode(rect: frame)
+//                    barra.name = "bar"
+//                    barra.fillColor = .cyan
+//                    //                    let colorAction = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.2)
+//                    //                    let uncolorAction = SKAction.colorize(with: .red, colorBlendFactor: 0.0, duration: 0.2)
+//                    //                    let seq = SKAction.sequence([colorAction, uncolorAction])
+//                    //                    let repeatAction = SKAction.repeat(seq, count: 10)
+//                    barra.zPosition = 5
+//                    //                    barra.run(repeatAction)
+//
+//                                        if let fire = SKEmitterNode(fileNamed: "FireEffect") {
+//                                            fire.position = CGPoint(x: frame.midX, y: frame.midY)
+//                                            addChild(fire)
+//                    //
+//                    //                    }
+//                    self.addChild(barra)
+//                    vertexValue = key
+//                    /////
+//                }
+//            }
+//        }
+        
+        interectiveMap = Dictionary(uniqueKeysWithValues: interectiveMap.map { (key, value) in
+            var newValue = value
+            newValue.isUserHere = nil
             if let frame = value.frame {
                 if frame.contains(point) {
-                    // TEST CODE:
                     let barra = SKShapeNode(rect: frame)
                     barra.name = "bar"
-                    barra.fillColor = .cyan
-//                    let colorAction = SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.2)
-//                    let uncolorAction = SKAction.colorize(with: .red, colorBlendFactor: 0.0, duration: 0.2)
-//                    let seq = SKAction.sequence([colorAction, uncolorAction])
-//                    let repeatAction = SKAction.repeat(seq, count: 10)
+                    barra.fillColor = .red
                     barra.zPosition = 5
-//                    barra.run(repeatAction)
-                    
-//                    if let fire = SKEmitterNode(fileNamed: "FireEffect") {
-//                        fire.position = CGPoint(x: frame.midX, y: frame.midY)
-//                        addChild(fire)
-//
-//                    }
+                    selectWayNodes.append(barra)
                     self.addChild(barra)
-                    
-                    /////
+                    vertexValue = key
                 }
+            }
+            return (key, newValue)
+        })
+        
+        return vertexValue
+    }
+    
+    func selectWay(with way: Way) {
+        let wayNumbers = way.way.dropFirst()
+        for item in Array(wayNumbers) {
+            if let zoneFrame = interectiveMap[item]?.frame {
+                let barra = SKShapeNode(rect: zoneFrame)
+                barra.name = "bar"
+                barra.fillColor = .blue
+                barra.zPosition = 5
+                selectWayNodes.append(barra)
+                self.addChild(barra)
             }
         }
     }
     
+    func fire(vertexes: [Int]) {
+        vertexes.forEach { vertex in
+            if let zoneFrame = interectiveMap[vertex]?.frame {
+                if let fire = SKEmitterNode(fileNamed: "FireEffect") {
+                    fire.position = CGPoint(x: zoneFrame.midX,
+                                            y: zoneFrame.midY)
+                    addChild(fire)
+                }
+            }
+        }
+    }
+        
     private func configureTilesMap() {
         
         let tileSet = tileManager.getAllTileSets()
@@ -108,7 +157,6 @@ final class Map: SKTileMapNode {
                                          y: startY + height / 2))
             return (key, newValue)
         })
-
     }
     
     private func setTitle(forRoom number: Int, coordinate: CGPoint) {
@@ -123,6 +171,13 @@ final class Map: SKTileMapNode {
         let shape = SKShapeNode(rect: frame)
         shape.strokeColor = .white
         addChild(shape)
+    }
+    
+    private func removeWayNodes() {
+        selectWayNodes.forEach { node in
+            node.removeFromParent()
+        }
+        selectWayNodes.removeAll()
     }
     
 }

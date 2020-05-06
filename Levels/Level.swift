@@ -32,4 +32,14 @@ enum Level {
             return LevelLayres(backgroundLayer: [])
         }
     }
+    
+    var levelGraph: Graph {
+        switch self {
+        case .level1:
+            let graph = FirstLevelGraph()
+            return graph.getGraph()
+        case .none:
+            return Graph(vertexes: [])
+        }
+    }
 }

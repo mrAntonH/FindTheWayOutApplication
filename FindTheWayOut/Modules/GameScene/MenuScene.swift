@@ -10,6 +10,8 @@ import SpriteKit
 
 final class MenuScene: SKScene {
     
+    private let sceneManager = SceneManager.shared
+    
     override func didMove(to view: SKView) {
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
@@ -63,9 +65,12 @@ final class MenuScene: SKScene {
             let node = atPoint(location)
             if node.name == "playButton" {
                 let transition = SKTransition.flipVertical(withDuration: 1)
-                let gameScene = GameScene()
-                gameScene.scaleMode = .aspectFill
-                scene?.view?.presentScene(gameScene, transition: transition)
+                sceneManager.startNewGame()
+                if let gameScene = sceneManager.getGameScene() {
+                    gameScene.scaleMode = .aspectFill
+                    scene?.view?.presentScene(gameScene, transition: transition)
+                }
+               
             }
         }
         

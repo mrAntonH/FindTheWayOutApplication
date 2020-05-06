@@ -20,18 +20,18 @@ final class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //main = MenuScene(size: self.view.bounds.size)
-        sceneManager.createMenuScene(size: self.view.bounds.size)
-        self.configureGameScene()
+        sceneManager.setMenuScene(size: self.view.bounds.size)
+        self.configureScene()
         
     }
     
-    private func configureGameScene() {
+    private func configureScene() {
         view = SKView(frame: view.bounds)
         
         guard let view = view as! SKView? else { return }
-        sceneManager.menuScene?.size = view.frame.size
+        //sceneManager.menuScene?.size = view.frame.size
         //scene.scaleMode = .aspectFill
-        if let scene = sceneManager.menuScene {
+        if let scene = sceneManager.getMenuScene() {
             view.presentScene(scene)
         }
         

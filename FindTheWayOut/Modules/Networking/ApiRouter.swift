@@ -11,7 +11,7 @@ import Alamofire
 
 struct ApiConstants {
     
-    static let baseUrl = "http://172.20.10.5:8081/api/v1/searchExit"
+    static let baseUrl = "http://192.168.1.65:8081/api/v1/searchExit"
     
     enum HttpHeaderField: String {
         case authentication = "Authorization"

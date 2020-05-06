@@ -29,6 +29,22 @@ final class SceneManager {
         newGame.gameState = gameState
         gameScene = newGame
     }
+    
+    func startNewGame() {
+        gameState?.step.accept(.expect)
+        gameState?.event.accept(.expect)
+        if let step = gameState?.step,
+            let event = gameState?.event {
+            let gameState = GameState(step: step,
+                                      event: event)
+            self.gameState = gameState
+            let newGame = GameScene()
+            newGame.gameState = gameState
+            gameScene = newGame
+        } else {
+            fatalError("scene doesn't configured")
+        }
+    }
      
 //    func setGameState(gameState: GameState) {
 //        self.gameState = gameState

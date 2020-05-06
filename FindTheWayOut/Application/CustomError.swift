@@ -11,6 +11,7 @@ import Foundation
 enum CustomAppError: Error {
     case GameSceneCreate
     case loadLevel
+    case noData
 }
 
 extension CustomAppError: LocalizedError {
@@ -20,6 +21,8 @@ extension CustomAppError: LocalizedError {
             return R.string.localizable.errorCreateScene()
         case .loadLevel:
             return R.string.localizable.errorLoadLevel()
+        case .noData:
+            return "noData"
         }
     }
 }

@@ -17,7 +17,7 @@ struct LevelLayres {
     var backgroundLayer: [[LevelScheme]]
 }
 
-class FirstLevel: Levels {
+final class FirstLevel: Levels {
     private let levelLayers: LevelLayres
     
     init() {

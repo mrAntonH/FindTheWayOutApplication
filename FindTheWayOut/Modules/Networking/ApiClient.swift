@@ -16,6 +16,9 @@ class ApiClient {
         var request = URLRequest(url: ApiRouter.startPlay.URLPath)
         if let jsonData = try? JSONEncoder().encode(graphVertexes) {
             request.httpBody = jsonData
+            
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            print(jsonString)
         }
         request.httpMethod = ApiRouter.startPlay.method.rawValue
         request.headers = ApiRouter.startPlay.headers

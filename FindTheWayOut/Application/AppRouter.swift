@@ -23,11 +23,13 @@ final class AppRouter {
     
     func startApplication() {
         let vc = GameViewController()
-        let viewModel = GameViewModel()
         let step = BehaviorRelay<GameStep>(value: .expect)
         let event = BehaviorRelay<GameEvent>(value: .expect)
-        sceneManager.configureGame(step: step, event: event)
+        sceneManager.configureGame(step: step,
+                                   event: event)
         
+        let viewModel = GameViewModel(step: step,
+                                      event: event)
         vc.viewModel = viewModel
         self.setRoot(viewController: vc)
         
