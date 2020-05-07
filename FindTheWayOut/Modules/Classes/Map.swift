@@ -34,6 +34,11 @@ final class Map: SKTileMapNode {
     
     func selectZone(at point: CGPoint) -> Int? {
         var vertexValue: Int? = nil
+        if let userNode = selectWayNodes.first {
+            if userNode.frame.contains(point) {
+                return nil
+            }
+        }
         interectiveMap = Dictionary(uniqueKeysWithValues: interectiveMap.map { (key, value) in
             var newValue = value
             newValue.isUserHere = nil
@@ -41,7 +46,6 @@ final class Map: SKTileMapNode {
                 if frame.contains(point) {
                     removeWayNodes()
                     let barra = SKShapeNode(rect: frame)
-                    barra.name = "bar"
                     barra.fillColor = .red
                     barra.zPosition = 5
                     selectWayNodes.append(barra)
@@ -60,7 +64,6 @@ final class Map: SKTileMapNode {
         for item in Array(wayNumbers) {
             if let zoneFrame = interectiveMap[item]?.frame {
                 let barra = SKShapeNode(rect: zoneFrame)
-                barra.name = "bar"
                 barra.fillColor = .blue
                 barra.zPosition = 5
                 selectWayNodes.append(barra)

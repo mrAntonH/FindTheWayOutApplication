@@ -36,6 +36,7 @@ final class GameViewModel {
     
     struct Output {
         let sections: Driver<[SectionType]>
+        let message = PublishRelay<String>()
     }
     
     let output: Output
@@ -66,8 +67,11 @@ final class GameViewModel {
                     return
                 case .finishGame(let value):
                     self.stepInput.clearGame.accept(value)
+                case .performMessage(let message):
+                    self.output.message.accept(message)
                 case .expect:
                     return
+                
                 }
             })
             .disposed(by: disposeBag)

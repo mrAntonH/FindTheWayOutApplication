@@ -22,13 +22,7 @@ class GameScene: SKScene {
     private let disposeBag = DisposeBag()
     
     override func didMove(to view: SKView) {
-
-        //guard sceneManager.gameScene == nil else { return }
-        
-        // sceneManager.gameScene = self
-        
         setupStartConfiguration()
-        
     }
     
     private func setGesture() {
@@ -42,9 +36,9 @@ class GameScene: SKScene {
         gameConfiguration = GameConfiguration(cameraHelper: cameraHelper)
         setupCamera()
         setGesture()
-        backgroundColor = SKColor(red: 27 / 255,
-                                  green: 38 / 255,
-                                  blue: 49 / 255,
+        backgroundColor = SKColor(red: 21 / 255,
+                                  green: 67 / 255,
+                                  blue: 96 / 255,
                                   alpha: 1)
         load(level: .level1)
     }
@@ -86,9 +80,13 @@ class GameScene: SKScene {
                 
                 if way.exit {
                     print("Exit is here!")
+                    self.gameState.step
+                        .accept(.performMessage("Exit is here!"))
                     self.gameState.step.accept(.finishGame(0))
                 } else if way.blocked {
                     self.gameState.step.accept(.finishGame(0))
+                    self.gameState.step
+                        .accept(.performMessage("Blocked need help!"))
                     print("Blocked need help")
                 } else {
                     self.map.selectWay(with: way)
@@ -103,6 +101,11 @@ class GameScene: SKScene {
             .fireVertexes
             .subscribe(onNext: { [unowned self] fires in
                 self.map.fire(vertexes: fires)
+                if let fire = fires.first {
+                    self.gameState.step
+                        .accept(.performMessage("The fire appeared in vertex: \(fire)"))
+                }
+                
             })
             .disposed(by: disposeBag)
         

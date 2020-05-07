@@ -13,17 +13,23 @@ final class MenuScene: SKScene {
     private let sceneManager = SceneManager.shared
     
     override func didMove(to view: SKView) {
-        let width = UIScreen.main.bounds.width
-        let height = UIScreen.main.bounds.height
+        addBlurBackground()
+    }
+    
+    private func addBlurBackground() {
+
+        let width = view?.frame.width ?? 0
+        let height = view?.frame.height ?? 0
+        
         let effectsNode = SKEffectNode()
         let filter = CIFilter(name: "CIGaussianBlur")
         let blurAmount = 5.0
         filter?.setValue(blurAmount, forKey: kCIInputRadiusKey)
-
+        
         effectsNode.filter = filter
         effectsNode.position = self.view!.center
         effectsNode.blendMode = .alpha
-
+        
         let background = SKSpriteNode(color: SKColor(red: 27 / 255,
                                                      green: 80 / 255,
                                                      blue: 120 / 255,
@@ -33,7 +39,7 @@ final class MenuScene: SKScene {
         let texture = SKTexture(imageNamed: "backgroundGraphShadow")
         let graph = SKTexture(imageNamed: "graph")
         let logo = SKTexture(imageNamed: "logo")
-    
+        
         let image = SKSpriteNode(texture: texture)
         let imageGraph = SKSpriteNode(texture: graph)
         let imageLogo = SKSpriteNode(texture: logo)
@@ -41,19 +47,16 @@ final class MenuScene: SKScene {
         imageLogo.setScale(0.7)
         image.scale(to: CGSize(width: width * 1.2, height: height * 1.2))
         imageGraph.scale(to: CGSize(width: width * 1.2, height: height * 1.2))
-        imageGraph.position = view.center
+        if let center = view?.center {
+            imageGraph.position = center
+        }
         background.addChild(image)
         effectsNode.addChild(background)
-////        if let fire = SKEmitterNode(fileNamed: "Light") {
-////            fire.position = CGPoint(x: frame.midX, y: frame.midY)
-////            addChild(fire)
-////
-////        }
         self.addChild(effectsNode)
         self.addChild(imageGraph)
         self.addChild(imageLogo)
         
-        let button1 = ButtonNode(title: "play", backgroundName: "menuButton")
+        let button1 = ButtonNode(title: "go", backgroundName: "menuButton")
         button1.position = CGPoint(x: width / 2, y: height - 250)
         button1.name = "playButton"
         button1.label.name = "playButton"

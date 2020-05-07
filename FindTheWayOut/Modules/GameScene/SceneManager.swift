@@ -45,16 +45,6 @@ final class SceneManager {
             fatalError("scene doesn't configured")
         }
     }
-     
-//    func setGameState(gameState: GameState) {
-//        self.gameState = gameState
-//    }
-    
-//    func setGameScene() {
-//        let newGame = GameScene()
-//        newGame.gameState = gameState
-//        gameScene = newGame
-//    }
     
     func setMenuScene(size: CGSize) {
         menuScene = MenuScene(size: size)

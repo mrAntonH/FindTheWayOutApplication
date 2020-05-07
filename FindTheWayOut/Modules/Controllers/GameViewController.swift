@@ -14,7 +14,11 @@ import RxDataSources
 
 final class GameViewController: UIViewController {
     
+    private var topBackground: UIView!
+    private var titleLabel: UILabel!
     private var collection: UICollectionView!
+    private var infoView: UIView!
+    private var infoTextLabel: UILabel!
     
     var viewModel: GameViewModel!
     private let sceneManager = SceneManager.shared
@@ -25,8 +29,12 @@ final class GameViewController: UIViewController {
         super.viewDidLoad()
         sceneManager.setMenuScene(size: self.view.bounds.size)
         
+        configureTopBackground()
         configureCollectionView()
+        configureTitleLabel()
+        configureInfoView()
         bindCollection()
+        bindViewModelUpdate()
         configureScene()
     }
     
@@ -34,8 +42,7 @@ final class GameViewController: UIViewController {
         view = SKView(frame: view.bounds)
         
         guard let view = view as! SKView? else { return }
-        //sceneManager.menuScene?.size = view.frame.size
-        //scene.scaleMode = .aspectFill
+
         if let scene = sceneManager.getMenuScene() {
             view.presentScene(scene)
         }
@@ -44,10 +51,15 @@ final class GameViewController: UIViewController {
         view.showsNodeCount = true
         view.showsFPS = true
         
-        
-        collection.backgroundColor = .clear
+        view.addSubview(topBackground)
+        view.bringSubviewToFront(topBackground)
+        view.addSubview(titleLabel)
+        view.bringSubviewToFront(titleLabel)
+        //collection.backgroundColor = .clear
         view.addSubview(collection)
         view.bringSubviewToFront(collection)
+        view.addSubview(infoView)
+        view.bringSubviewToFront(infoView)
     }
     
     override var shouldAutorotate: Bool {
@@ -66,6 +78,70 @@ final class GameViewController: UIViewController {
 //MARK: configure settings UI of graph info
 extension GameViewController {
     
+    private func bindViewModelUpdate() {
+        viewModel
+            .output
+            .message
+            .subscribe(onNext: { [unowned self] message in
+                self.infoView.shake()
+                self.openInfoView(withMessage: message)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
+                    self?.closeInfoView()
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func configureTopBackground() {
+        topBackground = UIView(frame: CGRect(x: 0,
+                                             y: 0,
+                                             width: view.frame.width - 39,
+                                             height: 0))
+        topBackground.backgroundColor = .black
+        topBackground.alpha = 0.3
+        topBackground.layer.cornerRadius = 10
+    }
+    
+    private func openWayView() {
+        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            self?.topBackground.frame =  CGRect(x: 0,
+                                                y: 0,
+                                                width: self?.topBackground.frame.width ?? 0,
+                                                height: 160)
+        })
+    }
+    
+    private func closeWayView() {
+        UIView.animate(withDuration: 1, animations: { [weak self] in
+            self?.topBackground.frame =  CGRect(x: 0,
+                                                y: 0,
+                                                width: self?.topBackground.frame.width ?? 0,
+                                                height: 0)
+        })
+    }
+    
+    private func configureTitleLabel() {
+        titleLabel = UILabel()
+        let strokeTextAttributes = [
+            NSAttributedString.Key.strokeColor : UIColor.white,
+            NSAttributedString.Key.foregroundColor : UIColor(red: 5 / 255,
+                                                             green: 175 / 255,
+                                                             blue: 195 / 255,
+                                                             alpha: 1),
+            NSAttributedString.Key.strokeWidth : -4.0]
+            as [NSAttributedString.Key : Any]
+        
+        titleLabel.attributedText = NSMutableAttributedString(string: "Safe way:",
+                                                         attributes: strokeTextAttributes)
+        titleLabel.font = UIFont(name: StandartFonts.AmericanTypewriterBold.description,
+                            size: 40)
+        titleLabel.frame = CGRect(x: 20,
+                                  y: 10,
+                                  width: 200,
+                                  height: 100)
+        titleLabel.isHidden = true
+    }
+    
     private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 85,
@@ -79,8 +155,8 @@ extension GameViewController {
         layout.minimumInteritemSpacing = 0
         
         collection = UICollectionView(frame: CGRect(x: 0,
-                                                    y: 50,
-                                                    width: view.bounds.width,
+                                                    y: 95,
+                                                    width: view.bounds.width - 30,
                                                     height: 55),
                                       collectionViewLayout: layout)
         
@@ -111,8 +187,56 @@ extension GameViewController {
         
         viewModel.output
             .sections
+            .do(onNext: { [unowned self] sections in
+                if (sections.first?.items.count ?? 0) > 0 {
+                    self.titleLabel.isHidden = false
+                    self.openWayView()
+                } else {
+                    self.titleLabel.isHidden = true
+                    self.closeWayView()
+                }
+            })
             .drive(collection.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+    }
+    
+    private func configureInfoView() {
+        infoView = UIView(frame: CGRect(x: 20,
+                                        y: view.frame.height,
+                                        width: view.frame.width - 39 - 40,
+                                        height: 40))
+        infoView.backgroundColor = .white
+        infoView.layer.cornerRadius = 10
+        infoView.layer.borderWidth = 2
+        infoTextLabel = UILabel()
+        infoTextLabel.font = UIFont(name: StandartFonts.AmericanTypewriterBold.description,
+                            size: 16)
+        infoTextLabel.frame = CGRect(x: 10,
+                                  y: 5,
+                                  width: view.frame.width - 39 - 40 - 20,
+                                  height: 30)
+        infoTextLabel.textAlignment = .center
+        infoView.addSubview(infoTextLabel)
+        
+    }
+    
+    private func openInfoView(withMessage: String) {
+        UIView.animate(withDuration: 1.5, animations: { [weak self] in
+            self?.infoTextLabel.text = withMessage
+            self?.infoView.frame = CGRect(x: 20,
+                                          y: (self?.view.frame.height ?? 0) - 200,
+                                          width: self?.infoView.frame.width ?? 0,
+                                          height: self?.infoView.frame.height ?? 0)
+        })
+    }
+    
+    private func closeInfoView() {
+        UIView.animate(withDuration: 1, animations: { [weak self] in
+            self?.infoView.frame = CGRect(x: 20,
+                                          y: (self?.view.frame.height ?? 0),
+                                          width: self?.infoView.frame.width ?? 0,
+                                          height: self?.infoView.frame.height ?? 0)
+        })
     }
     
 }

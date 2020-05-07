@@ -15,6 +15,7 @@ enum GameStep {
     case readyGetWay(Int)
     case readyGetFire(Int)
     case finishGame(Int)
+    case performMessage(String)
     case expect
 }
 
