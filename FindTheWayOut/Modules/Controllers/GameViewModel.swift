@@ -113,7 +113,7 @@ final class GameViewModel {
                                                       blocked: false)) }
             let wayItems = value.way
             var levelSection = [LevelSectionType]()
-            if let first = wayItems.first {
+            if let first = wayItems.first, wayItems.count > 1 {
                 levelSection.append(LevelSectionType.start(first))
             }
             let last = wayItems.last
@@ -122,7 +122,7 @@ final class GameViewModel {
                 levelSection.append(LevelSectionType.short(item))
             }
             
-            if let last = last, wayItems.count > 1 {
+            if let last = last {
                 levelSection.append(LevelSectionType.final(last))
             }
             

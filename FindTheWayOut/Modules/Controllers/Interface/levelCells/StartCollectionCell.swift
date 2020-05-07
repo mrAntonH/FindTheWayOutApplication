@@ -13,14 +13,15 @@ class StartCollectionCell: UICollectionViewCell, NibReusable {
     
     @IBOutlet private weak var imageView: UIImageView! {
         didSet {
-            imageView.image = R.image.startLevelShape()
+            imageView.image = R.image.leftLavelShape()
         }
     }
     
     @IBOutlet private weak var numberLabel: UILabel! {
         didSet {
             numberLabel.font = UIFont(name: StandartFonts.AmericanTypewriterBold.description,
-                                      size: 12)
+                                      size: 16)
+            numberLabel.textColor = .white
         }
     }
 

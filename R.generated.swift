@@ -24,10 +24,10 @@ struct R: Rswift.Validatable {
     static let fireEffectSks = Rswift.FileResource(bundle: R.hostingBundle, name: "FireEffect", pathExtension: "sks")
     /// Resource file `GameScene.sks`.
     static let gameSceneSks = Rswift.FileResource(bundle: R.hostingBundle, name: "GameScene", pathExtension: "sks")
-    /// Resource file `Level1.txt`.
-    static let level1Txt = Rswift.FileResource(bundle: R.hostingBundle, name: "Level1", pathExtension: "txt")
     /// Resource file `Light.sks`.
     static let lightSks = Rswift.FileResource(bundle: R.hostingBundle, name: "Light", pathExtension: "sks")
+    /// Resource file `SmokeEffect.sks`.
+    static let smokeEffectSks = Rswift.FileResource(bundle: R.hostingBundle, name: "SmokeEffect", pathExtension: "sks")
     /// Resource file `TileSet.sks`.
     static let tileSetSks = Rswift.FileResource(bundle: R.hostingBundle, name: "TileSet", pathExtension: "sks")
     
@@ -49,15 +49,15 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
     
-    /// `bundle.url(forResource: "Level1", withExtension: "txt")`
-    static func level1Txt(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.level1Txt
-      return fileResource.bundle.url(forResource: fileResource)
-    }
-    
     /// `bundle.url(forResource: "Light", withExtension: "sks")`
     static func lightSks(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.lightSks
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "SmokeEffect", withExtension: "sks")`
+    static func smokeEffectSks(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.smokeEffectSks
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -888,8 +888,6 @@ struct R: Rswift.Validatable {
     static let chair = Rswift.ImageResource(bundle: R.hostingBundle, name: "chair")
     /// Image `door`.
     static let door = Rswift.ImageResource(bundle: R.hostingBundle, name: "door")
-    /// Image `finalLevelShape`.
-    static let finalLevelShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "finalLevelShape")
     /// Image `floor1`.
     static let floor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "floor1")
     /// Image `graph`.
@@ -908,10 +906,14 @@ struct R: Rswift.Validatable {
     static let lawnGroundSecond = Rswift.ImageResource(bundle: R.hostingBundle, name: "lawnGroundSecond")
     /// Image `lawnGroundThird`.
     static let lawnGroundThird = Rswift.ImageResource(bundle: R.hostingBundle, name: "lawnGroundThird")
+    /// Image `leftLavelShape`.
+    static let leftLavelShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "leftLavelShape")
     /// Image `logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
     /// Image `menuButton`.
     static let menuButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "menuButton")
+    /// Image `rightLevelShape`.
+    static let rightLevelShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "rightLevelShape")
     /// Image `simpleLevelShape`.
     static let simpleLevelShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "simpleLevelShape")
     /// Image `smallTable`.
@@ -924,8 +926,6 @@ struct R: Rswift.Validatable {
     static let sofaRightTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "sofaRightTile")
     /// Image `spark`.
     static let spark = Rswift.ImageResource(bundle: R.hostingBundle, name: "spark")
-    /// Image `startLevelShape`.
-    static let startLevelShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "startLevelShape")
     /// Image `tileFloor1`.
     static let tileFloor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tileFloor1")
     /// Image `wallBottomLeftCorner`.
@@ -3035,11 +3035,6 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.door, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "finalLevelShape", bundle: ..., traitCollection: ...)`
-    static func finalLevelShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.finalLevelShape, compatibleWith: traitCollection)
-    }
-    
     /// `UIImage(named: "floor1", bundle: ..., traitCollection: ...)`
     static func floor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.floor1, compatibleWith: traitCollection)
@@ -3085,6 +3080,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.lawnGroundThird, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "leftLavelShape", bundle: ..., traitCollection: ...)`
+    static func leftLavelShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.leftLavelShape, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
     static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
@@ -3093,6 +3093,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "menuButton", bundle: ..., traitCollection: ...)`
     static func menuButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.menuButton, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "rightLevelShape", bundle: ..., traitCollection: ...)`
+    static func rightLevelShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rightLevelShape, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "simpleLevelShape", bundle: ..., traitCollection: ...)`
@@ -3123,11 +3128,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "spark", bundle: ..., traitCollection: ...)`
     static func spark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.spark, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "startLevelShape", bundle: ..., traitCollection: ...)`
-    static func startLevelShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.startLevelShape, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "tileFloor1", bundle: ..., traitCollection: ...)`
@@ -3303,14 +3303,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
     /// Nib `FinalCollectionCell`.
     static let finalCollectionCell = _R.nib._FinalCollectionCell()
     /// Nib `GameViewController`.
     static let gameViewController = _R.nib._GameViewController()
-    /// Nib `LevelCollection`.
-    static let levelCollection = _R.nib._LevelCollection()
     /// Nib `SimpleCollectionCell`.
     static let simpleCollectionCell = _R.nib._SimpleCollectionCell()
     /// Nib `StartCollectionCell`.
@@ -3326,12 +3324,6 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.gameViewController) instead")
     static func gameViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.gameViewController)
-    }
-    
-    /// `UINib(name: "LevelCollection", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.levelCollection) instead")
-    static func levelCollection(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.levelCollection)
     }
     
     /// `UINib(name: "SimpleCollectionCell", in: bundle)`
@@ -3352,10 +3344,6 @@ struct R: Rswift.Validatable {
     
     static func gameViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
       return R.nib.gameViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-    }
-    
-    static func levelCollection(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.levelCollection.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
     
     static func simpleCollectionCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SimpleCollectionCell? {
@@ -3389,8 +3377,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This `R.string.localizable` struct is generated, and contains static references to 4 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 5 localization keys.
     struct localizable {
+      /// ru translation: Нет данных
+      /// 
+      /// Locales: ru, en
+      static let errorNoData = Rswift.StringResource(key: "ErrorNoData", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
       /// ru translation: Ошибка
       /// 
       /// Locales: ru, en
@@ -3407,6 +3399,13 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: ru, en
       static let level = Rswift.StringResource(key: "level", tableName: "Localizable", bundle: R.hostingBundle, locales: ["ru", "en"], comment: nil)
+      
+      /// ru translation: Нет данных
+      /// 
+      /// Locales: ru, en
+      static func errorNoData(_: Void = ()) -> String {
+        return NSLocalizedString("ErrorNoData", bundle: R.hostingBundle, comment: "")
+      }
       
       /// ru translation: Ошибка
       /// 
@@ -3477,7 +3476,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "finalLevelShape", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'finalLevelShape' is used in nib 'FinalCollectionCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "rightLevelShape", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'rightLevelShape' is used in nib 'FinalCollectionCell', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }
@@ -3488,17 +3487,6 @@ struct _R: Rswift.Validatable {
     struct _GameViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "GameViewController"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct _LevelCollection: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "LevelCollection"
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
@@ -3533,7 +3521,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "startLevelShape", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'startLevelShape' is used in nib 'StartCollectionCell', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "leftLavelShape", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'leftLavelShape' is used in nib 'StartCollectionCell', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }

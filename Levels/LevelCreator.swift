@@ -11,43 +11,21 @@ import SpriteKit
 
 final class LevelCreator {
     
-//    private var level: Level
-    
     private var tiles: [Tile] = []
     
     private let spriteLenght: Int = 64
     
-     static let shared = LevelCreator()
-    
-//    init(spriteLenght: Int,
-//         level: Level = .none,
-//         tiles: [Tile] = []) {
-//        self.level = level
-//        self.tiles = tiles
-//        self.spriteLenght = spriteLenght
-//    }
+    static let shared = LevelCreator()
     
     private init() {}
     
-//    func configure(level: Level,
-//                   with map: Map,
-//                   backgroundTileMap: SKTileMapNode) {
-//        let tiles = createLevel(with: level)
-//        map.setupTiles(tiles: tiles,
-//                       backgroundTileMap: backgroundTileMap)
-//    }
-    
     func createLevel(with level: Level) -> TileLayers {
-        //let levelScheme = level.scheme
-        //let startPosition = CGPoint(x: 0, y: 0)
         var outputTiles = [Tile]()
         
         var backgroundTiles = [[Tile]]()
         
         for items in level.scheme.backgroundLayer {
             for sheme in items {
-                //let position = CGPoint(x: spriteLenght * column, y: spriteLenght * row)
-                
                 switch sheme {
                 case .singleTile(let tile, let idNode):
                     let newTile = Tile(id: idNode,

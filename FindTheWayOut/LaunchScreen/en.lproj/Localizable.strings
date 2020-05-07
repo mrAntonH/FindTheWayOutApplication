@@ -1,12 +1,7 @@
-/* 
-  Localizable.strings
-  FindTheWayOut
 
-  Created by Антон Швец on 10/03/2020.
-  Copyright © 2020 Антон Швец. All rights reserved.
-*/
 Error = "Error";
 ErrorCreateScene = "Error with create scene";
 ErrorLoadLevel = "Error with load level";
+ErrorNoData = "No data";
 
 level = "level";

@@ -1,5 +1,5 @@
 //
-//  FinalCollectionCell.swift
+//  SimpleCollectionCell.swift
 //  FindTheWayOut
 //
 //  Created by Антон Швец on 05.05.2020.
@@ -9,18 +9,19 @@
 import UIKit
 import Reusable
 
-class FinalCollectionCell: UICollectionViewCell, NibReusable {
+class SimpleCollectionCell: UICollectionViewCell, NibReusable {
     
     @IBOutlet private weak var imageView: UIImageView! {
         didSet {
-            imageView.image = R.image.finalLevelShape()
+            imageView.image = R.image.simpleLevelShape()
         }
     }
 
     @IBOutlet private weak var numberLabel: UILabel! {
         didSet {
             numberLabel.font = UIFont(name: StandartFonts.AmericanTypewriterBold.description,
-                                      size: 12)
+                                      size: 16)
+            numberLabel.textColor = .white
         }
     }
     

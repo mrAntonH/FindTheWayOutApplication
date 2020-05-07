@@ -22,7 +22,7 @@ extension CustomAppError: LocalizedError {
         case .loadLevel:
             return R.string.localizable.errorLoadLevel()
         case .noData:
-            return "noData"
+            return R.string.localizable.errorNoData()
         }
     }
 }

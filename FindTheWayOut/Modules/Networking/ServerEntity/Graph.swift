@@ -9,13 +9,10 @@
 import Foundation
 
 struct Graph: Codable {
-    
     var vertexes: [Vertex] = []
-
 }
 
 struct Vertex: Codable {
-    
     var id: Int
     var graphId: Int
     var nearByVertex: [Int]

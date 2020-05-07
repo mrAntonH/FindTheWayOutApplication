@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		791C4ED92463EFC2009F7084 /* SmokeEffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 791C4ED82463EFC2009F7084 /* SmokeEffect.sks */; };
 		793D282C2416835D0076B97F /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D282B2416835C0076B97F /* GameState.swift */; };
 		793D282E2416907B0076B97F /* GameProcessSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D282D2416907B0076B97F /* GameProcessSKScene.swift */; };
 		793D2831241693130076B97F /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793D2830241693130076B97F /* CameraHelper.swift */; };
@@ -47,10 +48,7 @@
 		7992DB93241396F400C48032 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB92241396F400C48032 /* AppRouter.swift */; };
 		7992DB9624139E3E00C48032 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DB9524139E3E00C48032 /* GameViewModel.swift */; };
 		7992DBA12414C54400C48032 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7992DBA02414C54400C48032 /* CustomError.swift */; };
-		7992DBA52414C9F000C48032 /* Level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7992DBA42414C9F000C48032 /* Level1.txt */; };
-		79A72A9A2461C4C4006C25C0 /* LevelCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72A992461C4C4006C25C0 /* LevelCollection.swift */; };
 		79A72A9C2461C51F006C25C0 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A72A9B2461C51F006C25C0 /* GameViewController.xib */; };
-		79A72A9E2461C78E006C25C0 /* LevelCollection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A72A9D2461C78E006C25C0 /* LevelCollection.xib */; };
 		79A72AA22461C87B006C25C0 /* StartCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72AA02461C87B006C25C0 /* StartCollectionCell.swift */; };
 		79A72AA32461C87B006C25C0 /* StartCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79A72AA12461C87B006C25C0 /* StartCollectionCell.xib */; };
 		79A72AA62461CD63006C25C0 /* SimpleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A72AA42461CD63006C25C0 /* SimpleCollectionCell.swift */; };
@@ -68,6 +66,7 @@
 /* Begin PBXFileReference section */
 		1B75BDBEE491F3EB850414CC /* Pods-FindTheWayOut.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindTheWayOut.release.xcconfig"; path = "Target Support Files/Pods-FindTheWayOut/Pods-FindTheWayOut.release.xcconfig"; sourceTree = "<group>"; };
 		32036A27CD019AE98136E984 /* Pods_FindTheWayOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindTheWayOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		791C4ED82463EFC2009F7084 /* SmokeEffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SmokeEffect.sks; sourceTree = "<group>"; };
 		793D282B2416835C0076B97F /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		793D282D2416907B0076B97F /* GameProcessSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProcessSKScene.swift; sourceTree = "<group>"; };
 		793D2830241693130076B97F /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
@@ -111,10 +110,7 @@
 		7992DB92241396F400C48032 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		7992DB9524139E3E00C48032 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		7992DBA02414C54400C48032 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
-		7992DBA42414C9F000C48032 /* Level1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Level1.txt; sourceTree = "<group>"; };
-		79A72A992461C4C4006C25C0 /* LevelCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollection.swift; sourceTree = "<group>"; };
 		79A72A9B2461C51F006C25C0 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
-		79A72A9D2461C78E006C25C0 /* LevelCollection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelCollection.xib; sourceTree = "<group>"; };
 		79A72AA02461C87B006C25C0 /* StartCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCollectionCell.swift; sourceTree = "<group>"; };
 		79A72AA12461C87B006C25C0 /* StartCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartCollectionCell.xib; sourceTree = "<group>"; };
 		79A72AA42461CD63006C25C0 /* SimpleCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionCell.swift; sourceTree = "<group>"; };
@@ -200,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				79803F30245C7508007083E8 /* TileManager.swift */,
+				791C4ED82463EFC2009F7084 /* SmokeEffect.sks */,
 				79803F32245D959F007083E8 /* FireEffect.sks */,
 				7953BB81245DFC6E00DE8D11 /* Light.sks */,
 				79803F33245D959F007083E8 /* Assets.xcassets */,
@@ -310,7 +307,7 @@
 		7992DB9424139E2500C48032 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				79A72A972461BB37006C25C0 /* InterfaceViews */,
+				79A72A972461BB37006C25C0 /* Interface */,
 				7992DB7D24138DC100C48032 /* GameViewController.swift */,
 				79A72A9B2461C51F006C25C0 /* GameViewController.xib */,
 				7992DB9524139E3E00C48032 /* GameViewModel.swift */,
@@ -322,7 +319,6 @@
 		7992DBA32414C9C600C48032 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				7992DBA42414C9F000C48032 /* Level1.txt */,
 				793D28AC2417BFCE0076B97F /* Level.swift */,
 				793D28BA241811330076B97F /* LevelCreator.swift */,
 				794DF001241CC90600DFBD90 /* LevelScheme.swift */,
@@ -332,25 +328,15 @@
 			path = ../Levels;
 			sourceTree = "<group>";
 		};
-		79A72A972461BB37006C25C0 /* InterfaceViews */ = {
+		79A72A972461BB37006C25C0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				79A72A982461C447006C25C0 /* Levels */,
+				79A72A9F2461C852006C25C0 /* levelCells */,
 			);
-			path = InterfaceViews;
+			path = Interface;
 			sourceTree = "<group>";
 		};
-		79A72A982461C447006C25C0 /* Levels */ = {
-			isa = PBXGroup;
-			children = (
-				79A72A9F2461C852006C25C0 /* Cells */,
-				79A72A992461C4C4006C25C0 /* LevelCollection.swift */,
-				79A72A9D2461C78E006C25C0 /* LevelCollection.xib */,
-			);
-			path = Levels;
-			sourceTree = "<group>";
-		};
-		79A72A9F2461C852006C25C0 /* Cells */ = {
+		79A72A9F2461C852006C25C0 /* levelCells */ = {
 			isa = PBXGroup;
 			children = (
 				79A72AA02461C87B006C25C0 /* StartCollectionCell.swift */,
@@ -360,7 +346,7 @@
 				79A72AA82461D111006C25C0 /* FinalCollectionCell.swift */,
 				79A72AA92461D111006C25C0 /* FinalCollectionCell.xib */,
 			);
-			path = Cells;
+			path = levelCells;
 			sourceTree = "<group>";
 		};
 		79A72AAE24629B9A006C25C0 /* FirstLevel */ = {
@@ -456,7 +442,6 @@
 			files = (
 				7953BB82245DFC6E00DE8D11 /* Light.sks in Resources */,
 				7984F876242B5FAD002E0650 /* TileSet.sks in Resources */,
-				79A72A9E2461C78E006C25C0 /* LevelCollection.xib in Resources */,
 				79A72AAB2461D111006C25C0 /* FinalCollectionCell.xib in Resources */,
 				7992DB7824138DC000C48032 /* GameScene.sks in Resources */,
 				79803F35245D959F007083E8 /* Assets.xcassets in Resources */,
@@ -468,8 +453,8 @@
 				7992DB8624138DC400C48032 /* LaunchScreen.storyboard in Resources */,
 				793D28AB2417BF9D0076B97F /* Localizable.strings in Resources */,
 				7992DB7A24138DC100C48032 /* Actions.sks in Resources */,
+				791C4ED92463EFC2009F7084 /* SmokeEffect.sks in Resources */,
 				79A72AA32461C87B006C25C0 /* StartCollectionCell.xib in Resources */,
-				7992DBA52414C9F000C48032 /* Level1.txt in Resources */,
 				79A72AA72461CD63006C25C0 /* SimpleCollectionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -548,7 +533,6 @@
 				79872BFA2460A690007244FB /* UserLocationData.swift in Sources */,
 				7992DB93241396F400C48032 /* AppRouter.swift in Sources */,
 				793D28B924180D380076B97F /* Map.swift in Sources */,
-				79A72A9A2461C4C4006C25C0 /* LevelCollection.swift in Sources */,
 				79A72AAD2461D837006C25C0 /* LevelSectionType.swift in Sources */,
 				7953BB85245EA67500DE8D11 /* ButtonNode.swift in Sources */,
 				793D28BB241811330076B97F /* LevelCreator.swift in Sources */,
