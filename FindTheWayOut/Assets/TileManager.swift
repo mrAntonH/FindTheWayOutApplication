@@ -30,11 +30,16 @@ final class TileManager {
             fatalError("Object Tiles Tile Set not found")
         }
         
+        guard let windowsTileSet = SKTileSet(named: "Window") else {
+            fatalError("Object Tiles Tile Set not found")
+        }
+        
         let allTileSet = SKTileSet(tileGroups:
             upLevelTileSet.tileGroups
                 + groundTileSet.tileGroups
                 + thingsTileSet.tileGroups
-                + doorsTileSet.tileGroups)
+                + doorsTileSet.tileGroups
+                + windowsTileSet.tileGroups)
         return allTileSet
     }
 }

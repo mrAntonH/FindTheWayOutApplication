@@ -11,6 +11,7 @@ import SpriteKit
 final class Map: SKTileMapNode {
     
     private let tileManager = TileManager.shared
+    private var secondTileMap = SKTileMapNode()
     
     private var tileArray = TileLayers(backgroundTiles: [])
     private var interectiveMap: [Int: Zone] = [:]
@@ -19,11 +20,13 @@ final class Map: SKTileMapNode {
     init(with array: TileLayers,
          columns: Int,
          rows: Int,
-         tileSize: CGSize) {
+         tileSize: CGSize,
+         secondTileMap: SKTileMapNode) {
         super.init(tileSet: tileManager.getAllTileSets(),
                    columns: columns,
                    rows: rows,
                    tileSize: tileSize)
+        self.secondTileMap = secondTileMap
         self.tileArray = array
         configureTilesMap()
     }
@@ -112,6 +115,13 @@ final class Map: SKTileMapNode {
                 configureZone(with: item, row: row, column: column)
                 let tile = tileSet.tileGroups.first(where: {$0.name == item.type.getImageName()})
                 setTileGroup(tile, forColumn: column, row: row)
+                if let chiledNode = item.childTiles.first {
+                    let chiledTile = tileSet.tileGroups
+                        .first(where: {$0.name == chiledNode.type.getImageName()})
+                    secondTileMap.setTileGroup(chiledTile,
+                                               forColumn: column,
+                                               row: row)
+                }
             }
         }
         updateFrameZone()

@@ -55,18 +55,28 @@ class GameScene: SKScene {
     
     private func load(level: Level) {
         let levelTiles = LevelCreator.shared.createLevel(with: level)
+        let secondTileMap = SKTileMapNode(tileSet: TileManager.shared.getAllTileSets(),
+                                          columns: 35,
+                                          rows: 35,
+                                          tileSize: CGSize(width: 64,
+                                                           height: 64))
         let mapTileNode = Map(with: levelTiles,
-                              columns: 23,
-                              rows: 20,
+                              columns: 35,
+                              rows: 35,
                               tileSize: CGSize(width: 64,
-                                               height: 64))
+                                               height: 64),
+                              secondTileMap: secondTileMap)
         mapTileNode.anchorPoint = CGPoint(x: 0, y: 0)
         mapTileNode.position = CGPoint(x: 0,
                                        y: 0)
         mapTileNode.zPosition = 0
+        secondTileMap.anchorPoint = CGPoint(x: 0, y: 0)
+        secondTileMap.position = CGPoint(x: 0,
+                                         y: 0)
+        secondTileMap.zPosition = 10
         map = mapTileNode
         addChild(mapTileNode)
-        
+        addChild(secondTileMap)
         if !gameState.isProccesingStep.value {
             gameState
                 .step
@@ -79,7 +89,6 @@ class GameScene: SKScene {
             .subscribe(onNext: { [unowned self] way in
                 
                 if way.exit {
-                    print("Exit is here!")
                     self.gameState.step
                         .accept(.performMessage("Exit is here!"))
                     self.gameState.step.accept(.finishGame(0))
@@ -87,7 +96,6 @@ class GameScene: SKScene {
                     self.gameState.step.accept(.finishGame(0))
                     self.gameState.step
                         .accept(.performMessage("Blocked need help!"))
-                    print("Blocked need help")
                 } else {
                     self.map.selectWay(with: way)
                 }

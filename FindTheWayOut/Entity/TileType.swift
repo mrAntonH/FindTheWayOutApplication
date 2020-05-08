@@ -12,7 +12,8 @@ enum TileType {
     
     //Floors
     case woodFloor
-    case tileFloor
+    case metalFloor
+    case kitchenFloor
     
     case lawn
     case lawnGroundFirst
@@ -83,10 +84,12 @@ enum TileType {
         switch self {
         case .woodFloor:
             return "Wood Floor"
-        case .tileFloor:
-            return R.image.tileFloor1.name
         case .lawn:
             return "Lawn"
+        case .metalFloor:
+            return "metalFloor"
+        case .kitchenFloor:
+            return "kitchenFloor"
         case .lawnGroundFirst:
             return R.image.lawnGroundFirst.name
         case .lawnGroundSecond:

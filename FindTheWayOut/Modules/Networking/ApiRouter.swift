@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 struct ApiConstants {
-    
-    static let baseUrl = "http://192.168.1.65:8081/api/v1/searchExit"
+    // input your localhost
+    static let baseUrl = "http://Localhost:8081/api/v1/searchExit"
     
     enum HttpHeaderField: String {
         case authentication = "Authorization"

@@ -31,12 +31,12 @@ final class FirstLevelGraph: LevelGraph {
                                   fire: false))
         arrayVertex.append(Vertex(id: 2,
                                   graphId: 0,
-                                  nearByVertex: [1, 6, 10],
+                                  nearByVertex: [1, 6, 10, 17],
                                   exit: false,
                                   fire: false))
         arrayVertex.append(Vertex(id: 3,
                                   graphId: 0,
-                                  nearByVertex: [15, 7],
+                                  nearByVertex: [7, 15],
                                   exit: false,
                                   fire: false))
         arrayVertex.append(Vertex(id: 4,
@@ -71,7 +71,7 @@ final class FirstLevelGraph: LevelGraph {
                                   fire: false))
         arrayVertex.append(Vertex(id: 10,
                                   graphId: 0,
-                                  nearByVertex: [2, 9, 14],
+                                  nearByVertex: [2, 9, 14, 16],
                                   exit: false,
                                   fire: false))
         arrayVertex.append(Vertex(id: 11,
@@ -91,7 +91,57 @@ final class FirstLevelGraph: LevelGraph {
                                   fire: false))
         arrayVertex.append(Vertex(id: 14,
                                   graphId: 0,
-                                  nearByVertex: [10, 13],
+                                  nearByVertex: [10, 13, 21],
+                                  exit: false,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 16,
+                                  graphId: 0,
+                                  nearByVertex: [10, 21],
+                                  exit: false,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 17,
+                                  graphId: 0,
+                                  nearByVertex: [2, 18, 19],
+                                  exit: false,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 18,
+                                  graphId: 0,
+                                  nearByVertex: [19, 20],
+                                  exit: false,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 19,
+                                  graphId: 0,
+                                  nearByVertex: [17, 18, 20, 21],
+                                  exit: false,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 20,
+                                  graphId: 0,
+                                  nearByVertex: [18, 19],
+                                  exit: true,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 21,
+                                  graphId: 0,
+                                  nearByVertex: [14, 16, 19],
+                                  exit: false,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 22,
+                                  graphId: 0,
+                                  nearByVertex: [21, 23, 24, 25],
+                                  exit: false,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 23,
+                                  graphId: 0,
+                                  nearByVertex: [22, 24, 25],
+                                  exit: true,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 24,
+                                  graphId: 0,
+                                  nearByVertex: [22, 23],
+                                  exit: false,
+                                  fire: false))
+        arrayVertex.append(Vertex(id: 25,
+                                  graphId: 0,
+                                  nearByVertex: [22, 23],
                                   exit: false,
                                   fire: false))
         self.graph = Graph(vertexes: arrayVertex)

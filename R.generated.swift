@@ -888,10 +888,10 @@ struct R: Rswift.Validatable {
     static let chair = Rswift.ImageResource(bundle: R.hostingBundle, name: "chair")
     /// Image `door`.
     static let door = Rswift.ImageResource(bundle: R.hostingBundle, name: "door")
-    /// Image `floor1`.
-    static let floor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "floor1")
     /// Image `graph`.
     static let graph = Rswift.ImageResource(bundle: R.hostingBundle, name: "graph")
+    /// Image `kitchenFloor`.
+    static let kitchenFloor = Rswift.ImageResource(bundle: R.hostingBundle, name: "kitchenFloor")
     /// Image `largeTableCenterTile`.
     static let largeTableCenterTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "largeTableCenterTile")
     /// Image `largeTableLeftTile`.
@@ -912,6 +912,8 @@ struct R: Rswift.Validatable {
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
     /// Image `menuButton`.
     static let menuButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "menuButton")
+    /// Image `metalFloor`.
+    static let metalFloor = Rswift.ImageResource(bundle: R.hostingBundle, name: "metalFloor")
     /// Image `rightLevelShape`.
     static let rightLevelShape = Rswift.ImageResource(bundle: R.hostingBundle, name: "rightLevelShape")
     /// Image `simpleLevelShape`.
@@ -926,8 +928,6 @@ struct R: Rswift.Validatable {
     static let sofaRightTile = Rswift.ImageResource(bundle: R.hostingBundle, name: "sofaRightTile")
     /// Image `spark`.
     static let spark = Rswift.ImageResource(bundle: R.hostingBundle, name: "spark")
-    /// Image `tileFloor1`.
-    static let tileFloor1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "tileFloor1")
     /// Image `wallBottomLeftCorner`.
     static let wallBottomLeftCorner = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallBottomLeftCorner")
     /// Image `wallBottomLineAndTwoCorners`.
@@ -3035,14 +3035,14 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.door, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "floor1", bundle: ..., traitCollection: ...)`
-    static func floor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.floor1, compatibleWith: traitCollection)
-    }
-    
     /// `UIImage(named: "graph", bundle: ..., traitCollection: ...)`
     static func graph(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.graph, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "kitchenFloor", bundle: ..., traitCollection: ...)`
+    static func kitchenFloor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.kitchenFloor, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "largeTableCenterTile", bundle: ..., traitCollection: ...)`
@@ -3095,6 +3095,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.menuButton, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "metalFloor", bundle: ..., traitCollection: ...)`
+    static func metalFloor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.metalFloor, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "rightLevelShape", bundle: ..., traitCollection: ...)`
     static func rightLevelShape(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.rightLevelShape, compatibleWith: traitCollection)
@@ -3128,11 +3133,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "spark", bundle: ..., traitCollection: ...)`
     static func spark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.spark, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "tileFloor1", bundle: ..., traitCollection: ...)`
-    static func tileFloor1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.tileFloor1, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "wallBottomLeftCorner", bundle: ..., traitCollection: ...)`
